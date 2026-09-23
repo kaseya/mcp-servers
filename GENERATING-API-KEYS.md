@@ -1,0 +1,175 @@
+# Generating API Keys: Autotask, Datto RMM, and IT Glue
+
+Before Claude can connect to your Kaseya tools, you need to give it permission to do so. 
+Each product — Autotask, Datto RMM, and IT Glue — uses a unique set of secret 
+credentials called API keys to verify that the connection is coming from an authorized 
+source. You'll generate those keys inside each product using the steps in this guide, then 
+paste them into Claude's configuration file to complete the connection.
+
+**A few things to know before you start:**
+
+- **You must be an administrator in each product.** Generating API keys requires 
+  admin-level access in Autotask, IT Glue, and Datto RMM. If you don't have that 
+  access, ask whoever manages your Kaseya account to complete these steps and 
+  share the values with you securely.
+
+- **Secret values are only shown once.** The secret or password portion of each key 
+  pair is displayed only at the moment it's generated. Once you navigate away, it 
+  cannot be retrieved. Have a secure place ready to store your values before you 
+  begin — a password manager or your IT Glue vault works well.
+
+---
+
+## Autotask
+
+**Requirement:** Admin-level role in Autotask.
+
+1. From the Autotask dashboard, navigate to the **Admin** section in the left menu.
+
+<img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/c4fe4e1d-8d5c-4a8a-8d0f-db0e83cb1497" />
+
+2. Click **Resources (Users)** from the left navigation.
+
+3. Select **New API User** from the **+ New** dropdown menu.
+
+<img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/cab13e13-1a31-4eb7-aae5-8e5acc906203" />
+
+4. Fill out the required information for the new API user; make sure the **Security Level** 
+   is set to **API User**.
+
+5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and 
+   store them securely.
+
+  <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/177b241c-b25d-4ab2-83e8-b71644e20957" />
+
+6. In the **API Tracking Identifier** section, select **Custom (Internal Integration)** and 
+   enter a recognizable name — for example, *Claude MCP*, and save the **Tracking Identifier.** This is what you will input for integration code value.
+
+   <img width="417" height="473" alt="README Add api user in autotask" src="https://github.com/user-attachments/assets/2b646adc-ee06-4f3f-9f9e-981a46fc48a6" />
+
+8. Unless your business strictly separates work by line of business, leave the **Line of 
+   Business** field blank. Assigning one here can restrict what the API user can see.
+
+9. Click **Save & Close**.
+
+Once you have your Autotask key and secret saved, continue to the next product below. 
+When you have all three sets of credentials, return to the README to complete the 
+connection.
+
+For additional information on creating API users in Autotask, see: 
+[Adding or editing an API user](https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html)
+
+---
+
+## IT Glue
+
+**Requirement:** Administrator role in IT Glue.
+
+1. Navigate to **Admin > Settings**.
+
+<img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/6328280d-44f0-4537-9c03-2149229720ef" />
+
+
+2. Select the **API Keys** tab.
+
+3. Click **Custom API Keys > Create API Key**.
+
+4. Enter a name for the key — for example, *Claude MCP* — and click **Generate API 
+   Key**. Copy your key value immediately and store it securely.
+
+<img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/bc798db0-c796-407d-9b16-355662fb2134" />
+
+5. Optionally, enable **Password Access** if you want the API key to be able to retrieve 
+   password records from IT Glue. Leave this off if you don't need it.
+
+> **IT Glue security note:** Anyone who has your IT Glue API key can access your 
+> data. Treat it like a password — keep it private, don't share it over email or chat, 
+> and store it in a secure location. You can revoke a key and generate a new one at 
+> any time from your IT Glue account, but any connections using the old key will stop 
+> working immediately when you do.
+
+Once you have your IT Glue API key saved, continue to Datto RMM below.
+
+For additional information on creating API keys in IT Glue, see:
+[Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html)
+
+---
+
+## Datto RMM
+
+**Requirement:** Admin role in Datto RMM.
+
+### Step 1 — Enable API access (one-time setup, skip if already enabled)
+
+1. Inside Datto RMM, navigate to **Setup > Global Settings > Access Control**.
+2. Turn on the **Enable API Access** toggle.
+
+<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/16f14494-c53f-4da9-9970-aa47d47bbaa0" />
+
+### Step 2 — Generate keys for a user
+
+1. Navigate to **Setup > Users** and click the username you want to generate keys for.
+
+<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/2593d488-6717-424f-8bae-bd3784d8a0e8" />
+
+2. Scroll down to the **API** section and click **Generate API Keys**.
+
+<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/61b72e0a-5500-4b49-a102-8d2a9dc5a3ef" />
+
+3. Your **API Key** and **API Secret Key** will be displayed. Copy both values 
+   immediately and store them securely.
+
+> **Datto RMM security note:** API keys in Datto RMM bypass individual user security 
+> level restrictions — all keys grant the same level of access regardless of which user 
+> account they were generated under. For this reason, be deliberate about who 
+> generates keys and where those keys are stored.
+
+---
+
+## Best Practices
+
+- **Create a dedicated API user for Claude in each product.** Rather than using a 
+  personal admin account, set up a purpose-built API user specifically for this 
+  integration and give it a clear name like *Claude MCP*. This makes it easy to 
+  identify Claude's connections, control access, and revoke credentials cleanly 
+  without affecting anyone else.
+
+- **Generate one set of keys per person setting this up.** If multiple team members 
+  are configuring Claude separately, each should generate their own keys rather than 
+  sharing one set. This makes it easier to track who made changes and to rotate 
+  credentials individually if someone leaves.
+
+- **Use a dedicated service account, not a personal one.** If a user account is 
+  deactivated or deleted in any of the three products, their API keys stop working 
+  immediately. Building the integration under a shared service account prevents 
+  disruption if a team member leaves.
+
+- **Revoking or regenerating a key immediately breaks existing connections.** If you 
+  need to rotate a key, regenerate it in the relevant product, update the value in your 
+  Claude configuration file, and restart Claude Desktop. The old key stops working 
+  the moment a new one is generated.
+
+- **If your MCP servers show as disconnected in Claude**, refer to the 
+  [troubleshooting table in the README](README.md#14-troubleshooting-your-mcp-server-connection) 
+  for a full list of symptoms, likely causes, and fixes. The most common cause is an 
+  expired or rotated key.
+
+---
+
+## Next Step: Add Your Keys to Claude
+
+Now that you have all three sets of credentials, return to the README and follow 
+**[Step 1.2 — Edit the Config File](README.md#12-edit-the-config-file)** to paste your 
+keys into Claude's configuration file. Once that's complete, 
+**[Step 1.3](README.md#13-fully-restart-claude-desktop)** will walk you through 
+restarting Claude Desktop so the connections take effect.
+
+---
+
+## Additional Documentation
+
+| Product | Reference |
+|---|---|
+| Autotask | [Adding or editing an API user](https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html) |
+| Datto RMM | [Datto RMM API](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm) |
+| IT Glue | [Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html) |
