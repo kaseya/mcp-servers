@@ -370,78 +370,105 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 ## Complex Skills
 
-Kaseya has developed five skills for Claude Desktop and Claude Code that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the steps needed to connect those skills to Claude so your team can start saving time immediately. All 5 complex skills are included, and the tools & skills that make them up, when you install the Kaseya plug in library.
+Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the skills and what you can expect when using the skills so your team can start saving time immediately. All 9 complex skills are included when you install the Kaseya plug in library.
 
 | Skill | What It Automates |
 |---|---|
-| device-onboarding | • Compares Datto RMM devices against IT Glue and identifies what's missing or outdated<br>• Pulls hardware specs automatically and creates or updates IT Glue records after your approval |
-| Device-offboarding | • Matches devices across Datto RMM and IT Glue and confirms what will be removed<br>• Deletes IT Glue records and moves devices to a decommission site after your approval |
-| datto-device-health-briefing | • Pulls online/offline counts, open alerts by priority, disk usage, and OS breakdown per site<br>• Ranks what needs attention so you know where to start |
-| datto-disk-space-triage | • Identifies what's consuming disk space and proposes a targeted cleanup plan for your approval<br>• Runs cleanup, shows space recovered, and resolves the alert automatically if the threshold is cleared |
-| datto-component-recommender | • Reads an Autotask ticket, classifies the issue, and selects the right scripts or components to fix it<br>• Presents a remediation plan for your approval, runs it, and documents the outcome on the ticket |
+| Autotask-Context | TBD |
+| Autotask-Write | TBD |
+| Morning-Pulse | TBD |
+| Device-quick-look | TBD |
+| Patch-Posture | TBD |
+| search-ITGlue-documents | TBD |
+| update-ITGlue-documents | TBD |
+| create-ITGlue-documents | TBD |
+| Document Summary | TBD |
 
-### Device Health Briefing ([datto-device-health-briefing](skills/datto-device-health-briefing))
 
-Generate a health summary for one site or all sites -- online/offline counts, disk pressure, open alerts, and OS spread. Use as a morning briefing or pre-visit check.
-
-**Read-only — never makes changes to any device or record.**
-
-**How to Invoke**
-```
-"Health briefing for Acme Corp"
-"morning briefing for Acme Corp"
-/datto-device-health-briefing
-```
-
-### Device Onboarding ([device-onboarding](skills/device-onboarding))
+### Autotask Context ([device-onboarding](skills/device-onboarding))
 
 **Overview**
 
-When a customer device needs to be onboarded, today someone has to manually cross-reference IT Glue, look up the hardware specs, fill in the configuration record, and make sure nothing was missed or duplicated. Across a busy MSP with dozens fo clients, that process is time-consuming -- and inconsistent documentation creates problems down the line when technicians need accurate records to work from. 
+Before a technician can work a ticket or an account manager can jump on a customer call, they typically have to open four or five tabs — pulling up the ticket in Autotask, cross-referencing the device in Datto RMM, checking the contact details, reviewing open contracts, and scanning through note history. Done manually, that's five minutes of setup before any real work begins, and it's easy to miss something that was logged in a different place.
 
-Kaseya has built a skill to automate this workflow end to end. The skill runs inside Claude and connects to your existing Kaseya products — no new integrations, no implementation project, and no changes to the tools your team already uses.
+Kaseya has built a skill that assembles the complete picture in one step. The skill reads from Autotask and pulls together everything attached to the record you name — the ticket, the company, the contact, or the device — and delivers it as a single structured briefing, ready to read before you pick up the phone or start working.
 
-The skill works for a single device or an entire client site in one pass. Claude compares every device in Datto RMM against what's already documented in IT Glue, pulls hardware specs automatically, and creates or updates IT Glue records after your approval. It sorts devices into clear categories — new, already documented, needs an update, or needs a closer look — so your technician knows exactly what's missing before any action is taken. Anything flagged as ambiguous is always surfaced for review and never acted on automatically. Nothing is written to IT Glue without technician approval, and existing records are never overwritten — only blank or stale fields are filled in.
-
-  *Ready to get started? This document covers the Disk Space Resolution skill only. For MCP server connection and skill installation instructions, see the [Getting Started](#getting-started) in this README file in this GitHub repository*.
+  *Ready to get started? This document covers the Autotask-Context skill only. For MCP server connection and skill installation instructions, see the [Getting Started](#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- Automatically identifies which devices are new, already documented, or need a record update — no manual comparison required
-- Pulls full hardware specs directly from Datto RMM and writes them into IT Glue
-- Flags devices with low disk space during onboarding so nothing gets missed
-- Prevents duplicate records — if a device is already in IT Glue, the skill updates it rather than creating a second entry
-- Nothing is written to IT Glue without your approval — you see a preview of every field before it's saved
-- Works for a single device or an entire site in one pass
+- Gives technicians and account managers the full picture on a ticket, customer, contact, or device before they act — without opening multiple tabs
+- Surfaces ticket history, notes, time entries, linked contracts, and the associated device in one pass
+- Clearly states when information is missing or unavailable, so you know what was checked and what wasn't
+- Works for any starting point — a ticket number, a company name, an email address, or a device name
+- Presents information the way a colleague would hand it over: what you need to act on first, not in the order the data came back
 
 **What to Expect**
 
-**Step 1: Claude reviews the site and sorts every device** *(no input required)*
+**Step 1: Claude finds the record you named** *(no input required)*
 
-When you name a site, Claude pulls every device from Datto RMM and compares it against IT Glue in one pass. Each device gets sorted into a clear category: new and needs a record created, already documented and up to date, has a record but some fields are missing or stale, needs a closer look before any action is taken, or a device type that's always skipped (ESXi hosts, Datto Continuity appliances, access points, and switches).
+Tell Claude what you want context on — a ticket number, a company name, a contact's email, or a device name — and it looks it up in Autotask. If there's more than one match, Claude lists the options and asks which one you mean before going any further. If nothing comes back, Claude tells you that clearly rather than returning an empty briefing.
 
-Claude presents the results as a simple summary — how many devices fall into each category, what's new, and what needs attention — before asking how you'd like to proceed.
+**Step 2: Claude pulls everything attached to it** *(no input required)*
 
-**Step 2: You choose what to onboard**
+Once the anchor record is found, Claude fans out to everything connected to it. For a ticket, that means notes, history, time entries, the linked device, and the associated contract. For a company, it means contacts, open and recent tickets, contracts, and all documented devices. For a contact, it means their company and their ticket history. For a device, it means the owning company and every ticket ever linked to it. Claude works through these one at a time and collects up to 25 notes and history entries by default — you can ask for more if you need them.
 
-You can approve the full list of new and outdated devices, pick specific ones, or work through them one at a time. Anything that Claude flagged as needing a closer look is shown separately with the specific reason — those are never acted on automatically.
+**Step 3: You reveive the briefing** 
 
-**Step 3: Claude pulls the hardware and prepare the records** *(no input required)*
-
-For each device you approve, Claude pulls the live hardware audit from Datto RMM — CPU, RAM, storage, network interfaces, serial number, BIOS date, and manufacturer — and formats it into a clean hardware block ready to go into IT Glue. Any drive with less than 15% free space is flagged automatically so you can act on it while you're already looking at the device.
-
-**Step 4: You review and confirm before anything is written**
-
-Claude shows you exactly what it's about to create or update — the device name, organisation, configuration type, OS, and every field it plans to write — and asks you to confirm. Only after you approve does it write anything to IT Glue. For bulk onboarding, it works through each device in sequence and reports the outcome after each one.
-
-**Step 5: Claude offers to document credentials and give you a final summary**
-
-Once devices are documented, Claude asks whether you want to store credentials for any of them in IT Glue — linked directly to the new configuration records. It then presents a complete summary: what was created, what was updated, anything still pending, and any devices that were skipped or hit an error.
+Claude delivers a structured summary built for the record type you asked about. Every section is included — even when there's nothing to report, Claude says so plainly rather than leaving a gap. Notes are sorted chronologically. Routine system-generated entries are collapsed to a single line so they don't bury the human-written ones. Long text is trimmed with a marker so you can ask for the full version of any entry. The result reads like a handover note, not a database dump.
 
 **How to Invoke**
 ```
-"Onboard DESKTOP-ABC123 at Acme Corp"
-"Onboard all devices for Contoso"
-/device-onboarding
+"Brief me on ticket T20260918.0001"
+"What's the full context for this ticket?"
+"Tell me about Acme Corp"
+"Who is jane@acme.com and what are they waiting on?"
+"What's the history on this laptop?"
+/autotask-context
+```
+
+### Autotask Write ([device-onboarding](skills/device-onboarding))
+
+**Overview**
+
+Every update to an Autotask ticket — changing a status, reassigning a technician, logging time, adding a note, updating a priority — carries real downstream consequences. Status changes trigger SLA timers and workflow rules. Notes sent to the wrong audience reach customers who shouldn't see them. A duplicate time entry or a failed write that gets retried can create records that are harder to clean up than to prevent. Done manually under pressure, these updates are where mistakes happen.
+
+Kaseya has built a skill that governs every write to Autotask through Claude. Before any change is made, Claude reads the current record, shows you exactly what will change, and waits for your confirmation. Nothing is written until you've seen the before and after. After the write, Claude reports back what Autotask actually saved — not just what was sent.
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- Shows you the current value and the new value side by side before any change is made — no surprises
+- Confirms that a field actually needs updating before writing it; if it already holds the right value, Claude says so and makes no change
+- Warns you when a status change will trigger SLA timers, workflow rules, or customer notifications — before it happens
+- Never retries a failed write automatically, which prevents duplicate records and avoids locking your Autotask API user out through repeated failed authentication
+- Reports what Autotask actually saved after each write, not just what was requested
+- Covers every write type: ticket updates, notes, time entries, contact records, and any other entity
+
+**What to Expect**
+
+**Step 1: Claude reads the current record before touching it** *(no input required)*
+
+When you ask Claude to make a change — update a ticket status, reassign it, log time, add a note — Claude fetches the current record first. This gives it the existing values it needs to show you a meaningful proposal. If the record already has the value you asked for, Claude tells you and makes no write.
+
+**Step 2: You review the proposed change and confirm it** 
+
+Claude presents the change as a simple before-and-after: the entity, the field, the current value, and the new value. For status changes, it also flags any downstream effects — SLA timers that will start or stop, workflow rules that may fire, or notifications that will go to the customer. You see all of this before anything is written. Claude then waits for your confirmation. A general "just do it" earlier in the conversation does not count — you confirm each change after seeing it.
+
+**Step 3: Claude makes the write and reports back** 
+
+Once you confirm, Claude makes the change and reports what Autotask returned — the actual saved values, not the values that were sent. If the write fails, Claude reports the failure and stops. It does not retry automatically. If the outcome is unclear (for example, a connection dropped mid-request), Claude reads the record back and tells you what it now holds so you can decide what to do next.
+
+A note on picklist fields — fields like status, priority, and queue have numeric IDs behind the labels you see in Autotask. Claude looks those up from your live Autotask configuration before writing, so it uses the correct ID for your account rather than guessing from a label name.
+
+**How to Invoke**
+```
+"Update ticket 12345 to In Progress"
+"Reassign this ticket to Dana"
+"Add an internal note to ticket T20260918.0001"
+"Log 2 hours against this ticket"
+"Set the priority on ticket 100045 to High"
+"Create a ticket for Acme Corp"
+/autotask-write
 ```
 
 ### Device Offboarding ([device-offboarding](skills/device-offboarding))
