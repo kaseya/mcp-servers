@@ -40,7 +40,7 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Complex Skills](#complex-skills)
+5. [Skills](#skills)
 6. [Community and Support](#community-and-support)
 7. [Security](SECURITY.md)
 8. [Code of Conduct](CODE_OF_CONDUCT.md)
@@ -71,7 +71,8 @@ Before editing config files, generate credentials for each platform and **have a
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and integration code](GENERATING-API-KEYS.md#autotask) |
 
-Tip: **Do not share keys and use minimally scoped permissions for each use case and user.**
+> [!TIP]
+> **Do not share keys and use minimally scoped permissions for each use case and user.**
 
 ---
 
@@ -80,16 +81,15 @@ Tip: **Do not share keys and use minimally scoped permissions for each use case 
 
 Open **Claude Desktop** and click your profile icon in the bottom-left corner to open the account menu, then select **Settings**.
 
-<img width="188" height="192" alt="README1" src="https://github.com/user-attachments/assets/866166f4-22aa-4242-9297-660de666f925" />
-
+<img width="188" height="192" alt="README1" src="https://github.com/user-attachments/assets/6fd4852c-43fa-4471-bc53-6e4b97fe7f70" />
 
 In the settings panel, select **developer** from the left sidebar. The MCP server list will appear empty - this is expected for a fresh install. Click **"Edit Config"**
 
-<img width="624" height="289" alt="README13" src="https://github.com/user-attachments/assets/7dc835da-b702-466e-a190-9aef249affb7" />
+<img width="624" height="289" alt="README13" src="https://github.com/user-attachments/assets/518d1891-28c7-4901-b75c-ff283c4c811c" />
 
 This will open your file explorer pointing to the config file. **The file is named claude_desktop_config.json** — double-click it to open it in your default text editor.
 
-<img width="624" height="47" alt="README14" src="https://github.com/user-attachments/assets/d84f3537-cda8-4b56-9e10-ee14dc45679b" />
+<img width="624" height="47" alt="README14" src="https://github.com/user-attachments/assets/53264fe2-dd69-4a33-b90f-d3aac90a5a10" />
 
 **Can't fine the file?** Navigate to it manually:
 
@@ -194,27 +194,25 @@ Inside Claude Desktop, navigate to **Settings > Plugins > Add**, choose **Add ma
 ```
 KaseyaDataPlatform/kaseya-claude-skills
 ```
-<img width="624" height="440" alt="README5" src="https://github.com/user-attachments/assets/a255ce33-add1-4383-85d0-3775b9046930" />
+<img width="624" height="440" alt="README5" src="https://github.com/user-attachments/assets/95167443-b321-44c7-b28e-c72d4c85cb7c" />
 
 Then select **"sync" .** 
 
 Next, navigate to **Plugins**. Under the personal tab, you will see the 'kaseya-skills' plugin option. Click the plus sign to install. 
 
-<img width="421" height="149" alt="README7" src="https://github.com/user-attachments/assets/8054ec7e-e24b-4f05-b46e-127ca3d457cc" />
+<img width="421" height="149" alt="README7" src="https://github.com/user-attachments/assets/212bd4f5-a9b4-429d-aaea-5253e1ef0508" />
 
 To pick up future updates, open **Plugins**, and select the Kaseya skills plug in. When it opens, select the blue link under the source header.
 
-<img width="432" height="248" alt="README10" src="https://github.com/user-attachments/assets/fd655805-9b44-4f6b-8ad9-1f85d806f8bb" />
+<img width="432" height="248" alt="README10" src="https://github.com/user-attachments/assets/035c94bf-3768-4db3-86ac-74ce29730af0" />
 
 Navigate over to the personal tab. 
 
-<img width="452" height="227" alt="README11" src="https://github.com/user-attachments/assets/76c33ea1-5814-4cf9-9cd6-0cc880994d2c" />
-
-
+<img width="452" height="227" alt="README11" src="https://github.com/user-attachments/assets/2633bf6e-caf6-462e-9c84-2c4e8d7e0c4f" />
 
 Follow the link click the `...` next to `kaseya-skills-marketplace`, and choose **Check for updates**. To have updates sync automatically whenever a change is merged to `main`, toggle **Sync automatically** -- this requires granting the Claude GitHub App access to this repository (you'll be prompted for that the first time you enable it).
 
-<img width="466" height="163" alt="README9" src="https://github.com/user-attachments/assets/9ab105d1-5a1d-41b9-b442-cf37ac2edb0e" />
+<img width="466" height="163" alt="README9" src="https://github.com/user-attachments/assets/81c6c3f1-27f1-43c2-891e-e0563c5f8cae" />
 
 #### 2.2: Commands to Run in Claude Code
 Inside Claude Code, run the following commands in your terminal, replacing each highlighted placeholder with the credentials you generated in the Prerequisites step like we did for the Config file in section 1.2: 
@@ -305,17 +303,14 @@ Skills in the Kaseya community come in three levels of complexity, and they work
 
 - **Tools** do one specific thing — read a ticket, check if a device is online, post a note, run a script. Simple, fast, and useful on their own.
 
-- **Skills** do a few things together and apply some logic — they look at what they find and decide what to do next. For example, reading a ticket and categorizing the issue type, or checking after a cleanup whether the problem was actually fixed.
-
-- **Complex Skills** are complete workflows. They string Micro Skills and Smart Actions together in the right order to handle an entire process from first look to final documentation — with you approving the key steps along the way.
+- **Skills** are complete workflows. They string tools together in the right order to handle an entire process from first look to final documentation — with you approving the key steps along the way.
 
 Any Tool or Skill can also be run on its own, outside of a workflow, whenever you need it. 
 
 Here is some guidance on approach as you explore tools and skills with MCP servers:
 1. Simple query tools
 2. Simple update tools (with guardrails)
-3. Simple skills
-4. Complex skills as workflows
+3. Simple skills as workflows
 
 ## Common MSP Tools
 ### Autotask
@@ -350,32 +345,16 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **Get an SOP or Process Documents** | Retrieves a Standard Operating Procedure or process document from IT Glue. | `"Get the Backup Verification SOP from IT Glue"` |
 | **Get Organizational Notes** | Pulls organizational notes from IT Glue for the client associated with a specified ticket. | `"Get the organizational notes from IT Glue for the client on ticket 10001"` |
 | **Get configuration information** | Retrieves the IT Glue configuration information for a device including warranty status and primary contact. | `"Get the IT Glue configuration information for the device on ticket 10001"` |
-
-### Skills
-
-| Product | Skill Name | Description | How to Invoke |
-|---|---|---|---|
-| **Autotask** | Ticket triage for windows device issues | Reads a new Autotask ticket and classifies the primary issue into one of nine categories: disk, performance, connectivity, software, patching, services, hardware alert, user access, or general. | `"Triage ticket 10001"` |
-| **Autotask** | Automatic documentation upon ticket resolution | Generates an internal audit note capturing every script and component run, job UIDs, API-confirmed terminal statuses, before/after values for every metric, stdout and stderr output, whether each related alert cleared, machine type, server role, repeat incident count, and whether publish-value resolution used dynamic lookup or fallback, and drafts a customer-facing email on resolution in plain language. Ticket status change: Resolved, Waiting Customer, In Progress, or unchanged. | `"close and document ticket 1001"` |
-| **Autotask** | Dynamic Note Visibility | Queries the live Autotask picklist at the start of each session to dynamically resolve the correct publish values, ensuring internal notes never reach customers and customer notes always do. | `"Post an internal note on ticket 10001: Ran disk cleanup, freed 15GB"` |
-| **DRMM** | List of pre-built embedded components | Matches the classified ticket issue to a pre-built Datto RMM script from the component library and initiates the component run on the device upon customer approval. | `"Run the matched remediation script on the device for ticket 10001"` |
-| **DRMM** | Alert History Intelligence | Analyzes the last 15 days of open and resolved alerts on a device to detect repeat patterns and flag chronic offenders, returning a full occurrence timeline and related ticket references. | `"Show the alert history for the device on ticket 10001"` |
-| **DRMM** | Secondary Issues Discovery outside of ticket scope | Scans alert history for weekly or interval-based recurrence patterns that suggest scheduled jobs or backups as a root cause outside the primary ticket scope. | `"Check for recurring issues outside the scope of ticket 10001"` |
-| **DRMM** | Role-Aware remediation guidance | Generates a server vs workstation remediation plan based on the detected server role, with check-first steps for technicians to confirm before clean up is executed. | `"Generate a role-aware remediation plan for the device on ticket 10001"` |
-| **DRMM, Autotask** | Issue Resolution Validation | Re-audits a device after remediation and presents before/after comparisons for key metrics such as drive space recovered, alerts cleared, and CPU settled. If goals aren't met, offers the technician options to continue or close with a documented outcome. | `"Provide issue resolution validation for ticket 10001"` |
-| **DRMM, Autotask, ITGlue** | Data analysis for windows devices (Discovery card) | Aggregates device classification, server role, repeat incident history, primary contact, org notes, and maintenance windows into a single structured card for technicians to have on hand before any remediation or customer communication is initiated. | `"Create a discovery card on device for ticket 10001"` |
-| **DRMM** | Device Health Briefing | Pulls online/offline device counts, all open unresolved alerts by priority, disk usage across online devices, and OS breakdown for one site or all sites. Flags devices above 80% disk, surfaces unresolved critical alerts, and calls out any device offline for more than 7 days — all in a single structured summary ready for review. | `"Give me a health briefing for device ABC"` |
-
 ---
 
-## Complex Skills
+## Skills
 
 Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the skills and what you can expect when using the skills so your team can start saving time immediately. All 9 complex skills are included when you install the Kaseya plug in library.
 
 | Skill | What It Automates |
 |---|---|
-| Autotask-Context | TBD |
-| Autotask-Write | TBD |
+| Autotask-Context | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill when the user asks to understand, summarise, or get context on a ticket, company, contact, or device |
+| Autotask-Write | Governs every write to Autotask through this MCP server — creating or updating a ticket, a note, a time entry, a contact, or any other entity |
 | Morning-Pulse | TBD |
 | Device-quick-look | TBD |
 | Patch-Posture | TBD |
@@ -389,40 +368,35 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 **Overview**
 
-Before a technician can work a ticket or an account manager can jump on a customer call, they typically have to open four or five tabs — pulling up the ticket in Autotask, cross-referencing the device in Datto RMM, checking the contact details, reviewing open contracts, and scanning through note history. Done manually, that's five minutes of setup before any real work begins, and it's easy to miss something that was logged in a different place.
+Before a technician works a ticket or an account manager jumps on a customer call, they typically have to open four or five tabs — pulling up the ticket, checking the contact, reviewing contracts, scanning note history. That's five minutes of setup before any real work begins, and it's easy to miss something logged in a different place.
 
-Kaseya has built a skill that assembles the complete picture in one step. The skill reads from Autotask and pulls together everything attached to the record you name — the ticket, the company, the contact, or the device — and delivers it as a single structured briefing, ready to read before you pick up the phone or start working.
+This skill assembles the complete picture in one step, pulling everything attached to the record you name — ticket, company, contact, or device — and delivering it as a single structured briefing.
 
-  *Ready to get started? This document covers the Autotask-Context skill only. For MCP server connection and skill installation instructions, see the [Getting Started](#getting-started) in this README file in this GitHub repository*.
+  *Before using this skill, make sure your MCP servers are connected and the skills are installed. See the [Getting Started](#getting-started) section of this README for setup instructions.*
 
 **Benefits**
-- Gives technicians and account managers the full picture on a ticket, customer, contact, or device before they act — without opening multiple tabs
-- Surfaces ticket history, notes, time entries, linked contracts, and the associated device in one pass
-- Clearly states when information is missing or unavailable, so you know what was checked and what wasn't
-- Works for any starting point — a ticket number, a company name, an email address, or a device name
-- Presents information the way a colleague would hand it over: what you need to act on first, not in the order the data came back
+- Covers all four anchor types: tickets, companies, contacts, and devices
+- Fans out automatically to notes, history, time entries, contracts, and linked devices
+- States clearly when a section has no data, so nothing looks like it was skipped
+- Collapses routine system-generated notes so human-written ones aren't buried
+- Presents information the way a colleague would hand over work — what to act on first, not the order the data arrived
 
 **What to Expect**
-
-**Step 1: Claude finds the record you named** *(no input required)*
-
-Tell Claude what you want context on — a ticket number, a company name, a contact's email, or a device name — and it looks it up in Autotask. If there's more than one match, Claude lists the options and asks which one you mean before going any further. If nothing comes back, Claude tells you that clearly rather than returning an empty briefing.
-
-**Step 2: Claude pulls everything attached to it** *(no input required)*
-
-Once the anchor record is found, Claude fans out to everything connected to it. For a ticket, that means notes, history, time entries, the linked device, and the associated contract. For a company, it means contacts, open and recent tickets, contracts, and all documented devices. For a contact, it means their company and their ticket history. For a device, it means the owning company and every ticket ever linked to it. Claude works through these one at a time and collects up to 25 notes and history entries by default — you can ask for more if you need them.
-
-**Step 3: You reveive the briefing** 
-
-Claude delivers a structured summary built for the record type you asked about. Every section is included — even when there's nothing to report, Claude says so plainly rather than leaving a gap. Notes are sorted chronologically. Routine system-generated entries are collapsed to a single line so they don't bury the human-written ones. Long text is trimmed with a marker so you can ask for the full version of any entry. The result reads like a handover note, not a database dump.
+1. Claude finds the record you named and resolves it to a single match — if more than one comes back, it lists the options and asks you to confirm before going further
+2. Claude fans out to everything attached: notes, history, time entries, linked contracts, and associated devices, collecting up to 25 notes and history entries by default
+3. A structured briefing is delivered for the record type you asked about, sorted chronologically, with every section included — even when there's nothing to report, Claude says so plainly
 
 **How to Invoke**
 ```
-"Brief me on ticket T20260918.0001"
-"What's the full context for this ticket?"
+"Brief me on ticket 12345"
+"Give me everything on T20260918.0001"
+"What's the full context for this ticket"
+"catch me up on this ticket"
+"What do I need to know before working this ticket"
 "Tell me about Acme Corp"
+"What's going on with this customer"
 "Who is jane@acme.com and what are they waiting on?"
-"What's the history on this laptop?"
+"What's the history on this laptop"
 /autotask-context
 ```
 
@@ -430,43 +404,34 @@ Claude delivers a structured summary built for the record type you asked about. 
 
 **Overview**
 
-Every update to an Autotask ticket — changing a status, reassigning a technician, logging time, adding a note, updating a priority — carries real downstream consequences. Status changes trigger SLA timers and workflow rules. Notes sent to the wrong audience reach customers who shouldn't see them. A duplicate time entry or a failed write that gets retried can create records that are harder to clean up than to prevent. Done manually under pressure, these updates are where mistakes happen.
+Every update to an Autotask ticket carries real downstream consequences — status changes trigger SLA timers and workflow rules, notes sent to the wrong audience reach customers who shouldn't see them, and a write that gets retried after a failure can create records that are harder to clean up than to prevent.
 
-Kaseya has built a skill that governs every write to Autotask through Claude. Before any change is made, Claude reads the current record, shows you exactly what will change, and waits for your confirmation. Nothing is written until you've seen the before and after. After the write, Claude reports back what Autotask actually saved — not just what was sent.
+This skill governs every write to Autotask through Claude: reading the current record first, showing you exactly what will change, and waiting for your confirmation before anything is written.
 
-  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](#getting-started) in this README file in this GitHub repository*.
+    *Before using this skill, make sure your MCP servers are connected and the skills are installed. See the [Getting Started](#getting-started) section of this README for setup instructions.*
+
 
 **Benefits**
 - Shows you the current value and the new value side by side before any change is made — no surprises
 - Confirms that a field actually needs updating before writing it; if it already holds the right value, Claude says so and makes no change
-- Warns you when a status change will trigger SLA timers, workflow rules, or customer notifications — before it happens
-- Never retries a failed write automatically, which prevents duplicate records and avoids locking your Autotask API user out through repeated failed authentication
-- Reports what Autotask actually saved after each write, not just what was requested
+- Warns you of downstream effects before changing status fields — SLA timers, workflow rules, and customer notifications
+- Never retries a failed write, eliminating the risk of duplicate records or a locked-out API user
+- Reports what Autotask actually saved after each write, not just what was sent
 - Covers every write type: ticket updates, notes, time entries, contact records, and any other entity
 
 **What to Expect**
-
-**Step 1: Claude reads the current record before touching it** *(no input required)*
-
-When you ask Claude to make a change — update a ticket status, reassign it, log time, add a note — Claude fetches the current record first. This gives it the existing values it needs to show you a meaningful proposal. If the record already has the value you asked for, Claude tells you and makes no write.
-
-**Step 2: You review the proposed change and confirm it** 
-
-Claude presents the change as a simple before-and-after: the entity, the field, the current value, and the new value. For status changes, it also flags any downstream effects — SLA timers that will start or stop, workflow rules that may fire, or notifications that will go to the customer. You see all of this before anything is written. Claude then waits for your confirmation. A general "just do it" earlier in the conversation does not count — you confirm each change after seeing it.
-
-**Step 3: Claude makes the write and reports back** 
-
-Once you confirm, Claude makes the change and reports what Autotask returned — the actual saved values, not the values that were sent. If the write fails, Claude reports the failure and stops. It does not retry automatically. If the outcome is unclear (for example, a connection dropped mid-request), Claude reads the record back and tells you what it now holds so you can decide what to do next.
-
-A note on picklist fields — fields like status, priority, and queue have numeric IDs behind the labels you see in Autotask. Claude looks those up from your live Autotask configuration before writing, so it uses the correct ID for your account rather than guessing from a label name.
+1. Claude fetches the current record so the proposal shows exactly what will change — if the field already holds the right value, it says so and stops
+2. A one-line-per-field summary is presented — entity, ID, field, old value, new value — with downstream effects called out for any status change. Claude waits for your confirmation before proceeding
+3. The write is made once. Claude reports what Autotask returned, not what was sent. If the write fails, Claude reports it and stops — no retries, no workarounds
 
 **How to Invoke**
 ```
-"Update ticket 12345 to In Progress"
+"Update ticket 12345"
+"set this ticket to In Progress"
 "Reassign this ticket to Dana"
-"Add an internal note to ticket T20260918.0001"
+"change the priority"
+"Add a note to the ticket"
 "Log 2 hours against this ticket"
-"Set the priority on ticket 100045 to High"
 "Create a ticket for Acme Corp"
 /autotask-write
 ```
