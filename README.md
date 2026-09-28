@@ -353,7 +353,7 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 | Skill | What It Automates |
 |---|---|
-| Autotask-Context | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill when the user asks to understand, summarise, or get context on a ticket, company, contact, or device |
+| Autotask-Context | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device |
 | Autotask-Write | Governs every write to Autotask through this MCP server — creating or updating a ticket, a note, a time entry, a contact, or any other entity |
 | Morning-Pulse | TBD |
 | Device-quick-look | TBD |
@@ -368,17 +368,16 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 **Overview**
 
-Before a technician works a ticket or an account manager jumps on a customer call, they typically have to open four or five tabs — pulling up the ticket, checking the contact, reviewing contracts, scanning note history. That's five minutes of setup before any real work begins, and it's easy to miss something logged in a different place.
+Before a technician works a ticket or an account manager jumps on a customer call, they typically have to open multiple tabs to get a full view of what is happening — pulling up the ticket, checking the contact, reviewing contracts, scanning note history. That's five minutes of setup before any real work begins, and it's easy to miss something logged in a different place.
 
 This skill assembles the complete picture in one step, pulling everything attached to the record you name — ticket, company, contact, or device — and delivering it as a single structured briefing.
 
   *Before using this skill, make sure your MCP servers are connected and the skills are installed. See the [Getting Started](#getting-started) section of this README for setup instructions.*
 
 **Benefits**
-- Covers all four anchor types: tickets, companies, contacts, and devices
-- Fans out automatically to notes, history, time entries, contracts, and linked devices
+- Covers all four record types: tickets, companies, contacts, and devices
+- Automatically searches across related notes, history, time entries, contracts, and linked devices
 - States clearly when a section has no data, so nothing looks like it was skipped
-- Collapses routine system-generated notes so human-written ones aren't buried
 - Presents information the way a colleague would hand over work — what to act on first, not the order the data arrived
 
 **What to Expect**
@@ -404,7 +403,7 @@ This skill assembles the complete picture in one step, pulling everything attach
 
 **Overview**
 
-Every update to an Autotask ticket carries real downstream consequences — status changes trigger SLA timers and workflow rules, notes sent to the wrong audience reach customers who shouldn't see them, and a write that gets retried after a failure can create records that are harder to clean up than to prevent.
+Every update to an Autotask ticket can be time consuming, or simply a step that may get missed due to human error.
 
 This skill governs every write to Autotask through Claude: reading the current record first, showing you exactly what will change, and waiting for your confirmation before anything is written.
 
@@ -414,13 +413,11 @@ This skill governs every write to Autotask through Claude: reading the current r
 **Benefits**
 - Shows you the current value and the new value side by side before any change is made — no surprises
 - Confirms that a field actually needs updating before writing it; if it already holds the right value, Claude says so and makes no change
-- Warns you of downstream effects before changing status fields — SLA timers, workflow rules, and customer notifications
 - Never retries a failed write, eliminating the risk of duplicate records or a locked-out API user
 - Reports what Autotask actually saved after each write, not just what was sent
-- Covers every write type: ticket updates, notes, time entries, contact records, and any other entity
 
 **What to Expect**
-1. Claude fetches the current record so the proposal shows exactly what will change — if the field already holds the right value, it says so and stops
+1. Claude fetches the current record so the proposal shows exactly what will change — if the field already holds the right value, it says so and stops execution
 2. A one-line-per-field summary is presented — entity, ID, field, old value, new value — with downstream effects called out for any status change. Claude waits for your confirmation before proceeding
 3. The write is made once. Claude reports what Autotask returned, not what was sent. If the write fails, Claude reports it and stops — no retries, no workarounds
 
