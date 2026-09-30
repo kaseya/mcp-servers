@@ -12,9 +12,6 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 
 - **Skills** - reusable Claude Code skills for IT ops workflows
 - **MCP servers** - integrations with tools like Datto RMM, Autotask, and IT Glue
-- **Runbooks** - Step-by-step operational playbooks
-- **Scripts** - PowerShell, Bash, and automation snippets
-- **Reports & Dashboards** - operational visibility templates
 
 ---
 ### Who This Is For
