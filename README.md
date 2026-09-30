@@ -12,9 +12,6 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 
 - **Skills** - reusable Claude Code skills for IT ops workflows
 - **MCP servers** - integrations with tools like Datto RMM, Autotask, and IT Glue
-- **Runbooks** - Step-by-step operational playbooks
-- **Scripts** - PowerShell, Bash, and automation snippets
-- **Reports & Dashboards** - operational visibility templates
 
 ---
 ### Who This Is For
@@ -40,12 +37,11 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Skills](#skills)
-6. [Community and Support](#community-and-support)
-7. [Security](SECURITY.md)
-8. [Code of Conduct](CODE_OF_CONDUCT.md)
-9. [Contributing](CONTRIBUTING.md)
-10. [Disclaimer](#disclaimer)
+5. [Community and Support](#community-and-support)
+6. [Security](SECURITY.md)
+7. [Code of Conduct](CODE_OF_CONDUCT.md)
+8. [Contributing](CONTRIBUTING.md)
+9. [Disclaimer](#disclaimer)
 
 ---
 
@@ -312,8 +308,8 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 2. Simple update tools (write, with guardrails)
 3. Simple skills as workflows
 
-## Common MSP Tools
-### Autotask
+### Common MSP Tools
+#### Autotask
 
 | Tool | Operation | Description |
 |---|---|---|
@@ -329,7 +325,7 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **Delete Entity** | Write | Permanently deletes one row. Only working rows and link rows accept a delete — business records never do.|
 | **Add Ticket Note** | Write | Adds a note to an existing ticket. Returns the note, read back and enriched.|
 
-### Datto RMM
+#### Datto RMM
 
 | Tool | Description | How to Invoke |
 |---|---|---|
@@ -340,7 +336,7 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **E** | Runs a ComStore component to detect the server role of a device. | `"Run server role detection on device 12345"` |
 | **F** | A set of pre-built, fully tested Datto RMM scripts. | `"Run a remediation script on device 12345"` |
 
-### IT Glue
+#### IT Glue
 
 | Tool | Description | How to Invoke |
 |---|---|---|
@@ -361,7 +357,7 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **create_attachment** | Write | TBD |
 ---
 
-## Skills
+### Common MSP Skills
 
 Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the skills and what you can expect when using the skills so your team can start saving time immediately. **All 9 complex skills are included when you install the Kaseya plug in library.**
 
