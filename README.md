@@ -10,8 +10,9 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 ---
 ### What We Share
 
-- **Skills** - reusable Claude Code skills for IT ops workflows
 - **MCP servers** - integrations with tools like Datto RMM, Autotask, and IT Glue
+- **Skills** - reusable Claude Code skills for IT ops workflows
+
 
 ---
 ### Who This Is For
@@ -26,8 +27,8 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 
 | Channel | Link |
 |---|---|
-| Website | TBD |
-| Discord | [Join Discord Community channel](https://discord.gg/kHjsAJH4G) |
+| Discord | You will receive a discord link during kickoff |
+| Office Hours | Daily - see Discord for schedule |
 | Community Calls | Bi-weekly — see Discord for schedule |
 
 ---
@@ -60,7 +61,7 @@ MCP Server connections powering the skills require a runtime environment outside
   3. After installing, restart your Claude before proceeding. Claude Desktop reads configuration files upon start up, so a restart forces Claude to reload its environment from scratch, at which point it can see Node.js and use it to run the MCP bridge programs. No more silent failures.
 
 #### Prerequisite 2: API credentials
-Before editing config files, generate credentials for each platform and **have all values on hand before proceeding** to the next steps:
+Before connecting to MCP Servers, you will need generate credentials for each platform. **Have all values on hand before proceeding** to the next steps:
 
 | Product | Values Needed | How to Generate Secret Keys |
 |---|---|---|
@@ -73,187 +74,38 @@ Before editing config files, generate credentials for each platform and **have a
 
 ---
 
-### Step 1: Connecting to MCP Servers
-#### 1.1 Open the Developer Settings in Claude Desktop
+### Step 1: Connecting to MCP Servers -- Using Claude Desktop
+#### 1.1 Download the mcpb file for each product whose MCP server you are wanting to connect to, located in this repo. 
+
+There will be one file per product MCP server connection you are setting up (3 total if you are wanting to connect Datto RMM, AUtotask, and IT Glue).
+You can download these files here. 
+
+#### 1.2 Open the Developer Settings in Claude Desktop
 
 Open **Claude Desktop** and click your profile icon in the bottom-left corner to open the account menu, then select **Settings**.
 
 <img width="188" height="192" alt="README1" src="https://github.com/user-attachments/assets/6fd4852c-43fa-4471-bc53-6e4b97fe7f70" />
 
-In the settings panel, select **developer** from the left sidebar. The MCP server list will appear empty - this is expected for a fresh install. Click **"Edit Config"**
+In the settings panel, select **Extensions** from the left sidebar. 
 
-<img width="624" height="289" alt="README13" src="https://github.com/user-attachments/assets/518d1891-28c7-4901-b75c-ff283c4c811c" />
+<img width="624" height="417" alt="README16" src="https://github.com/user-attachments/assets/31b067d0-5cfc-4b09-af18-573309bc843a" />
 
-This will open your file explorer pointing to the config file. **The file is named claude_desktop_config.json** — double-click it to open it in your default text editor.
+Drag your mcpb files downloaded and drag them into the extensions screen. Follow steps to install the file. 
 
-<img width="624" height="47" alt="README14" src="https://github.com/user-attachments/assets/53264fe2-dd69-4a33-b90f-d3aac90a5a10" />
+<img width="624" height="602" alt="ReadMe17" src="https://github.com/user-attachments/assets/30073d39-d12f-4484-8569-3b1543d8786e" />
 
-**Can't fine the file?** Navigate to it manually:
+Once installed, you will see a pop up asking for your. These are the values we generated in the pre-requisite steps. See Generating_API_Keys for more information on how to get these values. Ensure you are using your correct product keys for this steps of implementation. 
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+<img width="341" height="404" alt="README18" src="https://github.com/user-attachments/assets/941635eb-6e07-4cb8-a28c-3ef2ee48f928" />
 
-#### 1.2 Edit the Config File
-Open the file in a text editor. If the file is empty or new, paste the full configuration block below as-is into the top of the file. If the file already has content, locate the "mcpServers" section and paste the block there.
+Save and close. 
 
-**Replace each placeholder with the credentials you generated in the Prerequisites step.**
-> [!IMPORTANT]
-> **Values to replace: `<YOUR_API_KEY>`, `<YOUR_API_SECRET>`, `<YOUR_API_USERNAME>`, and `<YOUR_INTEGRATION_CODE>`**.
-> If your config file already contains other settings (such as "preferences"), add only the 'mcpServers' block -- do not replace the entire file. Both sections can exist in the same file.
+<img width="624" height="462" alt="README19" src="https://github.com/user-attachments/assets/32a6fa02-2fb0-4a12-abd1-86dc321aa909" />
 
-```json
-{
-  "mcpServers": {
-    "datto-mcp": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://datto-rmm-mcp.data-dev-use1.kaseya-int.net/mcp",
-        "--allow-http",
-        "--header",
-        "X-Datto-API-Key:<YOUR_API_KEY>",
-        "--header",
-        "X-Datto-API-Secret:<YOUR_API_SECRET>",
-        "--header",
-        "X-Datto-Platform:concord"
-      ]
-    },
-    "itglue-mcp": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://itglue-mcp.data-dev-use1.kaseya-int.net/mcp",
-        "--allow-http",
-        "--header",
-        "X-ITGlue-API-Key:<YOUR_API_KEY>"
-      ]
-    },
-    "autotask-mcp": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://autotask-mcp.data-dev-use1.kaseya-int.net/mcp",
-        "--allow-http",
-        "--header",
-        "X-Autotask-Username:<YOUR_API_USERNAME>",
-        "--header",
-        "X-Autotask-Secret:<YOUR_API_SECRET>",
-        "--header",
-        "X-Autotask-Integration-Code:<YOUR_INTEGRATION_CODE>"
-      ]
-    }
-  }
-}
-```
-**Save the file** once your credentials are in place. 
-> [!TIP]
-> Sometimes pasting new code in can disrupt the original code format. Run the file through Claude to check and make sure all brackets and syntax look correct.
+You should then see the package successfully installed into your Claude environment. 
 
-#### 1.3 Fully Restart Claude Desktop
-Config changes only take effect after a full restart. A normal window close is not sufficient.
 
-**Windows:**
-1. Open **Task Manager** (Ctrl + Shift + Esc)
-2. Find Claude in the list of running processes
-3. Right-click → **End Task**
-4. Reopen Claude Desktop from the Start Menu or desktop shortcut
-
-**MacOS:**
-1. Right-click the Claude icon in the Dock → **Quit**, or press **Cmd + Q** with Claude focused
-2. REopen Claude DEsktop
-
-After restarting, return to **Settings → Developer** — you should now see all three MCP servers listed.
-
-#### 1.4 Troubleshooting Your MCP Server Connection
-
-| Symptom | Likely Cause | Fix |
-|----------|----------|----------|
-| Servers not appearing after restart | Node.js not installed (Windows) | Install a compatible runtime such as Node.js, restart your machine, then restart Claude |
-| Connection errors on all three servers | JSON syntax error in config | Re-copy the config block from this document, repaste it into the file, and re-enter your credentials in the highlighted placeholders |
-| One server connects, others don't | Wrong credential pasted for that server | Re-check that server's API key/secret against what was generated in the platform |
-| Changes not reflected after saving | Claude not fully quit | Use Task Manager (Windows) or Cmd+Q (Mac) to force-quit, then reopen Claude |
-| Notified MCP server(s) are disconnected when relaunching Claude and they were already successfully connected | Secret expired | Generate new secret keys for applicable MCP server and update config files accordingly |
-| Servers not appearing after editing the configuration file | Configuration file syntax disrupted during editing | Paste the original code block at the start of the file, or run the file through Claude to check for syntax errors |
-
----
-
-### Step 2: Install the Skills
-> [!IMPORTANT]
-> **There are multiple ways to download and install the skills in Claude once your MCP servers are connected.**
->
-> 1. You can **download the plugin** (TBD)/connect to the marketplace
-> 2. If you have access to **Claude Code** in your subscription, you can run commands to install
-> 3. You can **manually upload** the skill.md files into Claude.
-
-#### 2.1: Adding Marketplace/Plugin
-Inside Claude Desktop, navigate to **Settings > Plugins > Add**, choose **Add marketplace**, and enter the following URL:
-
-```
-KaseyaDataPlatform/kaseya-claude-skills
-```
-<img width="624" height="440" alt="README5" src="https://github.com/user-attachments/assets/95167443-b321-44c7-b28e-c72d4c85cb7c" />
-
-Then select **"sync" .** 
-
-Next, navigate to **Plugins**. Under the personal tab, you will see the 'kaseya-skills' plugin option. Click the plus sign to install. 
-
-<img width="421" height="149" alt="README7" src="https://github.com/user-attachments/assets/212bd4f5-a9b4-429d-aaea-5253e1ef0508" />
-
-To pick up future updates, open **Plugins**, and select the Kaseya skills plug in. When it opens, select the blue link under the source header.
-
-<img width="432" height="248" alt="README10" src="https://github.com/user-attachments/assets/035c94bf-3768-4db3-86ac-74ce29730af0" />
-
-Navigate over to the personal tab. 
-
-<img width="452" height="227" alt="README11" src="https://github.com/user-attachments/assets/2633bf6e-caf6-462e-9c84-2c4e8d7e0c4f" />
-
-Follow the link click the `...` next to `kaseya-skills-marketplace`, and choose **Check for updates**. To have updates sync automatically whenever a change is merged to `main`, toggle **Sync automatically** -- this requires granting the Claude GitHub App access to this repository (you'll be prompted for that the first time you enable it).
-
-<img width="466" height="163" alt="README9" src="https://github.com/user-attachments/assets/81c6c3f1-27f1-43c2-891e-e0563c5f8cae" />
-
-#### 2.2: Commands to Run in Claude Code
-Inside Claude Code, run the following commands in your terminal, replacing each highlighted placeholder with the credentials you generated in the Prerequisites step like we did for the Config file in section 1.2: 
-
-```bash
-# Datto RMM
-claude mcp add datto-rmm-mcp "https://datto-rmm-mcp.data-dev-use1.kaseya-int.net/mcp" \
-  --transport http \
-  --scope project \
-  --header "X-Datto-API-Key:<YOUR_API_KEY>" \
-  --header "X-Datto-API-Secret:<YOUR_API_SECRET>" \
-  --header "X-Datto-Platform:concord"
-
-# IT Glue
-claude mcp add itglue-mcp "https://itglue-mcp.data-dev-use1.kaseya-int.net/mcp" \
-  --transport http \
-  --scope project \
-  --header "X-ITGlue-API-Key:<YOUR_API_KEY>"
-
-# Autotask
-claude mcp add autotask-mcp "https://autotask-mcp.data-dev-use1.kaseya-int.net/mcp" \
-  --transport http \
-  --scope project \
-  --header "X-Autotask-Username:<YOUR_API_USERNAME>" \
-  --header "X-Autotask-Secret:<YOUR_API_SECRET>" \
-  --header "X-Autotask-Integration-Code:<YOUR_INTEGRATION_CODE>"
-```
-
-Once complete, run the following commands in Claude Code to add the skills repository as a plugin marketplace, install the plugin marketplace, and to pick up future updates to the repository:
-
-```bash
-/plugin marketplace add KaseyaDataPlatform/kaseya-claude-skills
-/plugin install kaseya-skills@kaseya-skills-marketplace
-/plugin marketplace update kaseya-skills-marketplace
-```
----
-
-### Step 3: Restart your client
-
-MCP connections and skills are loaded at startup. Fully quit and reopen Claude Desktop before proceeding.
-
----
-
-### Step 4: Using the Skills
+### Step 2: Using the Skills
 
 Once configured, just talk to Claude naturally or use slash commands in the chat window to run the skills.
 
@@ -279,8 +131,6 @@ onboard DESKTOP-ABC123 at Acme Corp
 |---|---|
 | Claude Desktop | ✅ |
 | Claude Code | ✅ |
-| Microsoft Copilot (Cowork) | ✅ |
-| Other MCP-compatible clients | ✅ |
 
 ---
 
@@ -290,7 +140,7 @@ onboard DESKTOP-ABC123 at Acme Corp
 |---|---|
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, audit hardware |
 | **IT Glue** | Create and update configuration records, document devices, log triage notes |
-| **Autotask** | Read and update tickets, post notes, assign technicians, update ticket status |
+| **Autotask** | Read and update tickets, post notes, provide ticket briefings |
 
 ---
 
@@ -328,18 +178,18 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 ### Datto RMM
 
-| Tool | Description | How to Invoke |
+| Tool | Operation | Description |
 |---|---|---|
-| **A** | Retrieves the output file generated by a Datto RMM component at time of alert creation. | `"Get the component run output for the last alert on device 12345"` |
-| **B** | Triggers a pre-built Datto RMM script to run remotely on a target device. | `"Run the disk cleanup component on device 12345"` |
-| **C** | Fetches the current execution status of a Datto RMM job via a live API call. | `"Get the status of the last job run on device 12345"` |
-| **D** | Reads and presents server role data from Datto RMM component that updates UDF fields in alert. | `"Get the server role for device 12345"` |
-| **E** | Runs a ComStore component to detect the server role of a device. | `"Run server role detection on device 12345"` |
-| **F** | A set of pre-built, fully tested Datto RMM scripts. | `"Run a remediation script on device 12345"` |
+| **A** | TBD | TBD |
+| **B** | TBD | TBD |
+| **C** | TBD | TBD |
+| **D** | TBD | TBD |
+| **E** | TBD | TBD |
+| **F** | TBD | TBD |
 
 ### IT Glue
 
-| Tool | Description | How to Invoke |
+| Tool | Operation | Description |
 |---|---|---|
 | **index_organizations** | Read | TBD |
 | **get_organization** | Read | TBD |
