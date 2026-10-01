@@ -26,13 +26,15 @@ paste them into Claude's configuration file to complete the connection.
 
 1. From the Autotask dashboard, navigate to the **Admin** section in the left menu.
 
-<img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/c4fe4e1d-8d5c-4a8a-8d0f-db0e83cb1497" />
+<img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/d27f57f1-550c-4b40-b268-8ec27e8d5f1e" />
+
 
 2. Click **Resources (Users)** from the left navigation.
 
 3. Select **New API User** from the **+ New** dropdown menu.
 
-<img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/cab13e13-1a31-4eb7-aae5-8e5acc906203" />
+<img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
+
 
 4. Fill out the required information for the new API user; make sure the **Security Level** 
    is set to **API User**.
@@ -40,12 +42,12 @@ paste them into Claude's configuration file to complete the connection.
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and 
    store them securely.
 
-  <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/177b241c-b25d-4ab2-83e8-b71644e20957" />
+  <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
 
 6. In the **API Tracking Identifier** section, select **Custom (Internal Integration)** and 
    enter a recognizable name — for example, *Claude MCP*, and save the **Tracking Identifier.** This is what you will input for integration code value.
 
-   <img width="417" height="473" alt="README Add api user in autotask" src="https://github.com/user-attachments/assets/2b646adc-ee06-4f3f-9f9e-981a46fc48a6" />
+   <img width="417" height="473" alt="README Add api user in autotask" src="https://github.com/user-attachments/assets/cc8a52ba-af43-4afb-8e15-58f5dbf51c0e" />
 
 8. Unless your business strictly separates work by line of business, leave the **Line of 
    Business** field blank. Assigning one here can restrict what the API user can see.
@@ -67,8 +69,7 @@ For additional information on creating API users in Autotask, see:
 
 1. Navigate to **Admin > Settings**.
 
-<img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/6328280d-44f0-4537-9c03-2149229720ef" />
-
+<img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
 
 2. Select the **API Keys** tab.
 
@@ -77,7 +78,7 @@ For additional information on creating API users in Autotask, see:
 4. Enter a name for the key — for example, *Claude MCP* — and click **Generate API 
    Key**. Copy your key value immediately and store it securely.
 
-<img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/bc798db0-c796-407d-9b16-355662fb2134" />
+<img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
 
 5. Optionally, enable **Password Access** if you want the API key to be able to retrieve 
    password records from IT Glue. Leave this off if you don't need it.
@@ -104,17 +105,17 @@ For additional information on creating API keys in IT Glue, see:
 1. Inside Datto RMM, navigate to **Setup > Global Settings > Access Control**.
 2. Turn on the **Enable API Access** toggle.
 
-<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/16f14494-c53f-4da9-9970-aa47d47bbaa0" />
+<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
 
 ### Step 2 — Generate keys for a user
 
 1. Navigate to **Setup > Users** and click the username you want to generate keys for.
 
-<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/2593d488-6717-424f-8bae-bd3784d8a0e8" />
+<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
 
 2. Scroll down to the **API** section and click **Generate API Keys**.
 
-<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/61b72e0a-5500-4b49-a102-8d2a9dc5a3ef" />
+<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
 
 3. Your **API Key** and **API Secret Key** will be displayed. Copy both values 
    immediately and store them securely.
