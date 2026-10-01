@@ -23,7 +23,7 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 
 ---
 
-### Community Channels
+### Community Channels & Support
 
 | Channel | Link |
 |---|---|
@@ -38,12 +38,11 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Skills](#skills)
-6. [Community and Support](#community-and-support)
+5. [RMM Skills Page](RMM-Skills.md)
+6. [Autotask Skills Page](Autotask-Skills.md)
 7. [Security](SECURITY.md)
 8. [Code of Conduct](CODE_OF_CONDUCT.md)
-9. [Contributing](CONTRIBUTING.md)
-10. [Disclaimer](#disclaimer)
+9. [Disclaimer](#disclaimer)
 
 ---
 
@@ -161,28 +160,19 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 ## Skills
 
-Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the skills and what you can expect when using the skills so your team can start saving time immediately. **All 9 complex skills are included when you install the Kaseya plug in library.**
+Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT Glue, and Autotask workflows -- no coding required. This guide walks through the skills and what you can expect when using the skills so your team can start saving time immediately. 
 
 | Skill | What It Automates |
 |---|---|
-| [autotask-briefing](#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
-| [autotask-guarded-changes](#autotask-guarded-changes)| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
-| [morning-pulse](#morning-pulse) | TBD |
-| [device-quick-look](#device-quick-look) | TBD |
-| [patch-posture](#patch-posture) | TBD |
+| [autotask-briefing](Autotask-Skills.md#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
+| [autotask-guarded-changes](Autotask-Skills.md#autotask-guarded-changes)| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
+| [morning-pulse](RMM-Skills.md#morning-pulse) | TBD |
+| [device-quick-look](RMM-SKills.md#device-quick-look) | TBD |
+| [patch-posture](RMM-Skills.md#patch-posture) | TBD |
 | search-ITGlue-documents | TBD |
 | update-ITGlue-documents | TBD |
 | create-ITGlue-documents | TBD |
 | Document Summary | TBD |
-
----
-## Community and Support
-
-| Channel | Link |
-|---|---|
-| Website | [the-proving-grounds.io](https://the-proving-grounds.io) |
-| Discord | [Join Discord Community channel](https://discord.gg/kHjsAJH4G) |
-| Community Calls | Bi-weekly — see Discord for schedule |
 
 ---
 
