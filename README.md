@@ -113,14 +113,14 @@ Once configured, just talk to Claude naturally or use slash commands in the chat
 
 ```
 morning briefing for Acme Corp
-onboard DESKTOP-ABC123 at Acme Corp
+Add Jane to this ticket
 ```
 
 #### For Slash commands, enter the name of the skill you want to invoke:
 
 ```
-/datto-device-health-briefing
-/device-onboarding
+/patch-posture
+/autotask-briefing
 ```
 
 ---
@@ -164,17 +164,17 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 | Tool | Operation | Description |
 |---|---|---|
-| **Search Entries** | Read | Finds the Autotask entity name that matches a plain-language description.|
-| **Describe Entity** | Read | Returns the live field schema: field names, data types, flags, picklist values, and supported operators.|
-| **Query Entity** | Read | Queries an entity with filters, one “anyOf” group, fields, and limit. Returns rows in id order, with a nextPage hint.|
-| **Count Entities** | Read | Counts rows matching the filters, without fetching them.|
-| **Get Entity** | Read | Gets one row by numeric id. Returns found: false if no row has that id.|
-| **Search Tickets** | Read | Searches tickets by company, status, title, assignment, and date. No query DSL needed. Defaults to open tickets.|
-| **Get Ticket** | Read | Gets one ticket by id, with full detail in ticket vocabulary. |
-| **Create Entity** | Write | Creates a row, reads it back, and returns it enriched. Do not resend the create to check whether it worked.|
-| **Update Entity** | Write | Updates one row by id, reads it back, and returns it enriched.|
-| **Delete Entity** | Write | Permanently deletes one row. Only working rows and link rows accept a delete — business records never do.|
-| **Add Ticket Note** | Write | Adds a note to an existing ticket. Returns the note, read back and enriched.|
+| **search-entries** | Read | Finds the Autotask entity name that matches a plain-language description.|
+| **describe-entity** | Read | Returns the live field schema: field names, data types, flags, picklist values, and supported operators.|
+| **query-entity** | Read | Queries an entity with filters, one “anyOf” group, fields, and limit. Returns rows in id order, with a nextPage hint.|
+| **count-entities** | Read | Counts rows matching the filters, without fetching them.|
+| **get-entity** | Read | Gets one row by numeric id. Returns found: false if no row has that id.|
+| **search-tickets** | Read | Searches tickets by company, status, title, assignment, and date. No query DSL needed. Defaults to open tickets.|
+| **get-ticket** | Read | Gets one ticket by id, with full detail in ticket vocabulary. |
+| **create-entity** | Write | Creates a row, reads it back, and returns it enriched. Do not resend the create to check whether it worked.|
+| **update-entity** | Write | Updates one row by id, reads it back, and returns it enriched.|
+| **delete-entity** | Write | Permanently deletes one row. Only working rows and link rows accept a delete — business records never do.|
+| **add-ticket-note** | Write | Adds a note to an existing ticket. Returns the note, read back and enriched.|
 
 ### Datto RMM
 
