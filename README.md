@@ -90,19 +90,22 @@ In the settings panel, select **Extensions** from the left sidebar.
 
 <img width="624" height="417" alt="README16" src="https://github.com/user-attachments/assets/31b067d0-5cfc-4b09-af18-573309bc843a" />
 
-Drag your mcpb files downloaded and drag them into the extensions screen. Follow steps to install the file. 
+Drag your mcpb file downloaded and drag it into the extensions screen. Setup one extension at a time.
 
 <img width="624" height="602" alt="ReadMe17" src="https://github.com/user-attachments/assets/30073d39-d12f-4484-8569-3b1543d8786e" />
 
-Once installed, you will see a pop up asking for your. These are the values we generated in the pre-requisite steps. See Generating_API_Keys for more information on how to get these values. Ensure you are using your correct product keys for this steps of implementation. 
+Once installed, you will see a pop up asking for your secret keys and API codes. These are the values we generated in the pre-requisite steps. See [Generating-API-Keys](GENERATING-API-KEYS.md) for more information on how to get these values. Ensure you are using your correct product keys for this steps of implementation. 
 
 <img width="341" height="404" alt="README18" src="https://github.com/user-attachments/assets/941635eb-6e07-4cb8-a28c-3ef2ee48f928" />
 
-Save and close. 
+Select Save.
+You will see a disclaimer about allowing Claude access to the external extension. Rest assured you can review the codes of the extension package at any time. 
+
+Select the toggle to change is from "disabled" to "enabled".
 
 <img width="624" height="462" alt="README19" src="https://github.com/user-attachments/assets/32a6fa02-2fb0-4a12-abd1-86dc321aa909" />
 
-You should then see the package successfully installed into your Claude environment. 
+You should then see the package successfully installed into your Claude environment, with a list of the tools and skills contained, ready to be used! 
 
 
 ### Step 2: Using the Skills
