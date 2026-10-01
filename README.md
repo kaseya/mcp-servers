@@ -214,18 +214,18 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 | Skill | What It Automates |
 |---|---|
-| autotask-briefing | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
-| autotask-guarded-changes| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
-| morning-pulse | TBD |
-| device-quick-look | TBD |
-| Patch-Posture | TBD |
+| [autotask-briefing](#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
+| [autotask-guarded-changes](#autotask-guarded-changes)| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
+| [morning-pulse](#morning-pulse) | TBD |
+| [device-quick-look](#device-quick-look) | TBD |
+| [patch-posture](#patch-posture) | TBD |
 | search-ITGlue-documents | TBD |
 | update-ITGlue-documents | TBD |
 | create-ITGlue-documents | TBD |
 | Document Summary | TBD |
 
 
-### Autotask Context ([device-onboarding](skills/device-onboarding))
+### Autotask Briefing
 
 **Overview**
 
@@ -266,7 +266,7 @@ This skill assembles the complete picture in one step, pulling everything attach
 /autotask-briefing
 ```
 
-### Autotask Guarded Changes ([device-onboarding](skills/device-onboarding))
+### Autotask Guarded Changes 
 
 **Overview**
 
@@ -310,7 +310,7 @@ This skill governs every change to Autotask through Claude — creating, updatin
 /autotask-guarded-changes
 ```
 
-### Device Quick Look ([device-onboarding](skills/device-onboarding))
+### Device Quick Look 
 
 **Overview**
 
@@ -358,7 +358,7 @@ The output names the verdict in one line, then the look-at-first item with its e
 /device-quick-look
 ```
 
-### Morning Pulse ([device-onboarding](skills/device-onboarding))
+### Morning Pulse 
 
 **Overview**
 Every morning, an MSP operations team has to figure out the same thing before they can do anything else: what broke overnight, which customers are affected, and where to start. Without a structured view of the whole account, that answer comes from scanning alert queues manually — a process that buries the things that matter under old noise, counts long-dead equipment as urgent, and misses failures that auto-resolved before anyone opened the console.
@@ -404,7 +404,7 @@ The output is a plain-language briefing: a one-line verdict, the ranked work pla
 /morning-pulse
 ```
 
-### Patch Posture ([device-onboarding](skills/device-onboarding))
+### Patch Posture 
 
 **Overview**
 Knowing whether your customers are patched is not the same as knowing where you are exposed. A device can show as fully patched on OS updates while its browsers and runtimes are out of date. A device can be fully patched today and still fail its next patch cycle because the Windows component store is corrupted. And on a busy account, the devices that need attention most are not always the ones that appear first in a list.
