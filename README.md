@@ -130,12 +130,22 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 | Tool | Operation | Description |
 |---|---|---|
-| **A** | TBD | TBD |
-| **B** | TBD | TBD |
-| **C** | TBD | TBD |
-| **D** | TBD | TBD |
-| **E** | TBD | TBD |
-| **F** | TBD | TBD |
+| **list_sites** | Read | Retrieve a paginated list of sites in the authenticated Datto RMM tenant. |
+| **get_site** | Read | Retrieve detailed information about a specific site. |
+| **list_devices** | Read | List and search managed devices, with optional site, device-filter, hostname, device-ID, or MAC-address filtering. |
+| **get_device** | Read | Retrieve detailed information about a specific managed device. |
+| **get_device_audit** | Read | Retrieve hardware, storage, network, and operating-system audit information for a device. |
+| **list_device_software** | Read | Retrieve a paginated list of audited software installed on a device. |
+| **list_patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
+| **list_activity_logs** | Read | Retrieve activity history scoped by device, device filter, or account, with time-range filtering and cursor pagination. |
+| **list_device_filters** | Read | Retrieve available default, custom, or site-specific device filters. |
+| **update_device_udfs** | Write | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; requires explicit confirmation to apply them. |
+| **list_components** | Read | Retrieve a paginated catalog of automation components available for execution. |
+| **create_job** | Write / Execute | Execute an automation component on a device and return the created job UID. Previews execution by default; requires explicit confirmation to submit the job. |
+| **get_job_status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
+| **list_alerts** | Read | Retrieve paginated open or resolved monitoring alerts for a device, site, or account. |
+| **get_alert** | Read | Retrieve details of a specific monitoring alert. |
+| **resolve_alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged. |
 
 ### IT Glue
 
