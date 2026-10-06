@@ -35,7 +35,7 @@
 
 ---
   
-## **Device Quick Look** 
+## Device Quick Look
 
 **Overview**
 
@@ -70,7 +70,7 @@ Device Quick Look pulls everything about one device in a single pass — alert h
 ```
 ---
 
-## **Morning Pulse** 
+## Morning Pulse
 
 **Overview**
 Every morning, an MSP operations team has to figure out the same thing before they can do anything else: what broke overnight, which customers are affected, and where to start. Without a structured view of the whole account, that answer comes from scanning alert queues manually — a process that buries the things that matter under old noise, counts long-dead equipment as urgent, and misses failures that auto-resolved before anyone opened the console.
@@ -102,7 +102,7 @@ Morning Pulse reads the entire account and delivers a ranked work plan in under 
 ```
 ---
 
-## **Patch Posture** 
+## Patch Posture
 
 **Overview**
 Knowing whether your customers are patched is not the same as knowing where you are exposed. A device can show as fully patched on OS updates while its browsers and runtimes are out of date. A device can be fully patched today and still fail its next patch cycle because the Windows component store is corrupted. And on a busy account, the devices that need attention most are not always the ones that appear first in a list.
@@ -133,7 +133,7 @@ Patch Posture reads patch status across one or more sites and produces a ranked 
 ```
 ---
 
-## **Security Coverage Gaps** 
+## Security Coverage Gaps
 
 **Overview**
 
@@ -158,7 +158,7 @@ When
 ```
 ---
   
-## **OS Lifecycle** 
+## OS Lifecycle 
 
 **Overview**
 
@@ -183,7 +183,7 @@ When
 ```
 ---
 
-## **Software Finder** 
+## Software Finder
 
 **Overview**
 
@@ -210,7 +210,7 @@ When
 ```
 ---
 
-## **Stale and Ghost Devices** 
+## Stale and Ghost Devices
 
 **Overview**
 
@@ -235,7 +235,7 @@ When
 ```
 ---
 
-## **Alert Noise Review** 
+## Alert Noise Review
 
 **Overview**
 
@@ -260,7 +260,7 @@ When
 ```
 ---
 
-## **Device Timeline** 
+## Device Timeline 
 
 **Overview**
 
