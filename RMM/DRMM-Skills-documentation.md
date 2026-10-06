@@ -1,4 +1,40 @@
 # **DRMM Skills**
+
+## Good to know
+
+- **Read-only.** None of the nine skills runs jobs, resolves alerts or edits devices.
+- **Offline devices** are reported apart, as "last known".
+- **Large accounts:** skills read in pages and say exactly how much they covered; narrow to
+  sites for faster runs.
+- **Limits** — each skill's known gaps are listed in its readme (`/drmm-<skill> readme`).
+- **Type "/" and start typing "drmm"** in the message box — all nine skills appear in the list.
+  Pick one, then add settings after it: `/drmm-patch-posture sites "Northwind Legal"`.
+  Put quotes around names with spaces.
+- **`/drmm-skill-name readme` opens the full readme** for that skill, e.g. `/drmm-patch-posture readme`:
+  every parameter, what it reads, its output and known limits. Nothing is read from your account
+  in readme mode.
+- **Or just ask.** "What broke overnight?" or "Is NWL-APP01 healthy?" — Claude picks the right
+  skill on its own.
+- **Add `html`** to any run to get the same report as a styled page.
+- Each run opens with a short start-up note (version, expected wait). Larger accounts take a few
+  minutes; permission prompts during a run are for read-only tools.
+
+## Which skill for which question
+
+| You want to know… | Use |
+|---|---|
+| What is wrong with one device | [drmm-device-quick-look](#device-quick-look) |
+| Where to start today | [drmm-morning-pulse](#morning-pulse) |
+| Patch gaps and failures | [drmm-patch-posture](#patch-posture) |
+| Unprotected endpoints | [drmm-security-coverage-gaps](#security-coverage-gaps) |
+| Old or unsupported operating systems | [drmm-os-lifecycle](#os-lifecycle) |
+| Who has an app, and is it current | [drmm-software-finder](#software-finder) |
+| Dead and duplicate device records | [drmm-stale-and-ghost-devices](#stale-and-ghost-devices) |
+| Which alerts to tune | [drmm-alert-noise-review](#alert-noise-review) |
+| What changed before a device broke | [drmm-device-timeline](#device-timeline) |
+
+---
+  
 ## **Device Quick Look** 
 
 **Overview**
@@ -28,12 +64,9 @@ Device Quick Look pulls everything about one device in a single pass — alert h
 
 **How to Invoke**
 ```
-"Quick look at SERVER-01"
-"What's going on with DESKTOP-ABC123?"
-"Why did this device alert?"
-"Is LAPTOP-XYZ healthy?"
-"Deep dive on the device at Acme Corp named FILESERVER-02"
-/drmm-device-quick-look
+/drmm-device-quick-look NWL-APP01
+/drmm-device-quick-look 0A:34:12:5A:16:2F -- by MAC address
+"Why does NWL-APP01 keep alerting?"
 ```
 ---
 
@@ -63,11 +96,9 @@ Morning Pulse reads the entire account and delivers a ranked work plan in under 
 
 **How to Invoke**
 ```
-"Morning briefing"
-"What broke overnight?"
-"Where should the team start today?"
-"Which customers are worst affected right now?"
-/drmm-morning-pulse
+/drmm-morning-pulse -- the whole account
+/drmm-morning-pulse hours 4 technicians 2 -- a 4-hour plan for 2 technicians
+/drmm-morning-pulse for "Northwind Legal" html -- one customer, as a page
 ```
 ---
 
@@ -96,9 +127,160 @@ Patch Posture reads patch status across one or more sites and produces a ranked 
 
 **How to Invoke**
 ```
-"Patch posture for Acme Corp"
-"Are all devices at Contoso patched?"
-"Which sites have missing or failed patches?"
-"Show me patch compliance for Site A and Site B"
-/drmm-patch-posture
+/drmm-patch-posture — the whole account
+/drmm-patch-posture sites "Northwind Legal", "Hillford Freight"`
+/drmm-patch-posture servers only
 ```
+---
+
+## **Security Coverage Gaps** 
+
+**Overview**
+
+When 
+
+**Read-only** — Security Coverage Gaps never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-security-coverage-gaps
+/drmm-security-coverage-gaps sites "Northwind Legal"
+/drmm-security-coverage-gaps edr_required false
+```
+---
+  
+## **OS Lifecycle** 
+
+**Overview**
+
+When 
+
+**Read-only** — OS lifecycle never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-os-lifecycle` — the whole account, 12 months ahead
+/drmm-os-lifecycle horizon_months 6
+/drmm-os-lifecycle sites "Northwind Legal" html
+```
+---
+
+## **Software Finder** 
+
+**Overview**
+
+When 
+
+**Read-only** — Software Finder never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-software-finder "Google Chrome"
+/drmm-software-finder "Google Chrome" version < 122
+/drmm-software-finder category browser
+/drmm-software-finder shadow-it
+"Are our browsers up to date at Northwind Legal?"
+```
+---
+
+## **Stale and Ghost Devices** 
+
+**Overview**
+
+When 
+
+**Read-only** — Stale and Ghost Devices never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-stale-and-ghost-devices
+/drmm-stale-and-ghost-devices stale_days 60 remove_days 180
+/drmm-stale-and-ghost-devices seat_price 3 currency EUR —- adds a monthly amount
+```
+---
+
+## **Alert Noise Review** 
+
+**Overview**
+
+When 
+
+**Read-only** — Alert Noise Review never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-alert-noise-review
+/drmm-alert-noise-review days 14
+/drmm-alert-noise-review sites "Northwind Legal" min_events 10
+```
+---
+
+## **Device Timeline** 
+
+**Overview**
+
+When 
+
+**Read-only** — Device Timeline never remediates, moves, or modifies a device. This is a read-only skill. 
+
+  *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
+
+**Benefits**
+- TBD
+- TBD
+
+**What to Expect**
+1. 
+
+**How to Invoke**
+```
+/drmm-device-timeline NWL-APP01
+/drmm-device-timeline NWL-APP01 anchor "1 Oct 12:08" -- measure from a known moment
+"What changed on NWL-APP01 before it rebooted?"
+```
+---
