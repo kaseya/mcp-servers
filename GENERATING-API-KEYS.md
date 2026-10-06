@@ -150,20 +150,11 @@ For additional information on creating API keys in IT Glue, see:
   Claude configuration file, and restart Claude Desktop. The old key stops working 
   the moment a new one is generated.
 
-- **If your MCP servers show as disconnected in Claude**, refer to the 
-  [troubleshooting table in the README](README.md#14-troubleshooting-your-mcp-server-connection) 
-  for a full list of symptoms, likely causes, and fixes. The most common cause is an 
-  expired or rotated key.
-
 ---
 
-## Next Step: Add Your Keys to Claude
+## Next Step: Use your keys to configure MCP connections in Claude
 
-Now that you have all three sets of credentials, return to the README and follow 
-**[Step 1.2 — Edit the Config File](README.md#12-edit-the-config-file)** to paste your 
-keys into Claude's configuration file. Once that's complete, 
-**[Step 1.3](README.md#13-fully-restart-claude-desktop)** will walk you through 
-restarting Claude Desktop so the connections take effect.
+Now that you have all three sets of credentials, return to the [README](README.md#getting-started) and follow **Step 1: Connecting your MCP servers.**
 
 ---
 
