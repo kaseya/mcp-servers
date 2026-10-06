@@ -89,8 +89,6 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 5. Download the Autotask-Skills-Zip files. Navigate to **skills** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
 
 **Option 2: MCPB Bundle in Claude Code (CLI)**
-1. Follow steps above to upload the mcpb files into Claude.
-2. Run the following commands:
 
 **RMM**
 
@@ -99,13 +97,28 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 ```
 
 **Autotask**
-```bash
-"autotask": {
-  "type": "http",
-  "url": "https://<mcp-host>/mcp",
-  "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\autotask-auth.ps1\" headers -Profile default"
-}
-```
+1. Store your Autotask API credentials by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
+   ```powershell
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\autotask-auth.ps1 configure
+   ```
+   `configure` does the following:
+   - Prompts for the Autotask MCP endpoint, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
+   - Prompts for the Autotask API username, secret, and integration code. The secret and integration code are hidden as you type.
+   - Stores the credentials encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\AutotaskMcp`.
+2. Add the base HTTP entry:
+   ```powershell
+   claude mcp add --transport http --scope user autotask https://<mcp-host>/mcp
+   ```
+3. Open `%USERPROFILE%\.claude.json`, find the `"autotask"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. Copy the `headersHelper` value from the entry that `configure` printed in step 1. The path in it is the absolute path to `autotask-auth.ps1` on this machine, with each backslash doubled for JSON. The entry has this shape:
+   ```json
+   "autotask": {
+     "type": "http",
+     "url": "https://<mcp-host>/mcp",
+     "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\autotask-auth.ps1\" headers -Profile default"
+   }
+   ```
+4. Run `claude mcp get autotask`. The output shows the entry and its scope.
+
 ---
 
 ## Supported Clients
