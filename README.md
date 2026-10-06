@@ -69,7 +69,9 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 > 1. Read and access the Content in your Kaseya product platform; and
 > 2. Create and update the Content in your Kaseya product platform.
 >    
-> **Such Content will be accessible to the AI service exactly as stored in the Kaseya Product platform. Content may include sensitive information such as usernames, passwords or other confidential data.** 
+> **Such Content will be accessible to the AI service exactly as stored in the Kaseya Product platform. Content may include sensitive information such as usernames, passwords or other confidential data.**
+>
+> AI services are Third Party Technology under the Kaseya Master Agreement, which is accessible [here.](https://www.kaseya.com/legal/kaseya-master-agreement/)
 
 ---
 
