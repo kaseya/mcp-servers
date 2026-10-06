@@ -1,4 +1,4 @@
-# **RMM Skills**
+# **DRMM Skills**
 ## **Device Quick Look** 
 
 **Overview**
@@ -33,7 +33,7 @@ Device Quick Look pulls everything about one device in a single pass — alert h
 "Why did this device alert?"
 "Is LAPTOP-XYZ healthy?"
 "Deep dive on the device at Acme Corp named FILESERVER-02"
-/device-quick-look
+/drmm-device-quick-look
 ```
 ---
 
@@ -67,7 +67,7 @@ Morning Pulse reads the entire account and delivers a ranked work plan in under 
 "What broke overnight?"
 "Where should the team start today?"
 "Which customers are worst affected right now?"
-/morning-pulse
+/drmm-morning-pulse
 ```
 ---
 
@@ -100,5 +100,5 @@ Patch Posture reads patch status across one or more sites and produces a ranked 
 "Are all devices at Contoso patched?"
 "Which sites have missing or failed patches?"
 "Show me patch compliance for Site A and Site B"
-/patch-posture
+/drmm-patch-posture
 ```
