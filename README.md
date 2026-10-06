@@ -38,11 +38,12 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [DRMM Skills Page](DRMM-Skills.md)
-6. [Autotask Skills Page](Autotask-Skills.md)
-7. [Security](SECURITY.md)
-8. [Code of Conduct](CODE_OF_CONDUCT.md)
-9. [Disclaimer](#disclaimer)
+5. [Disclaimer](#disclaimer)
+6. [RMM Resources](RMM/)
+7. [Autotask Resources](AUTOTASK/)
+8. [ITGlue Resources](ITGLUE/)
+9. [Security](SECURITY.md)
+10. [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ---
 
@@ -86,7 +87,7 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 2. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
 3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
 4. Enable the extension. Repeat for each product you wish to connect.
-5. Download the Autotask-Skills-Zip files. Navigate to **skills** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
+5. Download the Skills-Zip files from each product folder in this repo whose MCP servers you connected to. Navigate to **skills** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
 
 **Option 2: MCPB Bundle in Claude Code (CLI)**
 
