@@ -138,12 +138,22 @@ To see a full list of all available Autotask tools, see [Autotask Skills Page](A
 
 | Tool | Operation | Description |
 |---|---|---|
-| **A** | TBD | TBD |
-| **B** | TBD | TBD |
-| **C** | TBD | TBD |
-| **D** | TBD | TBD |
-| **E** | TBD | TBD |
-| **F** | TBD | TBD |
+| **list-sites** | Read | Retrieve a paginated list of sites in the authenticated Datto RMM tenant. |
+| **get-site** | Read | Retrieve detailed information about a specific site. |
+| **list-devices** | Read | List and search managed devices, with optional site, device-filter, hostname, device-ID, or MAC-address filtering. |
+| **get-device** | Read | Retrieve detailed information about a specific managed device. |
+| **get-device-audit** | Read | Retrieve hardware, storage, network, and operating-system audit information for a device. |
+| **list-device-software** | Read | Retrieve a paginated list of audited software installed on a device. |
+| **list-patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
+| **list_activity_logs** | Read | Retrieve activity history scoped by device, device filter, or account, with time-range filtering and cursor pagination. |
+| **list_device_filters** | Read | Retrieve available default, custom, or site-specific device filters. |
+| **update-device-udfs** | Read | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; requires explicit confirmation to apply them. |
+| **list-device-software** | Read | Retrieve a paginated catalog of automation components available for execution. |
+| **create-job** | Write / Execute | Execute an automation component on a device and return the created job UID. Previews execution by default; requires explicit confirmation to submit the job. |
+| **get-job-status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
+| **list-alerts** | Read | Retrieve paginated open or resolved monitoring alerts for a device, site, or account. |
+| **get-alert** | Read | Retrieve details of a specific monitoring alert. |
+| **resolve-alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged.
 
 To see a full list of all available Datto RMM tools, see [DRMM Skills Page](DRMM-Skills.md)
 
@@ -175,15 +185,17 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 | Skill | What It Automates |
 |---|---|
-| [autotask-briefing](Autotask-Skills.md#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
-| [autotask-guarded-changes](Autotask-Skills.md#autotask-guarded-changes)| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
-| [drmm-morning-pulse](DRMM-Skills.md#drmm-morning-pulse) | TBD |
-| [drmm-device-quick-look](DRMM-SKills.md#drmm-device-quick-look) | TBD |
-| [drmm-patch-posture](DRMM-Skills.md#drmm-patch-posture) | TBD |
-| search-ITGlue-documents | TBD |
-| update-ITGlue-documents | TBD |
-| create-ITGlue-documents | TBD |
-| Document Summary | TBD |
+| [autotask-briefing](Autotask-Skills.md#autotask-briefing) | **Answers: ?** Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
+| [autotask-guarded-changes](Autotask-Skills.md#autotask-guarded-changes)| **Answers: ?** Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
+| [drmm-morning-pulse](DRMM-Skills.md#drmm-morning-pulse) | **Answers: What should the team spend its first hours on today?** Reads devices, open alerts, overnight resolved alerts and the overnight activity log; separates new overnight drops from long-dead gear, spots servers about to fail, and gives a plan ranked by customer impact. |
+| [drmm-device-quick-look](DRMM-SKills.md#drmm-device-quick-look) | **Answers: What is wrong with this device, and what should I look at first?** Finds the device by hostname, part of a name, MAC or ID; reads its record, hardware, alerts, patches, software and recent activity; trends disk space and groups repeating alerts. |
+| [drmm-patch-posture](DRMM-Skills.md#drmm-patch-posture) | **Answers: Where are we exposed on patching, and which devices do we fix first?** Reads patch status across servers and workstations, names failing and pending updates, and flags conditions that will break the next patch cycle (disk full, servicing errors). |
+|[drmm-stale-and-ghost-devices](DRMM-Skills.md#drmm-stale-and-ghost-devices)|**Answers: Which device records no longer stand for a real machine, and what do we do with each?** Finds long-offline devices, ghosts (re-imaged or renamed machines left behind, duplicate enrolments), suspended agents and sites holding only dead records — with an estimate of the seats involved.|
+|[drmm-security-coverage-gaps](DRMM-Skills.md#drmm-security-coverage-gaps)|**Answers: Which endpoints are not protected right now, and which do we fix first?** Vendor-neutral: checks antivirus presence, running state and updates, finds EDR/MDR agents through device filters, and flags conflicting products. Per-site figures you can hand to a customer or an insurance questionnaire. |
+|[drmm-device-timeline](DRMM-Skills.md#drmm-device-timeline)|**Answers: What happened to this device, in order, before the problem — and was it us?** Builds one timeline from the activity log (jobs, patches, remote sessions, changes) and alerts, marks what happened just before the problem, and states timing, never blame. Suggests which Windows event-log entries a technician should check.|
+|[drmm-alert-noise-review](DRMM-Skills.md#drmm-alert-noise-review)|**Answers: Which alerts cost attention without telling us anything, and what do we change?** Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear) and recommends a specific tuning step — while protecting alerts that are noisy but real.|
+|[drmm-software-finder](DRMM-Skills.md#drmm-software-finder)| **Answers: Who has this software installed, which versions, and is any of it a problem?** Groups devices by version and site, rates versions current, behind or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category.
+|[drmm-od-lifecycle](DRMM-Skills.md#drmm-software-finder)| **Answers: Which devices run an OS that is out of support, or soon will be — and what first?** Checks every device's OS and build against end-of-life dates looked up live (Windows, Windows Server, macOS, common Linux, ESXi); marks paid extended updates where possible; servers first.|
 
 ---
 
