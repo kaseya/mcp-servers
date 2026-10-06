@@ -62,8 +62,13 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and integration code](GENERATING-API-KEYS.md#autotask) |
 
-> [!TIP]
-> **Do not share keys and use minimally scoped permissions for each use case and user.**
+> [!IMPORTANT]
+> Your use of any MCP server is governed by the Kaseya API License, which is accessible [here.](https://www.kaseya.com/legal/kaseya-api-license/)
+> **Do not share keys and use minimally scoped permissions for each use case and user. Be aware** that once connected, the AI services will be able to:
+> 1. Read and access the Content in your Kaseya product platform; and
+> 2. Create and update the Content in your Kaseya product platform.
+>    
+> **Such Content will be accessible to the AI service exactly as stored in the Kaseya Product platform. Content may include sensitive information such as usernames, passwords or other confidential data.** 
 
 ---
 
