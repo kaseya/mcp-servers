@@ -1,0 +1,9 @@
+# The package ships the manifest and the bundle alone, so everything else is left out: every entry is
+# ignored, and the three files that ship are let back in. The build does not empty dist/, so a file left
+# there by an earlier build stays out as well.
+/*
+!/manifest.json
+!/dist
+/dist/*
+!/dist/relay.cjs
+!/dist/THIRD_PARTY_NOTICES.txt
