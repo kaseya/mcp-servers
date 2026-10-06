@@ -68,17 +68,33 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 ---
 
 #### Step 2: Connecting to MCP Servers (Claude Desktop and Claude Code)
- 
+
+**Option 1: MCPB Bundle in Claude Desktop**
 1. Download MCPB Bundle for each server you wish to connect to, and associated product skills zip file.
 
     | Product | Files | Link |
     |---|---|---|
-    | Autotask | autotask-mcp.mcpb | [Autotask Folder](AUTOTASK) |
-    | Datto RMM | drmm-mcp.mcpb | [Datto RMM Folder](RMM) |
+    | Autotask | autotask-mcp.mcpb, autotask-skills-20261006 | [Autotask Folder](AUTOTASK) |
+    | Datto RMM | drmm-mcp.mcpb, | [Datto RMM Folder](RMM) |
+    | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
 
-2. Open Claude and navigate to extensions in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
-3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
-4. Enable the extension.
+3. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
+4. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
+5. Enable the extension. Repeat for each product you wish to connect.
+
+**MCPB Bundle For Claude Code (CLI)**
+1. Run the following command:
+
+```bash
+claude mcp add autotask-mcp \
+  -e AUTOTASK_USERNAME=your-user@company.com \
+  -e AUTOTASK_SECRET=your-secret \
+  -e AUTOTASK_INTEGRATION_CODE=your-code \
+```
+
+#### Step 3: Install skills (Claude Desktop)
+1. Open Claude settings and navigate to **skills** in the left sidebar. Drag the downloaded zip files into Claude Desktop and select "upload".
+
 ---
 
 ## Supported Clients
@@ -132,8 +148,6 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **delete-entity** | Write | Permanently deletes one row. Only working rows and link rows accept a delete — business records never do.|
 | **add-ticket-note** | Write | Adds a note to an existing ticket. Returns the note, read back and enriched.|
 
-To see a full list of all available Autotask tools, see [Autotask Skills Page](AUTOTASK/Autotask-Skills-documentation.md)
-
 ### Datto RMM
 
 | Tool | Operation | Description |
@@ -155,9 +169,7 @@ To see a full list of all available Autotask tools, see [Autotask Skills Page](A
 | **get-alert** | Read | Retrieve details of a specific monitoring alert. |
 | **resolve-alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged.
 
-To see a full list of all available Datto RMM tools, see [DRMM Skills Page](RMM/DRMM-Skills-documentation.md)
-
-### IT Glue
+### IT Glue -- REMOVE FOR ALPHA
 
 | Tool | Operation | Description |
 |---|---|---|
@@ -176,8 +188,6 @@ To see a full list of all available Datto RMM tools, see [DRMM Skills Page](RMM/
 | **update_document_secret** | Write | TBD |
 | **create_document_image** | Write | TBD |
 | **create_attachment** | Write | TBD |
-
-To see a full list of all available ITGlue tools, see 
 
 ## Skills
 
