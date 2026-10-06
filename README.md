@@ -72,7 +72,7 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 ---
 
-#### Step 2: Connecting to MCP Servers (Claude Desktop and Claude Code)
+#### Step 2: Connecting to MCP Servers and Installing Skills (Claude Desktop and Claude Code)
 
 **Option 1: MCPB Bundle in Claude Desktop**
 1. Download MCPB Bundle for each server you wish to connect to, and associated product skills zip file.
@@ -83,23 +83,29 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
     | Datto RMM | drmm-mcp.mcpb, | [Datto RMM Folder](RMM) |
     | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
 
-3. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
-4. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
-5. Enable the extension. Repeat for each product you wish to connect.
+2. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
+3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
+4. Enable the extension. Repeat for each product you wish to connect.
+5. Download the Autotask-Skills-Zip files. Navigate to **skills** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
 
-**MCPB Bundle For Claude Code (CLI)**
-1. Run the following command:
+**Option 2: MCPB Bundle in Claude Code (CLI)**
+1. Follow steps above to upload the mcpb files into Claude.
+2. Run the following commands:
+
+**RMM**
 
 ```bash
-claude mcp add autotask-mcp \
-  -e AUTOTASK_USERNAME=your-user@company.com \
-  -e AUTOTASK_SECRET=your-secret \
-  -e AUTOTASK_INTEGRATION_CODE=your-code \
+   claude mcp add --transport http datto-rmm https://mcp.<platform>.rmm.datto.com/mcp --header "x-drmm-api-key: <API Key>" --header "x-drmm-api-secret: <API Secret>"
 ```
 
-#### Step 3: Install skills (Claude Desktop)
-1. Open Claude settings and navigate to **skills** in the left sidebar. Drag the downloaded zip files into Claude Desktop and select "upload".
-
+**Autotask**
+```bash
+"autotask": {
+  "type": "http",
+  "url": "https://<mcp-host>/mcp",
+  "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\autotask-auth.ps1\" headers -Profile default"
+}
+```
 ---
 
 ## Supported Clients
