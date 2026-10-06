@@ -1,9 +1,9 @@
 # Kaseya MCP Readme
 
-**The official Kaseya Model Context Protocol (MCP) servers, tools, skills and other automation scripts library, for Kaseya community of MSP and IT operation builders.**
+**The official Kaseya Model Context Protocol (MCP) servers, tools, and skills for Kaseya community of MSP and IT operation builders.**
 
 ## Overview
-This repo provides MCP servers for Kaseya products for Claude Code and Claude Desktop. It also provides skills and other autmoation libraries Kaseya users can try and contribute to. 
+This repo provides MCP servers for Kaseya products for Claude Code and Claude Desktop. It also provides skills and other automation libraries Kaseya users can try and contribute to. 
 
 Here is where patterns get proven, guardrails get built, and collective expertise becomes available to every member who needs it.
 
@@ -38,7 +38,7 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [RMM Skills Page](RMM-Skills.md)
+5. [DRMM Skills Page](DRMM-Skills.md)
 6. [Autotask Skills Page](Autotask-Skills.md)
 7. [Security](SECURITY.md)
 8. [Code of Conduct](CODE_OF_CONDUCT.md)
@@ -67,10 +67,16 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 ---
 
-### Step 2: Connecting to MCP Servers 
-#### Option 1: MCPB Bundle (Claude Desktop and Claude Code)
-1. Download autotask-mcp.mcpb , xxx, xxx  from this repo.
-2. Open Claude and navigate to extensions in the left sidebar. Drag the mcpb file into Claude Desktop/Code).
+#### Step 2: Connecting to MCP Servers (Claude Desktop and Claude Code)
+ 
+1. Download MCPB Bundle for each server you wish to connect to, and associated product skills zip file.
+
+    | Product | Files | Link |
+    |---|---|---|
+    | Autotask | autotask-mcp.mcpb | [Autotask Folder](AUTOTASK) |
+    | Datto RMM | drmm-mcp.mcpb | [Datto RMM Folder](RMM) |
+
+2. Open Claude and navigate to extensions in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
 3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
 4. Enable the extension.
 ---
@@ -96,7 +102,7 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 ## Example Tools & Skills
 
-Skills in the Kaseya community come in three levels of complexity, and they work together.
+Skills in the Kaseya community come in two levels of complexity, and they work together.
 
 - **Tools** do one specific thing — read a ticket, check if a device is online, post a note, run a script. Simple, fast, and useful on their own.
 
@@ -126,6 +132,8 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **delete-entity** | Write | Permanently deletes one row. Only working rows and link rows accept a delete — business records never do.|
 | **add-ticket-note** | Write | Adds a note to an existing ticket. Returns the note, read back and enriched.|
 
+To see a full list of all available Autotask tools, see [Autotask Skills Page](Autotask-Skills.md)
+
 ### Datto RMM
 
 | Tool | Operation | Description |
@@ -136,6 +144,8 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **D** | TBD | TBD |
 | **E** | TBD | TBD |
 | **F** | TBD | TBD |
+
+To see a full list of all available Datto RMM tools, see [DRMM Skills Page](DRMM-Skills.md)
 
 ### IT Glue
 
@@ -156,7 +166,8 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 | **update_document_secret** | Write | TBD |
 | **create_document_image** | Write | TBD |
 | **create_attachment** | Write | TBD |
----
+
+To see a full list of all available ITGlue tools, see 
 
 ## Skills
 
@@ -166,9 +177,9 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 |---|---|
 | [autotask-briefing](Autotask-Skills.md#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
 | [autotask-guarded-changes](Autotask-Skills.md#autotask-guarded-changes)| Controls every change to Autotask data. Reads the record first, proposes the change for the user to confirm, then sends each write once and reports what Autotask holds after. |
-| [morning-pulse](RMM-Skills.md#morning-pulse) | TBD |
-| [device-quick-look](RMM-SKills.md#device-quick-look) | TBD |
-| [patch-posture](RMM-Skills.md#patch-posture) | TBD |
+| [drmm-morning-pulse](DRMM-Skills.md#drmm-morning-pulse) | TBD |
+| [drmm-device-quick-look](DRMM-SKills.md#drmm-device-quick-look) | TBD |
+| [drmm-patch-posture](DRMM-Skills.md#drmm-patch-posture) | TBD |
 | search-ITGlue-documents | TBD |
 | update-ITGlue-documents | TBD |
 | create-ITGlue-documents | TBD |
@@ -180,5 +191,6 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 
 This repository is a community resource. Skills and scripts are provided as-is. Always confirm what a skill will do before authorising execution — especially for steps that delete data, modify records, or affect production devices.
 
-API credentials grant access to your live Kaseya environment. Keep them secure, rotate them regularly, and revoke any key you believe has been compromised.
+**API credentials grant access to your live Kaseya environment. Keep them secure, rotate them regularly, and revoke any key you believe has been compromised.**
+
 ---
