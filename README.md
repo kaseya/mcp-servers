@@ -13,7 +13,6 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 - **MCP servers** - integrations with tools like Datto RMM, Autotask, and IT Glue
 - **Skills** - reusable Claude Code skills for IT ops workflows
 
-
 ---
 ### Who This Is For
 
@@ -27,7 +26,7 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 
 | Channel | Link |
 |---|---|
-| Discord | You will receive a discord link during kickoff |
+| Discord | You will receive a discord link a few days prior to kickoff |
 | Office Hours | Daily - see Discord for schedule |
 | Community Calls | Bi-weekly — see Discord for schedule |
 
@@ -48,9 +47,10 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 ---
 
 ## Getting Started
-1. Browse the repo for skills, MCPs, and runbooks relevant to your stack.
-2. Learn how to contribute to this community — see [Contributing](CONTRIBUTING.md).
+1. **Browse the repo** for tools, skills, and MCP Servers relevant to your stack.
+2. **Try Something** - break it, learn from it, and share what you found.
 3. Follow the steps below to set up your MCP servers and install skills into Claude.
+4. Join the conversation
 
 ### Setup: Connecting to MCP Servers & Skills
 
@@ -233,3 +233,14 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 |DRMM |[drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)| Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear) and recommends a specific tuning step — while protecting alerts that are noisy but real.|
 |DRMM |[drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)| Groups devices by version and site, rates versions current, behind or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category.
 |DRMM |[drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)| Checks every device's OS and build against end-of-life dates looked up live (Windows, Windows Server, macOS, common Linux, ESXi); marks paid extended updates where possible; servers first.|
+
+## Legal Documents 
+
+The Kaseya Insights Community operates under a set of governing documents. All Participants are expected to read and comply with the documents applicable to their activities.
+
+| Doc | Purpose |
+|[License](LICENSE.md)|Apache License, Version 2.0. Governs all Contributions to the community.|
+|[Code of Conduct](CODE_OF_CONDUCT.md)|Community standards and enforcement policy. Applies to all community spaces and Participants.|
+|[Governance Policy](GOVERNANCE.md)|Community structure and roles.|
+|[Security Policy](SECURITY.md)|How to report security vulnerabilities privately. Please do not post vulnerability reports in public Issues or forums.|
+|[Disclaimers](DISCLAIMERS.md)|Consolidated disclaimers and claim waivers applicable to all community activities and Participants.|
