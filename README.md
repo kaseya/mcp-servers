@@ -38,7 +38,7 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Disclaimer](#disclaimer)
+5. [Disclaimer](#disclaimers-and-claim-waivers)
 6. [RMM Resources](RMM/)
 7. [Autotask Resources](AUTOTASK/)
 8. [ITGlue Resources](ITGLUE/)
@@ -233,13 +233,3 @@ Kaseya has developed nine skills for Claude Desktop that automate Datto RMM, IT 
 |DRMM |[drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)| Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear) and recommends a specific tuning step — while protecting alerts that are noisy but real.|
 |DRMM |[drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)| Groups devices by version and site, rates versions current, behind or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category.
 |DRMM |[drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)| Checks every device's OS and build against end-of-life dates looked up live (Windows, Windows Server, macOS, common Linux, ESXi); marks paid extended updates where possible; servers first.|
-
----
-
-## Disclaimer
-
-This repository is a community resource. Skills and scripts are provided as-is. Always confirm what a skill will do before authorising execution — especially for steps that delete data, modify records, or affect production devices.
-
-**API credentials grant access to your live Kaseya environment. Keep them secure, rotate them regularly, and revoke any key you believe has been compromised.**
-
----
