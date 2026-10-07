@@ -37,12 +37,13 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Disclaimer](#disclaimers-and-claim-waivers)
+5. [Disclaimer](Governance/DISCLAIMERS.md#disclaimers-and-claim-waivers)
 6. [RMM Resources](RMM/)
 7. [Autotask Resources](AUTOTASK/)
 8. [ITGlue Resources](ITGLUE/)
-9. [Security](SECURITY.md)
-10. [Code of Conduct](CODE_OF_CONDUCT.md)
+9. [Security](Governance/SECURITY.md)
+10. [Code of Conduct](Governance/CODE_OF_CONDUCT.md)
+11. [Governance Policy](Governance/GOVERNANCE.md)
 
 ---
 
@@ -50,7 +51,6 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 1. **Browse the repo** for tools, skills, and MCP Servers relevant to your stack.
 2. **Try Something** - break it, learn from it, and share what you found.
 3. Follow the steps below to set up your MCP servers and install skills into Claude.
-4. Join the conversation
 
 ### Setup: Connecting to MCP Servers & Skills
 
@@ -87,9 +87,10 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
     | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
 
 2. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
+       If you experience any issues with dragging and dropping your files, you can also select **advanced settings** and **install extension**. This will prompt a browser window for you to select the file.
 3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
 4. Enable the extension. Repeat for each product you wish to connect.
-5. Download the Skills-Zip files from each product folder in this repo whose MCP servers you connected to. Navigate to **skills** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
+5. Download the Skills-plugin-zip file from each product folder in this repo whose MCP servers you connected to. Navigate to **plugins** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
 
 **Option 2: MCPB Bundle in Claude Code (CLI)**
 
