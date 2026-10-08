@@ -37,10 +37,10 @@ Here is where patterns get proven, guardrails get built, and collective expertis
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [Disclaimer](Governance/DISCLAIMERS.md#disclaimers-and-claim-waivers)
-6. [RMM Resources](RMM/)
-7. [Autotask Resources](AUTOTASK/)
-8. [ITGlue Resources](ITGLUE/)
+5. [RMM Resources](RMM/)
+6. [Autotask Resources](AUTOTASK/)
+7. [ITGlue Resources](ITGLUE/)
+8. [Disclaimer](Governance/DISCLAIMERS.md#disclaimers-and-claim-waivers)
 9. [Security](Governance/SECURITY.md)
 10. [Code of Conduct](Governance/CODE_OF_CONDUCT.md)
 11. [Governance Policy](Governance/GOVERNANCE.md)
@@ -61,7 +61,7 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 |---|---|---|
 | **Datto RMM** | API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
-| **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and integration code](GENERATING-API-KEYS.md#autotask) |
+| **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
 > Your use of any MCP server is governed by the Kaseya API License, which is accessible [here.](https://www.kaseya.com/legal/kaseya-api-license/)
