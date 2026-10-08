@@ -44,15 +44,14 @@ paste them into Claude's configuration file to complete the connection.
 
   <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
 
-6. In the **API Tracking Identifier** section, select **Custom (Internal Integration)** and 
-   enter a recognizable name — for example, *Claude MCP*, and save the **Tracking Identifier.** This is what you will input for integration code value.
+6. In the **API Tracking Identifier** section, keep the Integration Vendor option selected and search for **Autotask - MCP**. This is what you will input for the **integration code value.**
 
-   <img width="417" height="473" alt="README Add api user in autotask" src="https://github.com/user-attachments/assets/cc8a52ba-af43-4afb-8e15-58f5dbf51c0e" />
+<img width="261" height="92" alt="README20" src="https://github.com/user-attachments/assets/2b617bbc-91af-4599-b0e2-eaefe7f0a0d0" />
 
-8. Unless your business strictly separates work by line of business, leave the **Line of 
+7. Unless your business strictly separates work by line of business, leave the **Line of 
    Business** field blank. Assigning one here can restrict what the API user can see.
 
-9. Click **Save & Close**.
+8. Click **Save & Close**.
 
 Once you have your Autotask key and secret saved, continue to the next product below. 
 When you have all three sets of credentials, return to the README to complete the 
