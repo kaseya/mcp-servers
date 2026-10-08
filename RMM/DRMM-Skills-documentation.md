@@ -1,5 +1,7 @@
 # **DRMM Skills**
 
+Nine ready-made workflows for Claude that read your Datto RMM account and turn it into a short, ranked list of what to do next: which device to look at, which customer needs help first, which records to clean up. 
+
 ## Good to know
 
 - **Read-only.** None of the nine skills runs jobs, resolves alerts or edits devices.
@@ -33,27 +35,28 @@
 | Which alerts to tune | [drmm-alert-noise-review](#alert-noise-review) |
 | What changed before a device broke | [drmm-device-timeline](#device-timeline) |
 
+*Not sure where to start?* Try **Morning Pulse** for a whole-account view, or **Device Quick Look** when you have one device in mind. 
+
 ---
   
 ## Device Quick Look
 
 **Overview**
 
-When an alert fires on a device, a technician needs to know what went wrong and where to start. Getting that answer today usually means piecing it together from several places. Under pressure, steps get skipped.
+When an alert fires on a server or workstation, the first question is "what is actually wrong, and where do I start?" Answering it usually means opening the device record, alerts, patches and software on separate screens. 
 
-Device Quick Look pulls everything about one device in a single pass — alert history, hardware audit, patch status, installed software, antivirus, and UDF field data — then leads with exactly what to look at first. A device with nothing wrong gets a short answer. A device with a problem gets a clear finding, backed by evidence, with the next step named.
+Device Quick Look checks all of that for one device in a single pass and leads with the one thing to look at first, backed by evidence. A healthy device gets a short all-clear, not a spec sheet.
 
 **Read-only** — Device Quick Look never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- Leads with prioritized findings - backed by evidence, not a raw spec sheet
-- Finds the device from a hostname, partial name, MAC address, site name, device UID, or portal URL
-- Catches falling disk space by trending across alert history and the hardware audit, not just the current reading — highlighting a volume that looks borderline today may already be projected to fill within two weeks
-- Groups duplicate and recurring alerts so a device that fired the same alert 40 times shows as one line, not 40 rows
-- Surfaces component results stored in UDF fields — the backup check, encryption status, disk health, and other data that scripts write back to the device after each run — and redacts secrets like product and recovery keys in any output
-- Labels everything on an offline device as last-known, so stale data is never presented as current state
+- Opens with a verdict (red, amber, green or offline) and a single "look at first" item, with the reason
+- Finds the device from a hostname, part of a name, MAC address, device ID or portal link
+- Catches a filling disk early by trending alert history and the hardware audit, so a drive projected to fill within two weeks stands out before it alerts
+- Groups repeated alerts, so one that fired 40 times shows as one line
+- Labels everything on an offline device as last known, and says "not available" instead of guessing when data is missing
 
 **What to Expect**
 
@@ -137,18 +140,26 @@ Patch Posture reads patch status across one or more sites and produces a ranked 
 
 **Overview**
 
-When 
+When a customer, auditor or cyber-insurer asks whether every endpoint is protected, the answer is usually scattered across antivirus consoles, device lists and spreadsheets — and it rarely looks the same for two customers. Gaps hide where nobody checks: a server whose antivirus stopped months ago, or a laptop with no EDR agent.
+
+Security Coverage Gaps checks every server, desktop and laptop on two separate layers — antivirus (installed, running and up to date) and EDR/MDR (a detection agent is present) — and puts the endpoints that need fixing first, servers before workstations. It is vendor-neutral: it judges capability, not brand, so a Datto, Microsoft, CrowdStrike, Sophos or any other product scores the same for the same state.
 
 **Read-only** — Security Coverage Gaps never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+- Keeps antivirus and EDR separate, so you can see which layer is missing instead of one blended score that hides it
+- Finds endpoints with no protection, antivirus that is stopped or out of date, no EDR, or conflicting security products
+- Recognises around 40 security vendors, treats them all the same, and never recommends replacing a product
+- Produces per-site coverage figures you can reuse in a customer review or insurance questionnaire once you have checked them
+- Can also count devices that run none of your own standard products
+- Keeps offline devices apart as last-known, so they never drag a site's percentages down
 
 **What to Expect**
-1. 
+1. **Claude reads your endpoints** - Claude reads the antivirus product and status that Datto RMM records on every server, desktop and laptop, and uses the device filters already in your account to find EDR or MDR agents. Where data is missing, it spot-checks software lists.
+2. **Claude ranks the gaps** - Servers with no running antivirus always come first. "No EDR found" means no evidence in your filters and software lists, not proof that none is installed.
+3. **You receive the report** - A one-line verdict (RED / AMBER / GREEN), a fix-first list, a protection-by-site table, and extras such as conflicts, out-of-date antivirus and the products seen. Firewall, BitLocker and MFA are not checked.
 
 **How to Invoke**
 ```
@@ -162,18 +173,25 @@ When
 
 **Overview**
 
-When 
+Datto RMM records each device's operating system and version, but not whether the vendor still provides security updates for it. Finding out means checking release calendars for every operating system in the fleet, and old servers are easy to forget until an audit or an incident.
+
+OS Lifecycle checks every device against end-of-life dates looked up live at run time, then ranks what to upgrade, replace or retire, servers first. It covers Windows, Windows Server, macOS, common Linux releases and ESXi.
 
 **Read-only** — OS lifecycle never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+- Separates devices that are already out of support from those ending within the next 12 months (adjustable)
+- Marks devices that may still receive paid Extended Security Updates (ESU) and says "ESU status not visible" instead of calling them unprotected, because Datto RMM can't see whether a customer bought ESU
+- Uses end-of-life dates looked up live, never dates from memory — and never sends your device, site or customer data in the lookup
+- Gives a per-site table of current devices, devices out of support and devices ending soon
+- Keeps long-offline devices apart as last-known, so they never raise the verdict
 
 **What to Expect**
-1. 
+1. **Claude reads your device list** - Claude reads each device's operating system and build, then looks up end-of-life dates for each OS family it finds. Web search needs to be on; without it, Claude falls back to a dated snapshot and says so in the report.
+2. **Claude classifies every device** - Each device is marked supported, ending soon or out of support. An OS it can't place is listed as "not on the lifecycle list", never guessed.
+3. **You receive the report** - A one-line verdict (RED / AMBER / GREEN), an action list (upgrade, replace, retire or confirm ESU) with where to start, tables of out-of-support and ending-soon releases, and a by-site summary. It does not check whether a device can run the next Windows version, and phones and tablets are out of scope.
 
 **How to Invoke**
 ```
@@ -187,18 +205,25 @@ When
 
 **Overview**
 
-When 
+"Who has Chrome, and which version?" or "Has anyone installed TeamViewer?" sounds simple, but Datto RMM has no single account-wide software search, so the answer usually means opening devices one by one — and old versions and unapproved tools go unnoticed.
+
+Software Finder answers who has an application installed, which versions are out there and whether any of it is a problem. It can find one product, sweep a whole category (browsers, AI tools, remote-access tools), look for shadow IT, or check whether apps are up to date.
 
 **Read-only** — Software Finder never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+-  Leads with the count and version spread, then names the devices that matter — oldest versions, servers, anything unexpected. A full device list is available on request
+- Category mode covers browsers, AI tools, remote-access tools, other RMMs, personal VPNs, file-sharing and more
+- Shadow-IT mode flags unsanctioned tools, and you can add your own watch list of banned software. Datto's own agent and Splashtop Streamer are never flagged
+- Currency mode rates versions as current, behind or out of support against the vendor's latest release, looked up live
+- Honest about coverage: a sample is labelled as a sample, and "not found" is only said after the whole scope was read
 
 **What to Expect**
-1. 
+1.  **Claude picks the fastest route** - It uses a matching device filter in your account when there is one (quick, with a true total). Otherwise it reads software lists device by device within a limit, and asks which sites to cover first on large accounts.
+2. **Claude matches and groups** - Names and versions are grouped by version and site. Apps installed for a single user (often Zoom, Teams, browsers, remote-access and AI tools) don't appear in Datto RMM's software audit, so they can't be found.
+3. **You receive the report** - A one-line verdict (ACTION / REVIEW / INFO), a what-to-do list, a version table, the devices that matter, and a by-site breakdown. Currency mode and end-of-life checks need web search to be on.
 
 **How to Invoke**
 ```
@@ -214,18 +239,26 @@ When
 
 **Overview**
 
-When 
+Over time every RMM account collects records for machines that no longer exist — retired laptops, PCs that were re-imaged and enrolled again under a new record, suspended agents. They clutter the console, hide real problems and can inflate the agent seats you pay for. The risk in cleaning up is deleting a server that is only switched off for the weekend.
+
+Stale and Ghost Devices puts every old record in one of three buckets — remove, investigate or leave — with the evidence for each, and estimates the agent seats involved.
 
 **Read-only** — Stale and Ghost Devices never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+- Gives an action list, not a dump of offline devices
+- Finds ghosts: a re-imaged or renamed machine matched to its live twin by hardware identity
+- Sets a higher bar for servers — they go to "investigate" first, and are only marked for removal after 180 days offline and a check that nothing on them is still reporting
+- Shows sites that hold only dead records as one line each, not hundreds of rows
+- Estimates the agent seats at stake, and a monthly amount if you give a seat price and currency
+- Includes an early-warning count of devices offline for over a week but not yet stale
 
 **What to Expect**
-1. 
+1.  **Claude counts the account** - It uses your account's built-in filters (offline over a week, offline over 30 days, suspended) to count account-wide quickly, then looks closer at candidates by hostname, MAC address and last-seen date.
+2. **Claude sorts every record** - Each record lands in remove, investigate or leave. By default a workstation offline over 90 days with no live twin can be marked for removal, and so can a duplicate or re-imaged record.
+3. **You receive the report** - A one-line verdict (RED / AMBER / GREEN), a what-to-do list, tables of records to remove and investigate, ghosts, dead sites and the seats at stake. Claude never removes anything: deleting a record is done by a person in the Datto RMM portal, and it is worth confirming the device is not still listed in your PSA or documentation first.
 
 **How to Invoke**
 ```
@@ -239,18 +272,25 @@ When
 
 **Overview**
 
-When 
+When some alerts fire constantly, technicians learn to ignore them — until a real one gets lost among them. Working out which monitors to tune normally means a lot of manual counting, and the risk is silencing something that matters.
+
+Alert Noise Review reads recent alerts (the last 7 days by default), groups them into patterns, measures how each one behaves and recommends a specific tuning change: raise a threshold, add a duration, move a schedule, stop ticket creation, or take a policy off retired gear.
 
 **Read-only** — Alert Noise Review never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+-  Gives a ranked "tune first" list, each item naming the change to make and roughly how many alerts a week it would remove
+- Shows a transparent noise score for every pattern, with the two biggest reasons behind it
+- Protects alerts that are noisy but real: a disk that keeps filling is an unfixed problem, so it gets its own section and is never recommended for silencing
+- Shows ticket burden — tickets opened by alerts that cleared themselves, with an estimate of the hours spent
+- Spots alerts firing on retired gear and alerts that are muted
 
 **What to Expect**
-1. 
+1. **Claude reads recent alerts** - Open and resolved alerts for the account or the sites you choose. A 14 or 30-day window gives better time-of-day evidence but takes longer. On a very busy account only part of the window may be covered, and the report says how much it read.
+2. **Claude groups and scores them** - Alerts are grouped into patterns and measured on volume, how often and how fast they clear, flapping, firing at the same time every day, tickets nobody needed, and alerts on dead devices.
+3. **You receive the report** - A one-line verdict (NOISY / SOME NOISE / CLEAN), the tune-first list, a noisy-but-real section, what else was found, and a by-site table. Claude can't change monitoring policies itself: each recommendation names the monitor and setting for someone to change in Datto RMM.
 
 **How to Invoke**
 ```
@@ -264,18 +304,25 @@ When
 
 **Overview**
 
-When 
+After something breaks, the first question is "what changed, and was it us?" The answer is spread across the Datto RMM activity log and the alert history, and piecing it together under pressure is slow.
+
+Device Timeline builds one time-ordered view for a single device — jobs and components run, patch actions, remote sessions, policy and device changes — mixed with the alerts raised and resolved, then marks what happened just before the problem.
 
 **Read-only** — Device Timeline never remediates, moves, or modifies a device. This is a read-only skill. 
 
   *Ready to get started? This document covers the skill only. For MCP server connection and skill installation instructions, see the [Getting Started](README.md#getting-started) in this README file in this GitHub repository*.
 
 **Benefits**
-- TBD
-- TBD
+- Answers "was it us?" with named evidence — or says "cannot tell"
+- States timing, never blame: "a patch job finished 14 minutes before the first shutdown alert", not "the patch caused the crash"
+- Treats "nothing preceded it" as a valid answer — it points away from RMM activity and toward the customer, hardware or an outside change
+- Suggests which Windows event-log entries a technician should check for reboots, crashes and local installs
+- Never reports a partly unreadable activity log as "nothing happened"
 
 **What to Expect**
-1. 
+1. **Claude finds the device** - It reads the device's activity log and alerts for the window (the last 72 hours by default). You can name the moment the problem started and it measures from there.
+2. **Claude merges and marks** - Everything is put in time order, and events in the 24 hours before that moment are marked. Windows' own event log is not read; Claude only suggests what to check.
+3. **You receive the report** - A one-line answer, a table of what came before the problem, the full timeline (newest first) and counts by category. The activity log isn't available on every account; if it can't be read, the report says so and relies on alerts alone.
 
 **How to Invoke**
 ```
