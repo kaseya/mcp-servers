@@ -12,7 +12,7 @@ if (-not $mcpb) { Fail 'datto-rmm.mcpb not found. Put it in the same folder as t
 if (-not $zip) { Fail 'Datto-RMM-plugin.zip not found. Put it in the same folder as this script.' }
 
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) { Fail 'Node.js is not installed. Install Node.js 22 or newer from https://nodejs.org, then run this again.' }
-if ([int]((node -p 'process.versions.node.split(".")[0]')) -lt 22) { Fail "Node.js $(node -v) is too old. Install Node.js 22 or newer." }
+if ([int](((node -v) -replace '^v', '').Split('.')[0]) -lt 22) { Fail "Node.js $(node -v) is too old. Install Node.js 22 or newer." }
 if (-not (Get-Command claude -ErrorAction SilentlyContinue)) { Fail 'Claude Code (the "claude" command) is not installed or not on PATH.' }
 
 Write-Host '[1/3] Installing connector...'
