@@ -71,7 +71,7 @@ Before you begin, make sure you have:
 - An account with administrator access for each Kaseya product you want to connect: Autotask, Datto RMM, or IT Glue.
 - Claude Desktop.
 
-### Setup: connecting to MCP servers and skills
+### Setup: Connecting to MCP servers and skills
 
 #### Step 1: Generate credentials
 Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2**
@@ -94,10 +94,11 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 ---
 
-#### Step 2: Connecting to MCP Servers and Installing Skills (Claude Desktop and Claude Code)
+#### Step 2: Connect to MCP servers and install skills in Claude Desktop
 
-**Option 1: MCPB Bundle in Claude Desktop**
-1. Download MCPB Bundle for each server you wish to connect to, and associated product skills zip file.
+Complete the following steps to connect Claude Desktop to an MCP server and install its skills:
+
+1. Download MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
 
     | Product | Files | Link |
     |---|---|---|
@@ -105,55 +106,33 @@ Before connecting to MCP Servers, generate application programming interface (AP
     | Datto RMM | drmm-mcp.mcpb, | [Datto RMM Folder](RMM) |
     | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
 
-2. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
-       If you experience any issues with dragging and dropping your files, you can also select **advanced settings** and **install extension**. This will prompt a browser window for you to select the file.
-3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
-4. Enable the extension. Repeat for each product you wish to connect.
-5. Download the Skills-plugin-zip file from each product folder in this repo whose MCP servers you connected to. Navigate to **plugins** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
+2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
-**Option 2: MCPB Bundle in Claude Code (CLI)**
+   > [!NOTE]
+   >If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
-**RMM**
-
-```bash
-   claude mcp add --transport http datto-rmm https://mcp.<platform>.rmm.datto.com/mcp --header "x-drmm-api-key: <API Key>" --header "x-drmm-api-secret: <API Secret>"
-```
-
-**Autotask**
-1. Store your Autotask API credentials by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
-   ```powershell
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\autotask-auth.ps1 configure
-   ```
-   `configure` does the following:
-   - Prompts for the Autotask MCP endpoint, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
-   - Prompts for the Autotask API username, secret, and integration code. The secret and integration code are hidden as you type.
-   - Stores the credentials encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\AutotaskMcp`.
-2. Add the base HTTP entry:
-   ```powershell
-   claude mcp add --transport http --scope user autotask https://<mcp-host>/mcp
-   ```
-3. Open `%USERPROFILE%\.claude.json`, find the `"autotask"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. Copy the `headersHelper` value from the entry that `configure` printed in step 1. The path in it is the absolute path to `autotask-auth.ps1` on this machine, with each backslash doubled for JSON. The entry has this shape:
-   ```json
-   "autotask": {
-     "type": "http",
-     "url": "https://<mcp-host>/mcp",
-     "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\autotask-auth.ps1\" headers -Profile default"
-   }
-   ```
-4. Run `claude mcp get autotask`. The output shows the entry and its scope.
+4. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
+5. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
+6. Upload the skills ZIP file for each product you connected:
+   1. In Claude, click **Skills** in the left sidebar.
+   2. Click the **Plus** icon in the upper-right corner.
+   3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
+   4. Click **Upload**.
+   5. Repeat these steps for each product.
+   
 
 ---
 
-## Supported Clients
+## Supported clients
 
 | Client | Supported |
 |---|---|
 | Claude Desktop | ✅ |
-| Claude Code | ✅ |
+| Claude Code | Planned for a future release. |
 
 ---
 
-## Supported Products and Tools
+## Supported products and tools
 
 | Product | What the Skills Can Do |
 |---|---|
