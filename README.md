@@ -217,8 +217,8 @@ The following skills for Claude Desktop automate Datto RMM, IT Glue, and Autotas
 The Kaseya Insights Community operates under a set of governing documents. All Participants are expected to read and comply with the documents applicable to their activities.
 
 | Doc | Purpose |
-|[License](LICENSE.md)|Apache License, Version 2.0. Governs all Contributions to the community.|
+|[License](LICENSE.md)|Apache License, Version 2.0. Governs all contributions to the community.|
 |[Code of Conduct](CODE_OF_CONDUCT.md)|Community standards and enforcement policy. Applies to all community spaces and Participants.|
 |[Governance Policy](GOVERNANCE.md)|Community structure and roles.|
-|[Security Policy](SECURITY.md)|How to report security vulnerabilities privately. Please do not post vulnerability reports in public Issues or forums.|
+|[Security Policy](SECURITY.md)|How to report security vulnerabilities privately. Do not post vulnerability reports in public issues or forums.|
 |[Disclaimers](DISCLAIMERS.md)|Consolidated disclaimers and claim waivers applicable to all community activities and Participants.|
