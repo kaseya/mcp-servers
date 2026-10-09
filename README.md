@@ -1,6 +1,6 @@
 # Kaseya MCP servers and skills
 
-**Find the official Kaseya Model Context Protocol (MCP) servers, tools, and skills for managed service provider (MSP) and information technology (IT) operations builders.**
+**Find the official Kaseya Model Context Protocol (MCP) servers, tools, and skills for MSP and IT operations builders.**
 
 ## Overview
 This repo provides MCP servers that connect Claude Desktop to Kaseya products. It also provides skills and other automation libraries you can try and contribute to. 
@@ -46,7 +46,7 @@ This repo is for:
 1. [Getting Started](#getting-started)
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
-4. [Example Tools & Skills](#example-tools--skills)
+4. [Example Tools & Skills](#example-tools-and-skills)
 5. [RMM Resources](RMM/)
 6. [Autotask Resources](AUTOTASK/)
 7. [ITGlue Resources](ITGLUE/)
@@ -68,7 +68,7 @@ To get started, complete the following steps:
 
 Before you begin, make sure you have:
 
-- An account with administrator access for each Kaseya product you want to connect: Autotask, Datto RMM, or IT Glue.
+- An account with administrator access for each Kaseya product you want to connect: Datto RMM, Autotask, or IT Glue.
 - Claude Desktop.
 
 ### Setup: Connecting to MCP servers and skills
