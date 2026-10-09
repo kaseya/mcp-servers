@@ -186,33 +186,13 @@ Follow this approach as you explore tools and skills with MCP servers:
 | **list-patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
 | **list_activity_logs** | Read | Retrieve activity history scoped by device, device filter, or account, with time-range filtering and cursor pagination. |
 | **list_device_filters** | Read | Retrieve available default, custom, or site-specific device filters. |
-| **update-device-udfs** | Read | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; requires explicit confirmation to apply them. |
+| **update-device-udfs** | Write | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; require explicit confirmation to apply them. |
 | **list-device-software** | Read | Retrieve a paginated catalog of automation components available for execution. |
-| **create-job** | Write / Execute | Execute an automation component on a device and return the created job UID. Previews execution by default; requires explicit confirmation to submit the job. |
+| **create-job** | Write / Execute | Execute an automation component on a device and return the created job UID. Preview execution by default; require explicit confirmation to submit the job. |
 | **get-job-status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
 | **list-alerts** | Read | Retrieve paginated open or resolved monitoring alerts for a device, site, or account. |
 | **get-alert** | Read | Retrieve details of a specific monitoring alert. |
-| **resolve-alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged.
-
-### IT Glue -- REMOVE FOR ALPHA
-
-| Tool | Operation | Description |
-|---|---|---|
-| **index_organizations** | Read | TBD |
-| **get_organization** | Read | TBD |
-| **search_configurations** | Read | TBD |
-| **get_configuration** | Read | TBD |
-| **search_locations** | Read | TBD |
-| **get_location** | Read | TBD |
-| **search_documents** | Read | TBD |
-| **get_document** | Read | TBD |
-| **search_flexible_assets** | Read | TBD |
-| **search_passwords** | Read | TBD |
-| **list_document_folders** | Read | TBD |
-| **create_document** | Write | TBD |
-| **update_document_secret** | Write | TBD |
-| **create_document_image** | Write | TBD |
-| **create_attachment** | Write | TBD |
+| **resolve-alert** | Write | Resolve a monitoring alert. Preview the action by default; require explicit confirmation and leave already-resolved alerts unchanged.
 
 ## Skills
 
