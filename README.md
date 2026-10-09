@@ -196,7 +196,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 
 ## Skills
 
-The following skills for Claude Desktop automate Datto RMM, IT Glue, and Autotask workflows, with no coding required. This guide walks through each skill and what to expect when you use it, so your team can start saving time immediately. 
+The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glue workflows, with no coding required. This guide walks through each skill and what to expect when you use it, so your team can start saving time immediately. 
 
 | Product | Skill | What it automates |
 |---|---|---|
@@ -205,14 +205,14 @@ The following skills for Claude Desktop automate Datto RMM, IT Glue, and Autotas
 |Datto RMM | [drmm-morning-pulse](RMM/DRMM-Skills-documentation.md#morning-pulse) | Reads devices, open alerts, overnight resolved alerts, and the overnight activity log; separates new overnight drops from long-dead gear, spots servers about to fail, and gives you a plan ranked by customer impact. |
 |Datto RMM | [drmm-device-quick-look](RMM/DRMM-Skills-documentation.md#device-quick-look) | Finds the device by hostname, part of a name, MAC address, or ID; reads its record, hardware, alerts, patches, software, and recent activity; trends disk space and groups repeating alerts. |
 |Datto RMM | [drmm-patch-posture](RMM/DRMM-Skills-documentation.md#patch-posture) | Reads patch status across servers and workstations, names failing and pending updates, and flags conditions that will break the next patch cycle (such as disk full or servicing errors). |
-|Datto RMM |[drmm-stale-and-ghost-devices](RMM/DRMM-Skills-documentation.md#stale-and-ghost-devices)| Finds long-offline devices, ghosts (re-imaged or renamed machines left behind, duplicate enrolments), suspended agents, and sites holding only dead records, with an estimate of the seats involved.|
+|Datto RMM |[drmm-stale-and-ghost-devices](RMM/DRMM-Skills-documentation.md#stale-and-ghost-devices)| Finds long-offline devices, ghosts (re-imaged or renamed machines left behind, duplicate enrollments), suspended agents, and sites holding only dead records, with an estimate of the seats involved.|
 |Datto RMM |[drmm-security-coverage-gaps](RMM/DRMM-Skills-documentation.md#security-coverage-gaps)| Vendor-neutral: checks antivirus presence, running state and updates; finds EDR and MDR agents through device filters; and flags conflicting products. Provides per-site figures you can hand to a customer or an insurance questionnaire. |
-|DRMM |[drmm-device-timeline](RMM/DRMM-Skills-documentation.md#device-timeline)| Builds one timeline from the activity log (jobs, patches, remote sessions, changes) and alerts, marks what happened just before the problem, and states timing, never blame. Suggests which Windows event log entries a technician should check.|
+|Datto RMM |[drmm-device-timeline](RMM/DRMM-Skills-documentation.md#device-timeline)| Builds one timeline from the activity log (jobs, patches, remote sessions, changes) and alerts, marks what happened just before the problem, and states timing, never blame. Suggests which Windows event log entries you should check.|
 |Datto RMM |[drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)| Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear), and recommends a specific tuning step while protecting alerts that are noisy but real.|
 |Datto RMM |[drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)| Groups devices by version and site, rates versions current, behind, or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category of software.
-|Datto RMM |[drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)| Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi); marks paid extended updates where possible; servers first.|
+|Datto RMM |[drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)| Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.|
 
-## Legal Documents 
+## Legal documents 
 
 The Kaseya Insights Community operates under a set of governing documents. All Participants are expected to read and comply with the documents applicable to their activities.
 
