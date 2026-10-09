@@ -6,7 +6,11 @@
 .DESCRIPTION
     The credentials rest in a DPAPI-encrypted file under %LOCALAPPDATA%, readable only by the Windows user
     who wrote it, on the machine that wrote it. No MCP client configuration holds a credential: it holds the
-    `headers` command, which prints the three headers on stdout when the client connects.
+    `headers` command, which prints the two headers on stdout when the client connects.
+
+    The API user must be created with the Integration Vendor "Autotask - MCP" as its API tracking identifier.
+    The server sends that vendor's integration code itself, so this script stores and sends only the username
+    and the secret.
 
     `headers` is the one verb a client runs. It never prompts, never touches the network, and writes one JSON
     object to stdout or nothing at all. No verb writes a credential value to stdout except `headers`, and no
@@ -40,8 +44,8 @@ param(
     # `status` only: repeat the enrolment check against the server. Costs one Autotask authentication attempt.
     [switch] $Verify,
 
-    # `configure` only: read the username, secret, and integration code as three lines on stdin instead of
-    # prompting, for scripted enrolment. The values never appear as arguments, which every same-user process
+    # `configure` only: read the username and the secret as two lines on stdin instead of prompting, for
+    # scripted enrolment. The values never appear as arguments, which every same-user process
     # can read from the process list.
     [switch] $FromStdin
 )
@@ -63,9 +67,11 @@ if ($PSVersionTable.PSEdition -eq 'Desktop') {
 
 <#
     The version of the stored record's shape. A record of another version is refused rather than guessed at,
-    so a later script that changes the shape cannot misread an older record.
+    so a later script that changes the shape cannot misread an older record. Version 2 holds the username and
+    the secret alone. A version 1 record also held an integration code, and belongs to an API user the server
+    refuses, so refusing it here keeps a client from spending a failed attempt on every connect.
 #>
-$RECORD_VERSION = 1
+$RECORD_VERSION = 2
 
 <#
     The MCP protocol revision `configure` names in its `initialize` check. The server serves this revision and
@@ -134,11 +140,10 @@ function Read-Record {
     return $record
 }
 
-function Build-HeaderJson([string] $userName, [string] $secret, [string] $integrationCode) {
+function Build-HeaderJson([string] $userName, [string] $secret) {
     $headers = [ordered]@{
-        ApiIntegrationCode = $integrationCode
-        UserName           = $userName
-        Secret             = $secret
+        UserName = $userName
+        Secret   = $secret
     }
     ConvertTo-Json -InputObject $headers -Compress
 }
@@ -182,7 +187,7 @@ function Assert-RegionalEndpoint([string] $endpointUrl) {
     return $endpointUri.AbsoluteUri
 }
 
-function Invoke-EnrolmentCheck([string] $endpointUrl, [string] $userName, [string] $secret, [string] $integrationCode) {
+function Invoke-EnrolmentCheck([string] $endpointUrl, [string] $userName, [string] $secret) {
     <#
         Sends one MCP `initialize`. Admission authenticates with Autotask before it answers, so a `200` proves
         the credentials, and a refusal carries the taxonomy code that says why. Returns an object with
@@ -192,7 +197,7 @@ function Invoke-EnrolmentCheck([string] $endpointUrl, [string] $userName, [strin
     # .NET Framework on older Windows builds offers TLS 1.0 by default, which Front Door refuses.
     [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-    # A followed redirect would carry the three custom credential headers to wherever it points: the handler
+    # A followed redirect would carry the two custom credential headers to wherever it points: the handler
     # drops only `Authorization` on a redirect, not a header it does not know is a credential. With redirects
     # off, a 3xx reaches the caller as a refusal and nothing is stored.
     $handler = New-Object System.Net.Http.HttpClientHandler
@@ -213,7 +218,6 @@ function Invoke-EnrolmentCheck([string] $endpointUrl, [string] $userName, [strin
         $request = New-Object System.Net.Http.HttpRequestMessage([System.Net.Http.HttpMethod]::Post, $endpointUrl)
         $request.Content = New-Object System.Net.Http.StringContent($body, [System.Text.Encoding]::UTF8, 'application/json')
         [void] $request.Headers.TryAddWithoutValidation('Accept', 'application/json, text/event-stream')
-        [void] $request.Headers.TryAddWithoutValidation('ApiIntegrationCode', $integrationCode)
         [void] $request.Headers.TryAddWithoutValidation('UserName', $userName)
         [void] $request.Headers.TryAddWithoutValidation('Secret', $secret)
 
@@ -293,22 +297,19 @@ function Invoke-Configure {
     if ($FromStdin) {
         $userName = [Console]::In.ReadLine()
         $secret = [Console]::In.ReadLine()
-        $integrationCode = [Console]::In.ReadLine()
-        if ($null -eq $userName -or $null -eq $secret -or $null -eq $integrationCode) {
-            Write-Failure '-FromStdin expects three lines: the username, the secret, and the integration code.'
+        if ($null -eq $userName -or $null -eq $secret) {
+            Write-Failure '-FromStdin expects two lines: the username and the secret.'
             exit 2
         }
     }
     else {
         $userName = Read-Host 'Autotask API username'
         $secret = Get-PlainText (Read-Host 'Autotask API secret' -AsSecureString)
-        $integrationCode = Get-PlainText (Read-Host 'Autotask API integration code' -AsSecureString)
     }
     $userName = $userName.Trim()
     $secret = $secret.Trim()
-    $integrationCode = $integrationCode.Trim()
 
-    foreach ($field in @(@('The username', $userName), @('The secret', $secret), @('The integration code', $integrationCode))) {
+    foreach ($field in @(@('The username', $userName), @('The secret', $secret))) {
         if ($field[1].Length -eq 0) { Write-Failure "$($field[0]) is empty."; exit 2 }
         Assert-NoControlCharacter $field[0] $field[1]
     }
@@ -318,7 +319,7 @@ function Invoke-Configure {
     }
 
     [Console]::Error.WriteLine("Checking the credentials with $endpointUrl ...")
-    $result = Invoke-EnrolmentCheck $endpointUrl $userName $secret $integrationCode
+    $result = Invoke-EnrolmentCheck $endpointUrl $userName $secret
     switch ($result.Status) {
         200 { }
         0 {
@@ -346,11 +347,10 @@ function Invoke-Configure {
     }
     # Export-Clixml encrypts each SecureString with DPAPI for the current user. The endpoint is not a secret.
     [pscustomobject]@{
-        Version            = $RECORD_VERSION
-        Endpoint           = $endpointUrl
-        UserName           = ConvertTo-SecureValue $userName
-        Secret             = ConvertTo-SecureValue $secret
-        ApiIntegrationCode = ConvertTo-SecureValue $integrationCode
+        Version  = $RECORD_VERSION
+        Endpoint = $endpointUrl
+        UserName = ConvertTo-SecureValue $userName
+        Secret   = ConvertTo-SecureValue $secret
     } | Export-Clixml -LiteralPath $recordPath -Force
 
     Write-Host "Credentials checked and stored for profile `"$ProfileName`", encrypted for this Windows user."
@@ -363,7 +363,7 @@ function Invoke-Headers {
         Write-Failure "No Autotask credentials for profile `"$ProfileName`". Run: autotask-auth configure -Profile $ProfileName"
         exit 1
     }
-    Write-StdoutUtf8 (Build-HeaderJson (Get-PlainText $record.UserName) (Get-PlainText $record.Secret) (Get-PlainText $record.ApiIntegrationCode))
+    Write-StdoutUtf8 (Build-HeaderJson (Get-PlainText $record.UserName) (Get-PlainText $record.Secret))
 }
 
 function Invoke-Status {
@@ -373,23 +373,22 @@ function Invoke-Status {
         exit 1
     }
     $userName = Get-PlainText $record.UserName
-    Write-Host "Profile:          $ProfileName"
-    Write-Host "Storage:          DPAPI-encrypted file for this Windows user ($recordPath)"
-    Write-Host "Endpoint:         $($record.Endpoint)"
-    Write-Host "Username:         $(Get-MaskedUserName $userName)"
-    Write-Host "Secret:           $(if ((Get-PlainText $record.Secret).Length -gt 0) { 'stored' } else { 'missing' })"
-    Write-Host "Integration code: $(if ((Get-PlainText $record.ApiIntegrationCode).Length -gt 0) { 'stored' } else { 'missing' })"
-    Write-Host "Helper command:   $(Get-HelperCommand)"
+    Write-Host "Profile:        $ProfileName"
+    Write-Host "Storage:        DPAPI-encrypted file for this Windows user ($recordPath)"
+    Write-Host "Endpoint:       $($record.Endpoint)"
+    Write-Host "Username:       $(Get-MaskedUserName $userName)"
+    Write-Host "Secret:         $(if ((Get-PlainText $record.Secret).Length -gt 0) { 'stored' } else { 'missing' })"
+    Write-Host "Helper command: $(Get-HelperCommand)"
 
     if ($Verify) {
         $endpointUrl = Assert-RegionalEndpoint $record.Endpoint
-        $result = Invoke-EnrolmentCheck $endpointUrl $userName (Get-PlainText $record.Secret) (Get-PlainText $record.ApiIntegrationCode)
+        $result = Invoke-EnrolmentCheck $endpointUrl $userName (Get-PlainText $record.Secret)
         if ($result.Status -eq 200) {
-            Write-Host 'Verification:     accepted by the server'
+            Write-Host 'Verification:   accepted by the server'
         }
         else {
             $detail = if ($result.Code) { "$($result.Code): $($result.Message)" } else { "HTTP $($result.Status)" }
-            Write-Host "Verification:     refused, $detail"
+            Write-Host "Verification:   refused, $detail"
             exit 6
         }
     }
