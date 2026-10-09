@@ -1,28 +1,38 @@
-# Kaseya MCP Readme
+# Kaseya MCP servers and skills
 
-**The official Kaseya Model Context Protocol (MCP) servers, tools, and skills for Kaseya community of MSP and IT operation builders.**
+**Find the official Kaseya Model Context Protocol (MCP) servers, tools, and skills for managed service provider (MSP) and information technology (IT) operations builders.**
 
 ## Overview
-This repo provides MCP servers for Kaseya products for Claude Code and Claude Desktop. It also provides skills and other automation libraries Kaseya users can try and contribute to. 
+This repo provides MCP servers that connect Claude Desktop to Kaseya products. It also provides skills and other automation libraries you can try and contribute to. 
 
-Here is where patterns get proven, guardrails get built, and collective expertise becomes available to every member who needs it.
+MCP is an open standard that lets AI tools call external tools. Kaseya MCP servers connect the AI tools you already use to Datto RMM, Autotask PSA, and IT Glue, and Kaseya-built skills help automate common MSP workflows, so you don't have to build and maintain everything yourself.
+
+This community proves patterns, builds guardrails, and makes collective expertise available to every member who needs it.
+
+> [!NOTE]
+> This release is in alpha. MCP server availability and skill scope may change as testing continues.
 
 ---
-### What We Share
+### What we share
 
-- **MCP servers** - integrations with tools like Datto RMM, Autotask, and IT Glue
-- **Skills** - reusable Claude Code skills for IT ops workflows
+This repo includes:
+
+- **MCP servers** - first-party connectors that give AI tools access to Kaseya product data and actions for Datto RMM, Autotask PSA, and IT Glue
+- **Skills** - pre-built, reusable skills for Claude that automate common MSP workflows
+- **Setup instructions** - steps to connect MCP servers and install skills in Claude
 
 ---
-### Who This Is For
+### Who this is for
 
-- MSP technicians and engineers
+This repo is for:
+
+- MSP technicians, engineers, automation engineers, and technical leads
 - IT operations builders at internal IT departments
 - Tool vendors building integrations
 
 ---
 
-### Community Channels & Support
+### Community channels and support
 
 | Channel | Link |
 |---|---|
