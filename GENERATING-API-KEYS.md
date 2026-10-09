@@ -113,6 +113,52 @@ For additional information on creating API users in Autotask, see:
 
 ---
 
+## Datto RMM
+
+**Requirement:** Admin role in Datto RMM.
+
+### Step 1 — Enable API access (one-time setup, skip if already enabled)
+
+1. Inside Datto RMM, navigate to **Setup > Global Settings > Access Control**.
+2. Turn on the **Enable API Access** toggle.
+
+<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
+
+### Step 2 — Generate keys for a user
+
+1. Navigate to **Setup > Users** and click the username you want to generate keys for.
+
+<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
+
+2. Scroll down to the **API** section and click **Generate API Keys**.
+
+<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
+
+3. Your **API Key** and **API Secret Key** will be displayed. Copy both values 
+   immediately and store them securely.
+
+### Step 3 - Identify platform number based on platform name
+1. You will be asked to choose the platform your Datto RMM account is hosted on, by number. Use the key below to know which number to input for this:
+
+  | Platform Number | Platform Name |
+  |---|---|
+  |1|CONCORD|
+  |2|MERLOT|
+  |3|PINOTAGE|
+  |4|SYRAH|
+  |5|VIDAL|
+  |6|ZINFANDEL|
+  |7|MOSCATO|
+
+> **Datto RMM security note:** API keys in Datto RMM bypass individual user security 
+> level restrictions — all keys grant the same level of access regardless of which user 
+> account they were generated under. For this reason, be deliberate about who 
+> generates keys and where those keys are stored.
+
+For additional information on creating API keys in Datto RMM, see: [Datto RMM API](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm)
+
+---
+
 ## IT Glue
 
 **Requirement:** Administrator role in IT Glue.
@@ -139,44 +185,11 @@ For additional information on creating API users in Autotask, see:
 > any time from your IT Glue account, but any connections using the old key will stop 
 > working immediately when you do.
 
-Once you have your IT Glue API key saved, continue to Datto RMM below.
 
 For additional information on creating API keys in IT Glue, see:
 [Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html)
 
 ---
-
-## Datto RMM
-
-**Requirement:** Admin role in Datto RMM.
-
-### Step 1 — Enable API access (one-time setup, skip if already enabled)
-
-1. Inside Datto RMM, navigate to **Setup > Global Settings > Access Control**.
-2. Turn on the **Enable API Access** toggle.
-
-<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
-
-### Step 2 — Generate keys for a user
-
-1. Navigate to **Setup > Users** and click the username you want to generate keys for.
-
-<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
-
-2. Scroll down to the **API** section and click **Generate API Keys**.
-
-<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
-
-3. Your **API Key** and **API Secret Key** will be displayed. Copy both values 
-   immediately and store them securely.
-
-> **Datto RMM security note:** API keys in Datto RMM bypass individual user security 
-> level restrictions — all keys grant the same level of access regardless of which user 
-> account they were generated under. For this reason, be deliberate about who 
-> generates keys and where those keys are stored.
-
----
-
 ## Best Practices
 
 - **Create a dedicated API user for Claude in each product.** Rather than using a 
@@ -199,7 +212,6 @@ For additional information on creating API keys in IT Glue, see:
   need to rotate a key, regenerate it in the relevant product, update the value in your 
   Claude configuration file, and restart Claude Desktop. The old key stops working 
   the moment a new one is generated.
-
 ---
 
 ## Next Step: Use your keys to configure MCP connections in Claude
