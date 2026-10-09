@@ -59,9 +59,13 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 | Product | Values Needed | How to Generate Secret Keys |
 |---|---|---|
-| **Datto RMM** | API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
+| **Datto RMM** | Platform name (and number, see below), API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
+
+**Datto RMM platform:** you will be asked to choose the platform your Datto RMM account is hosted on, by number.
+
+[1] CONCORD, [2] MERLOT, [3] PINOTAGE, [4] SYRAH, [5] VIDAL, [6] ZINFANDEL, [7] MOSCATO
 
 > [!IMPORTANT]
 > Your use of any MCP server is governed by the Kaseya API License, which is accessible [here.](https://www.kaseya.com/legal/kaseya-api-license/)
@@ -83,12 +87,12 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
     | Product | Files | Link |
     |---|---|---|
     | Autotask | autotask-mcp.mcpb, autotask-skills-20261006 | [Autotask Folder](AUTOTASK) |
-    | Datto RMM | drmm-mcp.mcpb, | [Datto RMM Folder](RMM) |
+    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip (skills) | [Datto RMM Folder](RMM) |
     | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
 
 2. Open Claude settings and navigate to **extensions** in the left sidebar. Drag the mcpb file into Claude Desktop/Code.
        If you experience any issues with dragging and dropping your files, you can also select **advanced settings** and **install extension**. This will prompt a browser window for you to select the file.
-3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save.
+3. Enter your Product credentials when prompted (generated in the pre-requisite step) and save. For Datto RMM, first choose your platform number (1-7) from the [platform list in Step 1](#step-1-api-credentials), then enter your API Key and API Secret.
 4. Enable the extension. Repeat for each product you wish to connect.
 5. Download the Skills-plugin-zip file from each product folder in this repo whose MCP servers you connected to. Navigate to **plugins** in left sidebar in Claude and select the plus button in the top right corner, selecting **upload file**. Once zip file is added, select upload. 
 
@@ -96,9 +100,15 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 **RMM**
 
-```bash
-   claude mcp add --transport http datto-rmm https://mcp.<platform>.rmm.datto.com/mcp --header "x-drmm-api-key: <API Key>" --header "x-drmm-api-secret: <API Secret>"
-```
+*Prerequisite:* Node.js 22 or newer and Claude Code (the `claude` command). Check with `node -v` and `claude --version`; only if either is missing or older, install [Node.js](https://nodejs.org) 22 or newer or Claude Code.
+
+1. Download the [RMM folder](RMM) and keep `datto-rmm.mcpb`, `Datto-RMM-plugin.zip` and the installer script together in the same folder.
+2. Run the installer for your system:
+   - **macOS / Linux:** `sh install-claude-code.sh`
+   - **Windows:** run `install-claude-code.cmd` (or `install-claude-code.ps1` from PowerShell)
+3. When prompted, choose your platform number (1-7) from the [platform list in Step 1](#step-1-api-credentials), then enter your Datto RMM API Key and API Secret.
+4. The installer connects the `datto-rmm` MCP server to Claude Code (user scope) and installs the Datto RMM skills to `~/.claude/skills/datto-rmm`.
+5. Start `claude` and ask: `List my Datto RMM sites.`
 
 **Autotask**
 1. Store your Autotask API credentials by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
@@ -180,22 +190,22 @@ Here is some guidance on approach as you explore tools and skills with MCP serve
 
 | Tool | Operation | Description |
 |---|---|---|
-| **list-sites** | Read | Retrieve a paginated list of sites in the authenticated Datto RMM tenant. |
-| **get-site** | Read | Retrieve detailed information about a specific site. |
-| **list-devices** | Read | List and search managed devices, with optional site, device-filter, hostname, device-ID, or MAC-address filtering. |
-| **get-device** | Read | Retrieve detailed information about a specific managed device. |
-| **get-device-audit** | Read | Retrieve hardware, storage, network, and operating-system audit information for a device. |
-| **list-device-software** | Read | Retrieve a paginated list of audited software installed on a device. |
-| **list-patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
+| **list_sites** | Read | Retrieve a paginated list of sites in the authenticated Datto RMM tenant. |
+| **get_site** | Read | Retrieve detailed information about a specific site. |
+| **list_devices** | Read | List and search managed devices, with optional site, device-filter, hostname, device-ID, or MAC-address filtering. |
+| **get_device** | Read | Retrieve detailed information about a specific managed device. |
+| **get_device_audit** | Read | Retrieve hardware, storage, network, and operating-system audit information for a device. |
+| **list_device_software** | Read | Retrieve a paginated list of audited software installed on a device. |
+| **list_patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
 | **list_activity_logs** | Read | Retrieve activity history scoped by device, device filter, or account, with time-range filtering and cursor pagination. |
 | **list_device_filters** | Read | Retrieve available default, custom, or site-specific device filters. |
-| **update-device-udfs** | Read | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; requires explicit confirmation to apply them. |
-| **list-device-software** | Read | Retrieve a paginated catalog of automation components available for execution. |
-| **create-job** | Write / Execute | Execute an automation component on a device and return the created job UID. Previews execution by default; requires explicit confirmation to submit the job. |
-| **get-job-status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
-| **list-alerts** | Read | Retrieve paginated open or resolved monitoring alerts for a device, site, or account. |
-| **get-alert** | Read | Retrieve details of a specific monitoring alert. |
-| **resolve-alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged.
+| **update_device_udfs** | Write | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; requires explicit confirmation to apply them. |
+| **list_components** | Read | Retrieve a paginated catalog of automation components available for execution. |
+| **create_job** | Write / Execute | Execute an automation component on a device and return the created job UID. Previews execution by default; requires explicit confirmation to submit the job. |
+| **get_job_status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
+| **list_alerts** | Read | Retrieve paginated open or resolved monitoring alerts for a device, site, or account. |
+| **get_alert** | Read | Retrieve details of a specific monitoring alert. |
+| **resolve_alert** | Write | Resolve a monitoring alert. Previews the action by default; requires explicit confirmation and leaves already-resolved alerts unchanged.
 
 ### IT Glue -- REMOVE FOR ALPHA
 
