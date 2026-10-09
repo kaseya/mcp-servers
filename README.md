@@ -74,7 +74,7 @@ Before you begin, make sure you have:
 ### Setup: Connecting to MCP servers and skills
 
 #### Step 1: Generate credentials
-Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2**
+Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
 
 | Product | Values Needed | How to Generate Secret Keys |
 |---|---|---|
@@ -98,7 +98,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 Complete the following steps to connect Claude Desktop to an MCP server and install its skills:
 
-1. Download MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
+1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
 
     | Product | Files | Link |
     |---|---|---|
