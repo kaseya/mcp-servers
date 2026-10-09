@@ -59,13 +59,9 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 | Product | Values Needed | How to Generate Secret Keys |
 |---|---|---|
-| **Datto RMM** | Platform name (and number, see below), API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
+| **Datto RMM** | Platform name and number, API Key, API Secret | [Generate API Key, Secret, and determine your platform number](GENERATING-API-KEYS.md#datto-rmm) |
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
-| **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
-
-**Datto RMM platform:** you will be asked to choose the platform your Datto RMM account is hosted on, by number.
-
-[1] CONCORD, [2] MERLOT, [3] PINOTAGE, [4] SYRAH, [5] VIDAL, [6] ZINFANDEL, [7] MOSCATO
+| **Autotask** | Username, secret, Autotask MCP endpoint | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
 > Your use of any MCP server is governed by the Kaseya API License, which is accessible [here.](https://www.kaseya.com/legal/kaseya-api-license/)
