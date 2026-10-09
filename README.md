@@ -76,7 +76,7 @@ Before you begin, make sure you have:
 #### Step 1: Generate credentials
 Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
 
-| Product | Values Needed | How to Generate Secret Keys |
+| Product | Values needed | How to generate credentials |
 |---|---|---|
 | **Datto RMM** | API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
