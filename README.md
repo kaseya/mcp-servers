@@ -133,7 +133,7 @@ Complete the following steps to connect Claude Desktop to an MCP server and inst
 
 ## Supported products and tools
 
-| Product | What the skills can do |
+| Product | What skills can do |
 |---|---|
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
 | **IT Glue** | Create and update configuration records, document devices, and log triage notes |
@@ -165,7 +165,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 | **describe-entity** | Read | Return the live field schema: field names, data types, flags, picklist values, and supported operators.|
 | **query-entity** | Read | Query an entity with filters, one `anyOf` group, fields, and a limit. Return rows in identifier (ID) order, with a `nextPage` hint.|
 | **count-entities** | Read | Count rows that match the filters, without fetching them.|
-| **get-entity** | Read | Get one row by numeric id. Return `found: false` if no row has that ID.|
+| **get-entity** | Read | Get one row by numeric ID. Return `found: false` if no row has that ID.|
 | **search-tickets** | Read | Search tickets by company, status, title, assignment, and date. No query DSL needed. Default to open tickets.|
 | **get-ticket** | Read | Get one ticket by ID, with full detail in ticket vocabulary. |
 | **create-entity** | Write | Create a row, read it back, and return it enriched. Do not resend the create request to check whether it worked.|
@@ -179,14 +179,14 @@ Follow this approach as you explore tools and skills with MCP servers:
 |---|---|---|
 | **list-sites** | Read | Retrieve a paginated list of sites in the authenticated Datto RMM tenant. |
 | **get-site** | Read | Retrieve detailed information about a specific site. |
-| **list-devices** | Read | List and search managed devices, with optional site, device-filter, hostname, device-ID, or MAC-address filtering. |
+| **list-devices** | Read | List and search managed devices, with optional site, device filter, hostname, device ID, or MAC address filtering. |
 | **get-device** | Read | Retrieve detailed information about a specific managed device. |
 | **get-device-audit** | Read | Retrieve hardware, storage, network, and operating-system audit information for a device. |
 | **list-device-software** | Read | Retrieve a paginated list of audited software installed on a device. |
 | **list-patches** | Read | Retrieve patch information for a device or site, including installation and approval status. |
 | **list_activity_logs** | Read | Retrieve activity history scoped by device, device filter, or account, with time-range filtering and cursor pagination. |
 | **list_device_filters** | Read | Retrieve available default, custom, or site-specific device filters. |
-| **update-device-udfs** | Write | Update selected device user-defined fields without modifying omitted fields. Previews changes by default; require explicit confirmation to apply them. |
+| **update-device-udfs** | Write | Update selected device user-defined fields without modifying omitted fields. Preview changes by default; require explicit confirmation to apply them. |
 | **list-device-software** | Read | Retrieve a paginated catalog of automation components available for execution. |
 | **create-job** | Write / Execute | Execute an automation component on a device and return the created job UID. Preview execution by default; require explicit confirmation to submit the job. |
 | **get-job-status** | Read | Retrieve job status, device-specific execution results, and available standard output and error output. |
