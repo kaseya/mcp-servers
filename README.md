@@ -120,7 +120,6 @@ Complete the following steps to connect Claude Desktop to an MCP server and inst
    4. Click **Upload**.
    5. Repeat these steps for each product.
    
-
 ---
 
 ## Supported clients
@@ -134,28 +133,28 @@ Complete the following steps to connect Claude Desktop to an MCP server and inst
 
 ## Supported products and tools
 
-| Product | What the Skills Can Do |
+| Product | What the skills can do |
 |---|---|
-| **Datto RMM** | Run components and scripts, triage alerts, check device health, audit hardware |
-| **IT Glue** | Create and update configuration records, document devices, log triage notes |
-| **Autotask** | Read and update tickets, post notes, provide ticket briefings |
+| **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
+| **IT Glue** | Create and update configuration records, document devices, and log triage notes |
+| **Autotask** | Read and update tickets, post notes, and provide ticket briefings |
 
 ---
 
-## Example Tools & Skills
+## Example tools and skills
 
 Skills in the Kaseya community come in two levels of complexity, and they work together.
 
-- **Tools** do one specific thing — read a ticket, check if a device is online, post a note, run a script. Simple, fast, and useful on their own.
+- **Tools** do one specific thing — read a ticket, check whether a device is online, post a note, or run a script. Tools are simple, fast, and useful on their own.
 
-- **Skills** are complete workflows. They string tools together in the right order to handle an entire process from first look to final documentation — with you approving the key steps along the way.
+- **Skills** are complete workflows. They string tools together in the right order to handle an entire process from first look to final documentation, and you approve the key steps along the way.
 
-Any Tool or Skill can also be run on its own, outside of a workflow, whenever you need it. 
+Run any tool or skill on its own, outside of a workflow, whenever you need it. 
 
-Here is some guidance on approach as you explore tools and skills with MCP servers:
-1. Simple query tools (read)
-2. Simple update tools (write, with guardrails)
-3. Simple skills as workflows
+Follow this approach as you explore tools and skills with MCP servers:
+1. Start with simple query tools (read).
+2. Move to simple update tools (write, with guardrails).
+3. Progress to simple skills as workflows.
 
 ## Common MSP Tools
 ### Autotask
