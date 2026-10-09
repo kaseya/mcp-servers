@@ -102,9 +102,9 @@ Complete the following steps to connect Claude Desktop to an MCP server and inst
 
     | Product | Files | Link |
     |---|---|---|
-    | Autotask | autotask-mcp.mcpb, autotask-skills-20261006 | [Autotask Folder](AUTOTASK) |
-    | Datto RMM | drmm-mcp.mcpb, | [Datto RMM Folder](RMM) |
-    | ITGlue | itg-mcp.mcpb, | ITG Folder -- need mcpb file, no skills for alpha) |
+    | Autotask | autotask-mcp.mcpb, autotask-skills-20261006 | [Autotask folder](AUTOTASK) |
+    | Datto RMM | drmm-mcp.mcpb, | [Datto RMM folder](RMM) |
+    | IT Glue | itg-mcp.mcpb, | IT Glue folder (MCPB file needed; no skills for alpha) |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
