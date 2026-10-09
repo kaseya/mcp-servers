@@ -5,7 +5,7 @@
 ## Overview
 This repo provides MCP servers that connect Claude Desktop to Kaseya products. It also provides skills and other automation libraries you can try and contribute to. 
 
-MCP is an open standard that lets AI tools call external tools. Kaseya MCP servers connect the AI tools you already use to Datto RMM, Autotask PSA, and IT Glue, and Kaseya-built skills help automate common MSP workflows, so you don't have to build and maintain everything yourself.
+MCP is an open standard that lets AI tools call external tools. Kaseya MCP servers connect the AI tools you already use to Datto RMM, Autotask, and IT Glue, and Kaseya-built skills help automate common MSP workflows, so you don't have to build and maintain everything yourself.
 
 This community proves patterns, builds guardrails, and makes collective expertise available to every member who needs it.
 
@@ -17,7 +17,7 @@ This community proves patterns, builds guardrails, and makes collective expertis
 
 This repo includes:
 
-- **MCP servers** - first-party connectors that give AI tools access to Kaseya product data and actions for Datto RMM, Autotask PSA, and IT Glue
+- **MCP servers** - first-party connectors that give AI tools access to Kaseya product data and actions for Datto RMM, Autotask, and IT Glue
 - **Skills** - pre-built, reusable skills for Claude that automate common MSP workflows
 - **Setup instructions** - steps to connect MCP servers and install skills in Claude
 
@@ -34,11 +34,11 @@ This repo is for:
 
 ### Community channels and support
 
-| Channel | Link |
+| Channel | Details |
 |---|---|
-| Discord | You will receive a discord link a few days prior to kickoff |
-| Office Hours | Daily - see Discord for schedule |
-| Community Calls | Bi-weekly — see Discord for schedule |
+| Discord | You receive a discord link a few days prior to kickoff. |
+| Office Hours | Daily. See Discord for the schedule. |
+| Community Calls | Bi-weekly. See Discord for the schedule. |
 
 ---
 
@@ -57,31 +57,40 @@ This repo is for:
 
 ---
 
-## Getting Started
-1. **Browse the repo** for tools, skills, and MCP Servers relevant to your stack.
-2. **Try Something** - break it, learn from it, and share what you found.
-3. Follow the steps below to set up your MCP servers and install skills into Claude.
+## Getting started
+To get started, complete the following steps:
 
-### Setup: Connecting to MCP Servers & Skills
+1. Browse the repo for tools, skills, and MCP servers relevant to your stack.
+2. Try something - break it, learn from it, and share what you found.
+3. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
 
-#### Step 1: API credentials
-Before connecting to MCP Servers, you will need generate credentials for each platform. **Have all values on hand before proceeding** to the next steps:
+### Prerequisites
+
+Before you begin, make sure you have:
+
+- An account with administrator access for each Kaseya product you want to connect: Autotask, Datto RMM, or IT Glue.
+- Claude Desktop.
+
+### Setup: connecting to MCP servers and skills
+
+#### Step 1: Generate credentials
+Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2**
 
 | Product | Values Needed | How to Generate Secret Keys |
 |---|---|---|
 | **Datto RMM** | API Key, API Secret | [Generate API Key + Secret](GENERATING-API-KEYS.md#datto-rmm) |
 | **IT Glue** | API Key | [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
-| **Autotask** | Username, secret, integration code (aka tracking identifier) | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
+| **Autotask** | Username, secret, integration code (also called tracking identifier) | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
-> Your use of any MCP server is governed by the Kaseya API License, which is accessible [here.](https://www.kaseya.com/legal/kaseya-api-license/)
-> **Do not share keys and use minimally scoped permissions for each use case and user. Be aware** that once connected, the AI services will be able to:
-> 1. Read and access the Content in your Kaseya product platform; and
+> The [Kaseya API License](https://www.kaseya.com/legal/kaseya-api-license/) governs your use of any MCP server.
+> **Do not share keys, and use minimally scoped permissions for each use case and user. Be aware** that, once connected, AI services can:
+> 1. Read and access the Content in your Kaseya product platform.
 > 2. Create and update the Content in your Kaseya product platform.
 >    
-> **Such Content will be accessible to the AI service exactly as stored in the Kaseya Product platform. Content may include sensitive information such as usernames, passwords or other confidential data.**
+> **AI services access Content exactly as the Kaseya product platform stores it. Content may include sensitive information such as usernames, passwords or other confidential data.**
 >
-> AI services are Third Party Technology under the Kaseya Master Agreement, which is accessible [here.](https://www.kaseya.com/legal/kaseya-master-agreement/)
+> The [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) classifies AI services as Third Party Technology.
 
 ---
 
