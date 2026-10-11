@@ -1,6 +1,6 @@
 # Generating API keys: Autotask, Datto RMM, and IT Glue
 
-Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide, then paste them into your Claude configuration file to complete the connection.
+Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide. After you have saved the keys, you will paste them into your Claude configuration file as described in [Step 2: Connect to MCP servers and install skills in Claude Desktop](README.md:.
 
 ## A few things to know before you start
 
@@ -14,29 +14,31 @@ Before Claude can connect to your Kaseya tools, give it permission to do so. Eac
 
 **Requirement:** Administrator role in Autotask.
 
-1. In Autotask, select **Admin > Resources (Users)** in the left menu.
+1. In Autotask, select **Admin** in the left menu.
 
-<img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/d27f57f1-550c-4b40-b268-8ec27e8d5f1e" />
+   <img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/d27f57f1-550c-4b40-b268-8ec27e8d5f1e" />
+
+2. Under **Admin** in the left menu, click **Resources (Users)**.
 
 3. On the Resources page, select **New API User** from the **+ New** dropdown menu.
 
-<img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
+   <img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
 
 4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User**.
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
-  <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
+   <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
-<img width="261" height="92" alt="README20" src="https://github.com/user-attachments/assets/2b617bbc-91af-4599-b0e2-eaefe7f0a0d0" />
+   <img width="261" height="92" alt="README20" src="https://github.com/user-attachments/assets/2b617bbc-91af-4599-b0e2-eaefe7f0a0d0" />
 
 7. Unless your business strictly separates work by line of business, leave the **Line of Business** field blank. Assigning one here can restrict what the API user can view.
 
 8. Click **Save and Close**.
 
-In addition to your Autotask secrets, you are prompted for your Autotask Model Context Protocol (MCP) endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field.
+In addition to your Autotask secrets, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field.
 
 ### Australia (`au` — Azure `australiaeast`)
 
@@ -99,16 +101,19 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 ### Step 1: Turn on API access
 
-1. In Datto RMM, select **Setup > Global Settings > Access Control**.
-2. Turn on the **Enable API Access** toggle.
+1. In Datto RMM, select **Setup > Global Settings** in the left menu.
 
-<img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
+3. On the Global Settings page, turn on the **Enable API Access** toggle in **Access Control** section.
+
+   <img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
 
 ### Step 2: Generate keys for a user
 
-1. Select **Setup > Users**, then select the username for which you want to generate keys.
+1. In the left menu, select **Setup > Users**.
 
-<img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
+3. On the Users page, select the username for which you want to generate keys.
+
+   <img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
 
 2. Scroll down to the **API** section, then click **Generate API Keys**.
 
