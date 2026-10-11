@@ -119,7 +119,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
    <img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
 
-4. The **API Key** and **API Secret Key** for the selected user are shown. Copy both values immediately and store them securely.
+4. The **API Key** and **API Secret Key** display. Copy both values immediately and store them securely.
 
 ### Step 3: Identify the platform number
 
@@ -135,7 +135,8 @@ For additional information about creating API users in Autotask, see [Adding or 
   | 6 | ZINFANDEL |
   | 7 | MOSCATO |
 
-> **Datto RMM security note:** API keys in Datto RMM bypass individual user security level restrictions. All keys grant the same level of access regardless of which user account generated them. Use caution when you decide who generates keys and where you store them.
+> [!NOTE]
+> API keys in Datto RMM bypass individual user security level restrictions. All keys grant the same level of access regardless of which user account generated them. Use caution when you decide who generates keys and where you store them.
 
 For additional information about creating API keys in Datto RMM, see [Datto RMM API](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm).
 
@@ -147,7 +148,7 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 1. Select **Admin > Settings**.
 
-<img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
+   <img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
 
 2. Select the **API Keys** tab.
 
@@ -155,11 +156,12 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 4. Enter a name for the key, such as *Claude MCP*, then click **Generate API Key**. Copy the key value immediately and store it securely.
 
-<img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
+   <img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
 
 5. Optionally, turn on **Password Access** if you want the API key to retrieve password records from IT Glue. Leave it off if you do not need it.
 
-> **IT Glue security note:** Anyone with your IT Glue API key can access your data. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
+> [!NOTE]
+> Anyone with your IT Glue API key can access your data. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
 
 For additional information about creating API keys in IT Glue, see [Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html).
 
