@@ -1,6 +1,6 @@
 # Generating API keys: Autotask, Datto RMM, and IT Glue
 
-Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide. After you have saved the keys, you will paste them into your Claude configuration file as described in [Step 2: Connect to MCP servers and install skills in Claude Desktop](README.md:.
+Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide. After you have saved the keys, you will paste them into your Claude configuration file as described in [Step 2: Connect to MCP servers and install skills in Claude Desktop](README.md#step-2-connect-to-mcp-servers-and-install-skills-in-claude-desktop).
 
 ## A few things to know before you start
 
@@ -91,7 +91,7 @@ In addition to your Autotask secrets, you are prompted for your Autotask MCP end
 
 After you save your Autotask key and secret, and your MCP hostname, continue to the next product below. When you have sets of credentials for all products, return to the README to complete the connection.
 
-For additional information about creating API users in Autotask, see [Adding or editing an API user]([https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html](https://www.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Resources/API_User_Add_Edit.htm).
+For additional information about creating API users in Autotask, see [Adding or editing an API user](https://www.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Resources/API_User_Add_Edit.htm).
 
 ---
 
