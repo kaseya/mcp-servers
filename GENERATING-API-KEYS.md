@@ -38,7 +38,7 @@ Before Claude can connect to your Kaseya tools, give it permission to do so. Eac
 
 8. Click **Save and Close**.
 
-In addition to your Autotask secrets, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field.
+In addition to your Autotask API credentials, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field.
 
 ### Australia (`au` — Azure `australiaeast`)
 
@@ -89,7 +89,7 @@ In addition to your Autotask secrets, you are prompted for your Autotask MCP end
 | `pres.autotask.net` | `mcppres.autotask.net` |
 | `prca01.autotask.net` | `mcpprca01.autotask.net` |
 
-After you save your Autotask key and secret, and your MCP hostname, continue to the next product below. When you have sets of credentials for all products, return to the README to complete the connection.
+After you save your Autotask key and secret, and your MCP hostname, continue to the next product below to generate its API credentials.
 
 For additional information about creating API users in Autotask, see [Adding or editing an API user](https://www.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Resources/API_User_Add_Edit.htm).
 
@@ -103,7 +103,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 1. In Datto RMM, select **Setup > Global Settings** in the left menu.
 
-3. On the Global Settings page, turn on the **Enable API Access** toggle in **Access Control** section.
+2. On the Global Settings page, turn on the **Enable API Access** toggle in the **Access Control** section.
 
    <img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
 
@@ -111,15 +111,15 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 1. In the left menu, select **Setup > Users**.
 
-3. On the Users page, select the username for which you want to generate keys.
+2. On the Users page, select the username for which you want to generate keys.
 
    <img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
 
-2. Scroll down to the **API** section, then click **Generate API Keys**.
+3. On the username page that displays, scroll down to the **API** section, then click **Generate API Keys**.
 
-<img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
+   <img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
 
-3. Your **API Key** and **API Secret Key** are shown. Copy both values immediately and store them securely.
+4. The **API Key** and **API Secret Key** for the selected user are shown. Copy both values immediately and store them securely.
 
 ### Step 3: Identify the platform number
 
