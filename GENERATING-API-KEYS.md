@@ -6,7 +6,7 @@ Before Claude can connect to your Kaseya tools, give it permission to do so. Eac
 
 - You must be an administrator in each product. Generating API keys requires admin-level access in Autotask, IT Glue, and Datto RMM. If you do not have that access, ask whoever manages your Kaseya account to complete these steps and share the values with you securely.
 
-- Secret values are shown only once. The secret or password portion of each key pair is displayed only when you generate it. After you leave the page, you cannot retrieve it. Keep a secure place ready to store your values before you begin, such as a password manager or your IT Glue vault.
+- Secret values are shown only once. The secret or password portion of each key pair is displayed only when you generate it. After you leave the page, you cannot retrieve it. Have a secure place ready to store your values before you begin, such as a password manager or your IT Glue vault.
 
 ---
 
@@ -14,23 +14,21 @@ Before Claude can connect to your Kaseya tools, give it permission to do so. Eac
 
 **Requirement:** Administrator role in Autotask.
 
-1. In the Autotask dashboard, select **Admin** in the left menu.
+1. In Autotask, select **Admin > Resources (Users)** in the left menu.
 
 <img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/d27f57f1-550c-4b40-b268-8ec27e8d5f1e" />
 
-2. Select **Resources (Users)**.
-
-3. Select **New API User** from the **+ New** dropdown menu.
+3. On the Resources page, select **New API User** from the **+ New** dropdown menu.
 
 <img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
 
-4. Complete the required information for the new API user. Make sure the **Security Level** field is set to **API User**.
+4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User**.
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
   <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
 
-6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for **Autotask - MCP**.
+6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
 <img width="261" height="92" alt="README20" src="https://github.com/user-attachments/assets/2b617bbc-91af-4599-b0e2-eaefe7f0a0d0" />
 
@@ -89,9 +87,9 @@ In addition to your Autotask secrets, you are prompted for your Autotask Model C
 | `pres.autotask.net` | `mcppres.autotask.net` |
 | `prca01.autotask.net` | `mcpprca01.autotask.net` |
 
-After you save your Autotask key and secret, continue to the next product below. When you have all three sets of credentials, return to the README to complete the connection.
+After you save your Autotask key and secret, and your MCP hostname, continue to the next product below. When you have sets of credentials for all products, return to the README to complete the connection.
 
-For additional information about creating API users in Autotask, see [Adding or editing an API user](https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html).
+For additional information about creating API users in Autotask, see [Adding or editing an API user]([https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html](https://www.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Resources/API_User_Add_Edit.htm).
 
 ---
 
