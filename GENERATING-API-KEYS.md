@@ -158,7 +158,7 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
    <img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
 
-5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it off if you do not need it.
+5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it unselected if you do not need it.
 
 > [!NOTE]
 > Anyone with your IT Glue API key can access your data. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
@@ -173,7 +173,7 @@ For additional information about creating API keys in IT Glue, see [Getting star
 
 - Generate one set of keys per person setting up the integration. If multiple team members are configuring Claude separately, each person should generate their own keys rather than share one set. This makes it easier to track changes and rotate credentials individually if someone leaves.
 
-- Use a dedicated service account, not a personal one. If a user account is deactivated or deleted in any of the three products, the API keys stop working immediately. Building the integration under a shared service account prevents disruption if a team member leaves.
+- Use a dedicated service account, not a personal one. If a user account is deactivated or deleted in any of the products, the API keys stop working immediately. Building the integration under a shared service account prevents disruption if a team member leaves.
 
 - Revoking or regenerating a key immediately breaks existing connections. If you need to rotate a key, generate a new one in the relevant product, update the value in your Claude configuration file, and restart Claude Desktop. The old key stops working as soon as a new key is generated.
 
@@ -181,7 +181,7 @@ For additional information about creating API keys in IT Glue, see [Getting star
 
 ## Next step: Use your keys to configure Model Context Protocol (MCP) connections in Claude
 
-After you have all three sets of credentials, return to the [README](README.md#getting-started) and follow **Step 1: Connecting your MCP servers**.
+After you have sets of credentials for all products, return to the [README](README.md#step-2-connect-to-mcp-servers-and-install-skills-in-claude-desktop) and follow **Step 2: Connect to MCP servers and install skills in Claude Desktop**.
 
 ---
 
@@ -189,6 +189,6 @@ After you have all three sets of credentials, return to the [README](README.md#g
 
 | Product | Reference |
 |---|---|
-| Autotask | [Adding or editing an API user](https://help.rocketcyber.kaseya.com/help/Content/integrations-troubleshooting-faqs/create-an-api-user-in-datto-psa-autotask.html) |
+| Autotask | [Adding or editing an API user](https://www.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Resources/API_User_Add_Edit.htm) |
 | Datto RMM | [Datto RMM API](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm) |
 | IT Glue | [Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html) |
