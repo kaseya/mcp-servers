@@ -24,7 +24,7 @@ Before Claude can connect to your Kaseya tools, give it permission to do so. Eac
 
    <img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
 
-4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User**.
+4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User (system)**.
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
