@@ -51,9 +51,9 @@ This repo is for:
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
 4. [Example Tools & Skills](#example-tools--skills)
-5. [RMM Resources](RMM/)and
+5. [RMM Resources](RMM/)
 6. [Autotask Resources](AUTOTASK/)
-7. [ITGlue Resources](ITGLUE/)
+7. [IT Glue Resources](ITGLUE/)
 8. [Disclaimer](Governance/DISCLAIMERS.md#disclaimers-and-claim-waivers)
 9. [Security](Governance/SECURITY.md)
 10. [Code of Conduct](Governance/CODE_OF_CONDUCT.md)
@@ -111,7 +111,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
    | --------- | -------------------------------------- | ---------------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                          |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                              |
-   | IT Glue   | itg-mcp.mcpb                           | IT Glue folder (need mcpb file; no skills for alpha) |
+   | IT Glue   | itg-mcp.mcpb                           | [IT Glue folder](ITGLUE) (no skills for alpha) |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
@@ -307,6 +307,7 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 The Kaseya Insights Community operates under a set of governing documents. All Participants are expected to read and comply with the documents applicable to their activities.
 
 | Doc | Purpose |
+| --------- | ---------------------------------------------------------------------------------------- |
 |[License](LICENSE.md)|Apache License, Version 2.0. Governs all contributions to the community.|
 |[Code of Conduct](CODE_OF_CONDUCT.md)|Community standards and enforcement policy. Applies to all community spaces and Participants.|
 |[Governance Policy](GOVERNANCE.md)|Community structure and roles.|
