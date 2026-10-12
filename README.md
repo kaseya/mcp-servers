@@ -94,7 +94,7 @@ Before connecting to MCP Servers, you will need generate credentials for each pl
 
 **Option 2: MCPB Bundle in Claude Code (CLI)**
 
-**RMM**
+**Datto RMM**
 
 *Prerequisite:* Node.js 22 or newer and Claude Code (the `claude` command). Check with `node -v` and `claude --version`; only if either is missing or older, install [Node.js](https://nodejs.org) 22 or newer or Claude Code.
 
