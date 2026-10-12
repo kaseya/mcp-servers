@@ -123,7 +123,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 ### Step 3: Identify the platform number
 
-1. You are prompted to choose the platform for your Datto RMM account by number. Use the key below to determine which number to enter.
+You are prompted to choose the platform for your Datto RMM account by number. Use the key below to determine which number to enter.
 
   | Platform number | Platform name |
   |---|---|
@@ -146,19 +146,19 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 **Requirement:** Administrator role in IT Glue.
 
-1. Select **Admin > Settings**.
+1. In IT Glue, select **Admin** in the top menu, then **Settings** in the left menu.
 
    <img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
 
-2. Select the **API Keys** tab.
+2. On the Settings page, select the **API Keys** tab.
 
-3. Click **Custom API Keys > Create API Key**.
+3. In the **Custom API Keys** section, click **+ Create API Key**.
 
-4. Enter a name for the key, such as *Claude MCP*, then click **Generate API Key**. Copy the key value immediately and store it securely.
+4. In the **Enter Name** field below, enter a name for the key, such as *Claude MCP*, then click **Generate Secret Key**. Copy the key value immediately and store it securely.
 
    <img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
 
-5. Optionally, turn on **Password Access** if you want the API key to retrieve password records from IT Glue. Leave it off if you do not need it.
+5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it off if you do not need it.
 
 > [!NOTE]
 > Anyone with your IT Glue API key can access your data. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
