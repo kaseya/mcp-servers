@@ -2,13 +2,11 @@
 
 Three skills read from IT Glue and turn it into answers technicians, admins and account managers use every day. All three are read-only, work on one client at a time, and are deliberately light on API calls. They say plainly what IT Glue could not show, so a missing item is treated as a finding and not hidden.
 
-| Skill | Built for | What you get | IT Glue calls |
-|---|---|---|---|
-| [itglue-organization-overview](#itglue-organization-overview) | Technicians | Site-visit pack: network gear, internet details, printers, site documents and ticket hints, with gaps flagged | About 10 (max 14). Quick mode about 4 |
-| [itglue-hygiene-check](#itglue-hygiene-check) | Admins, service desk leads | Scorecard of one client's documentation quality plus what to fix first | 7 (13 with the optional check, max 15) |
-| [itglue-environment-review](#itglue-environment-review) | Account managers, vCIOs | Documentation and Asset Health Review: lifecycle, security documentation, document age, recommended actions | About 14 (max 20). Quick mode about 7 |
-
-A fourth skill, `itglue-skills-team-brief`, explains the other three (what each does, call costs, limits, example prompts). It makes no IT Glue calls. The original team brief is included as `itglue-plugin/itglue-skills-team-brief/itglue-skills-team-brief.docx`.
+| Skill | Built for | What you get |
+|---|---|---|
+| [itglue-organization-overview](#itglue-organization-overview) | Technicians | Site-visit pack: network gear, internet details, printers, site documents and ticket hints, with gaps flagged |
+| [itglue-hygiene-check](#itglue-hygiene-check) | Admins, service desk leads | Scorecard of one client's documentation quality plus what to fix first |
+| [itglue-environment-review](#itglue-environment-review) | Account managers, vCIOs | Documentation and Asset Health Review: lifecycle, security documentation, document age, recommended actions |
 
 *Before using these skills, make sure the IT Glue MCP server is connected and the skills are installed. See the [Getting Started](../README.md#getting-started) section of the README.*
 
@@ -122,20 +120,3 @@ Reusing a recent hygiene check in the same conversation saves calls.
 "Prepare a review for [client]. I already ran a hygiene check, so reuse it."
 /itglue-environment-review
 ```
-
----
-
-## What the skills cannot do today
-
-- **Locations, contacts and flexible assets are not readable.** The IT Glue tools read only assets and documents. Site addresses, directions, on-site contacts, ISP circuit records and AD or DNS details appear only if written into a document or asset notes. Otherwise they are flagged as not found.
-- **Warranty and OS data need one lookup per device.** The environment review checks up to 5 key assets.
-- **No estate-wide ticket ranking.** Tickets are read per device, so the overview ranks only devices it opens.
-- **Document search matches titles only,** not content. "Not found" means no matching title, not that nothing is documented. MFA, MDM and antivirus findings are prompts to confirm, not proof.
-- **PSA and RMM linkage cannot be counted,** and there is no IP address search.
-- **No patching, alerts or backup status.** That data is not in IT Glue. Use the Datto RMM and Autotask skills.
-
-## Status and what comes next
-
-The hygiene check was tested live on one client in a QA instance. The organization overview and environment review were redesigned after the first round of feedback and have not yet been run live, because the IT Glue connector began returning errors during testing. Please try them and tell us what is missing or wrong.
-
-With the Autotask and Datto RMM connectors, the overview gets a true ticket ranking and bulk device details, the hygiene check adds PSA and RMM linkage reconciliation, and the environment review covers warranty and operating systems for every device. IT Glue call budgets stay the same or shrink.
