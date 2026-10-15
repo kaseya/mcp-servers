@@ -121,7 +121,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
 5. Upload the skills ZIP file for each product you connected:
-   1. In Claude, click **Skills** in the left sidebar.
+   1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
