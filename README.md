@@ -115,8 +115,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
-   > [!NOTE]
-   > If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
+     If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
