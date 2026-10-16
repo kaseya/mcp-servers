@@ -300,6 +300,9 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | Datto RMM | [drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)           | Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear), and recommends a specific tuning step — while protecting alerts that are noisy but real. |
 | Datto RMM | [drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)                 | Groups devices by version and site, rates versions current, behind, or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category of software.      |
 | Datto RMM | [drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)                       | Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.                              |
+| IT Glue | [itglue-organization-overview](ITGLUE/ITGlue-Skills-documentation.md#itglue-organization-overview)                | Builds a one-page site pack (network gear, internet details, printers, site documents, and ticket hints, with gaps flagged).      |
+| IT Glue |  [itglue-hygiene-check](ITGLUE/ITGlue-Skills-documentation.md#itglue-hygiene-check)                | Creates a scorecard of one client's documentation quality plus what to fix first.       |
+| IT Glue | [itglue-environment-review](ITGLUE/ITGlue-Skills-documentation.md#itglue-environment-review)                | Produces a Documentation and Asset Health Review for one client (lifecycle, security documentation, document age, recommended actions).       |
 
 ## Legal documents
 
