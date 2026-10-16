@@ -236,7 +236,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 
 | Tool                | Operation | Description                                                                                                                         |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **search-entries**  | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
+| **search-entities** | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
 | **describe-entity** | Read      | Return the live field schema: field names, data types, flags, picklist values, and supported operators.                             |
 | **query-entity**    | Read      | Query an entity with filters, one `anyOf` group, fields, and a limit. Return rows in identifier (ID) order, with a `nextPage` hint. |
 | **count-entities**  | Read      | Count rows that match the filters, without fetching them.                                                                           |
