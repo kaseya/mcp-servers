@@ -209,7 +209,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Product       | What skills can do                                                                 |
 | ------------- | ---------------------------------------------------------------------------------- |
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
-| **IT Glue**   | Create and update configuration records, document devices, and log triage notes    |
+| **IT Glue**   | Build site-visit packs, score a client’s documentation, and review documentation and asset health |
 | **Autotask**  | Read and update tickets, post notes, and provide ticket briefings                  |
 
 ---
