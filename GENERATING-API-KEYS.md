@@ -1,6 +1,6 @@
 # Generating API keys: Autotask, Datto RMM, and IT Glue
 
-Before Claude can connect to your Kaseya product, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide, then paste them into your Claude configuration file to complete the connection.
+Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide, then paste them into your Claude configuration file to complete the connection.
 
 ## A few things to know before you start
 
