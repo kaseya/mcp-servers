@@ -1,6 +1,6 @@
 # Generating API keys: Autotask, Datto RMM, and IT Glue
 
-Before Claude can connect to your Kaseya tools, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide, then paste them into your Claude configuration file to complete the connection.
+Before Claude can connect to your Kaseya product, give it permission to do so. Each product uses a unique set of secret credentials called API keys to verify that the connection is coming from an authorized source. You generate those keys in each product by following the steps in this guide, then paste them into your Claude configuration file to complete the connection.
 
 ## A few things to know before you start
 
@@ -161,7 +161,7 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it unselected if you do not need it.
 
 > [!NOTE]
-> Anyone with your IT Glue API key can access your data. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
+> Anyone with your IT Glue API key can access all the data in your account. Treat it like a password. Keep it private, do not share it by email or chat, and store it in a secure location. You can revoke a key and generate a new one at any time from your IT Glue account, but any connections that use the old key stop working immediately when you do.
 
 For additional information about creating API keys in IT Glue, see [Getting started with the IT Glue API](https://help.itglue.kaseya.com/help/Content/1-admin/it-glue-api/getting-started-with-the-it-glue-api.html).
 

@@ -6,7 +6,7 @@
 
 This repo provides MCP servers that connect Claude Desktop to Kaseya products. It also provides skills and other automation libraries you can try and contribute to.
 
-MCP is an open standard that lets AI tools call external tools. Kaseya MCP servers connect the AI tools you already use to Datto RMM, Autotask PSA, and IT Glue, and Kaseya-built skills help automate common MSP workflows, so you don't have to build and maintain everything yourself.
+Kaseya MCPs serve as a connector between AI tools and Kaseya products, such as Datto RMM, Autotask PSA, and IT Glue, facilitating access to supported functionality through their APIs. MCPs include Kaseya-built skills and help automate common MSP workflows, so you don't have to build and maintain everything yourself.
 
 This community proves patterns, builds guardrails, and makes collective expertise available to every member who needs it.
 
@@ -111,12 +111,11 @@ Before connecting to MCP Servers, generate application programming interface (AP
    | --------- | -------------------------------------- | ---------------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                          |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                              |
-   | IT Glue   | itg-mcp.mcpb                           | [IT Glue folder](ITGLUE) (no skills for alpha) |
+   | IT Glue   | itg-mcp.mcpb, itglue-plugin.zip        | [IT Glue folder](ITGLUE)                             |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
-   > [!NOTE]
-   > If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
+     If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
@@ -210,7 +209,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Product       | What skills can do                                                                 |
 | ------------- | ---------------------------------------------------------------------------------- |
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
-| **IT Glue**   | Create and update configuration records, document devices, and log triage notes    |
+| **IT Glue**   | Build site-visit packs, score a client’s documentation, and review documentation and asset health |
 | **Autotask**  | Read and update tickets, post notes, and provide ticket briefings                  |
 
 ---
@@ -237,7 +236,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 
 | Tool                | Operation | Description                                                                                                                         |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **search-entries**  | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
+| **search-entities** | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
 | **describe-entity** | Read      | Return the live field schema: field names, data types, flags, picklist values, and supported operators.                             |
 | **query-entity**    | Read      | Query an entity with filters, one `anyOf` group, fields, and a limit. Return rows in identifier (ID) order, with a `nextPage` hint. |
 | **count-entities**  | Read      | Count rows that match the filters, without fetching them.                                                                           |
@@ -301,6 +300,9 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | Datto RMM | [drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)           | Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear), and recommends a specific tuning step — while protecting alerts that are noisy but real. |
 | Datto RMM | [drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)                 | Groups devices by version and site, rates versions current, behind, or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category of software.      |
 | Datto RMM | [drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)                       | Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.                              |
+| IT Glue | [itglue-organization-overview](ITGLUE/ITGlue-Skills-documentation.md#itglue-organization-overview)                | Builds a one-page site pack of network gear, internet details, printers, site documents, and ticket hints, with gaps flagged.      |
+| IT Glue |  [itglue-hygiene-check](ITGLUE/ITGlue-Skills-documentation.md#itglue-hygiene-check)                | Creates a scorecard of one client's documentation quality plus what to fix first.       |
+| IT Glue | [itglue-environment-review](ITGLUE/ITGlue-Skills-documentation.md#itglue-environment-review)                | Produces a Documentation and Asset Health Review report for one client. Contains the following: summary, environment at a glance, lifecycle, security documentation, document health, data quality, recommended actions, and  what is not covered.       |
 
 ## Legal documents
 
