@@ -39,7 +39,7 @@ This repo is for:
 
 | Channel         | Details                                                 |
 | --------------- | ------------------------------------------------------- |
-| Discord         | You receive a discord link a few days prior to kickoff. |
+| Discord and Microsoft Teams   | You received a discord link and Teams invite a few days prior to kickoff. Reach out to sarah.tappan@kaseya.com with any issues. |
 | Office Hours    | Daily. See Discord for the schedule.                    |
 | Community Calls | Bi-weekly. See Discord for the schedule.                |
 
@@ -111,7 +111,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
    | --------- | -------------------------------------- | ---------------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                          |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                              |
-   | IT Glue   | itg-mcp.mcpb, itglue-plugin.zip        | [IT Glue folder](ITGLUE)                             |
+   | IT Glue   | itg-mcp.mcpb                           | [IT Glue folder](ITGLUE)                             |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
@@ -200,7 +200,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Client         | Supported |
 | -------------- | --------- |
 | Claude Desktop | ✅        |
-| Claude Code    | ✅        |
+| Claude Code (CLI)    | ✅        |
 
 ---
 
@@ -300,9 +300,6 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | Datto RMM | [drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)           | Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear), and recommends a specific tuning step — while protecting alerts that are noisy but real. |
 | Datto RMM | [drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)                 | Groups devices by version and site, rates versions current, behind, or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category of software.      |
 | Datto RMM | [drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)                       | Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.                              |
-| IT Glue | [itglue-organization-overview](ITGLUE/ITGlue-Skills-documentation.md#itglue-organization-overview)                | Builds a one-page site pack of network gear, internet details, printers, site documents, and ticket hints, with gaps flagged.      |
-| IT Glue |  [itglue-hygiene-check](ITGLUE/ITGlue-Skills-documentation.md#itglue-hygiene-check)                | Creates a scorecard of one client's documentation quality plus what to fix first.       |
-| IT Glue | [itglue-environment-review](ITGLUE/ITGlue-Skills-documentation.md#itglue-environment-review)                | Produces a Documentation and Asset Health Review report for one client. Contains the following: summary, environment at a glance, lifecycle, security documentation, document health, data quality, recommended actions, and  what is not covered.       |
 
 ## Legal documents
 
