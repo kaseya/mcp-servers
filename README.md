@@ -142,12 +142,12 @@ _Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Chec
 
 **Autotask**
 
-1. Store your Autotask API credentials by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
+1. Store your Autotask API credentials _(generated in [Step 1](GENERATING-API-KEYS.md#autotask))_, by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
    ```powershell
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\autotask-auth.ps1 configure
    ```
    `configure` does the following:
-   - Prompts for the Autotask MCP endpoint, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
+   - Prompts for the Autotask MCP endpoint _(found in the [Generating-API-Keys document](GENERATING-API-KEYS.md#autotask))_, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
    - Prompts for the Autotask API username, secret, and integration code. The secret and integration code are hidden as you type.
    - Stores the credentials encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\AutotaskMcp`.
 2. Add the base HTTP entry:
