@@ -38,8 +38,11 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 8. Click **Save and Close**.
 
-In addition to your Autotask API credentials, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field.
+In addition to your Autotask API credentials, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field. 
 
+> [!NOTE]
+> To identify which Autotask API host you are using, see [Querying user zone information via the REST API](https://ww15.autotask.net/help/DeveloperHelp/Content/APIs/REST/API_Calls/REST_ZoneInformation.htm).
+ 
 ### Australia (`au` — Azure `australiaeast`)
 
 | Autotask API host | MCP hostname |
