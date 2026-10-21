@@ -6,7 +6,7 @@
 
 This repo provides MCP servers that connect Claude Desktop to Kaseya products. It also provides skills and other automation libraries you can try and contribute to.
 
-MCP is an open standard that lets AI tools call external tools. Kaseya MCP servers connect the AI tools you already use to Datto RMM, Autotask PSA, and IT Glue, and Kaseya-built skills help automate common MSP workflows, so you don't have to build and maintain everything yourself.
+Kaseya MCPs serve as a connector between AI tools and Kaseya products, such as Datto RMM, Autotask PSA, and IT Glue, facilitating access to supported functionality through their APIs. MCPs include Kaseya-built skills and help automate common MSP workflows, so you don't have to build and maintain everything yourself.
 
 This community proves patterns, builds guardrails, and makes collective expertise available to every member who needs it.
 
@@ -39,7 +39,7 @@ This repo is for:
 
 | Channel         | Details                                                 |
 | --------------- | ------------------------------------------------------- |
-| Discord         | You receive a discord link a few days prior to kickoff. |
+| Discord and Microsoft Teams   | You received a discord link and Teams invite a few days prior to kickoff. Reach out to sarah.tappan@kaseya.com with any issues. |
 | Office Hours    | Daily. See Discord for the schedule.                    |
 | Community Calls | Bi-weekly. See Discord for the schedule.                |
 
@@ -115,8 +115,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
-   > [!NOTE]
-   > If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
+     If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
@@ -143,12 +142,12 @@ _Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Chec
 
 **Autotask**
 
-1. Store your Autotask API credentials by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
+1. Store your Autotask API credentials _(generated in [Step 1](GENERATING-API-KEYS.md#autotask))_, by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
    ```powershell
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\autotask-auth.ps1 configure
    ```
    `configure` does the following:
-   - Prompts for the Autotask MCP endpoint, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
+   - Prompts for the Autotask MCP endpoint _(found in the [Generating-API-Keys document](GENERATING-API-KEYS.md#autotask))_, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
    - Prompts for the Autotask API username, secret, and integration code. The secret and integration code are hidden as you type.
    - Stores the credentials encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\AutotaskMcp`.
 2. Add the base HTTP entry:
@@ -201,7 +200,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Client         | Supported |
 | -------------- | --------- |
 | Claude Desktop | ✅        |
-| Claude Code    | ✅        |
+| Claude Code (CLI)    | ✅        |
 
 ---
 
@@ -210,7 +209,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Product       | What skills can do                                                                 |
 | ------------- | ---------------------------------------------------------------------------------- |
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
-| **IT Glue**   | Create and update configuration records, document devices, and log triage notes    |
+| **IT Glue**   | Build site-visit packs, score a client’s documentation, and review documentation and asset health |
 | **Autotask**  | Read and update tickets, post notes, and provide ticket briefings                  |
 
 ---
@@ -237,7 +236,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 
 | Tool                | Operation | Description                                                                                                                         |
 | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **search-entries**  | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
+| **search-entities** | Read      | Find the Autotask entity name that matches a plain-language description.                                                            |
 | **describe-entity** | Read      | Return the live field schema: field names, data types, flags, picklist values, and supported operators.                             |
 | **query-entity**    | Read      | Query an entity with filters, one `anyOf` group, fields, and a limit. Return rows in identifier (ID) order, with a `nextPage` hint. |
 | **count-entities**  | Read      | Count rows that match the filters, without fetching them.                                                                           |
