@@ -58,6 +58,7 @@ This repo is for:
 9. [Security](Governance/SECURITY.md)
 10. [Code of Conduct](Governance/CODE_OF_CONDUCT.md)
 11. [Governance Policy](Governance/GOVERNANCE.md)
+12. [Customer FAQs](#faqs)
 
 ---
 
@@ -303,6 +304,22 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | IT Glue | [itglue-organization-overview](ITGLUE/ITGlue-Skills-documentation.md#itglue-organization-overview)                | Builds a one-page site pack of network gear, internet details, printers, site documents, and ticket hints, with gaps flagged.      |
 | IT Glue |  [itglue-hygiene-check](ITGLUE/ITGlue-Skills-documentation.md#itglue-hygiene-check)                | Creates a scorecard of one client's documentation quality plus what to fix first.       |
 | IT Glue | [itglue-environment-review](ITGLUE/ITGlue-Skills-documentation.md#itglue-environment-review)                | Produces a Documentation and Asset Health Review report for one client. Contains the following: summary, environment at a glance, lifecycle, security documentation, document health, data quality, recommended actions, and  what is not covered.       |
+
+## FAQs
+
+| Category | Question | Answer |
+|----------|----------|--------|
+| Roadmap, identity and security | **Will this expand to a unified data layer rather than individual platform connectors? Is there a timeline for a single Kaseya MCP so we don't repeat the setup for every product?** | Unified APIs are planned for release in H1 FY27. There is no firm timeline for a single Kaseya MCP. It is being looked at alongside the identity work, but identity is the higher priority right now. |
+| Roadmap, identity and security | **Which Kaseya products have MCP servers, and will others (MDR, EDR, RapidFire Tools, Inky, Kaseya SIEM, Smart Insights, etc.) be added?**| The pre-alpha covers Autotask, Datto RMM and IT Glue. Kaseya Insights will start with Autotask and RMM, with more products coming. We do not have a timeline for other products at this time.|
+| Roadmap, identity and security | **When will the MCP servers be generally available? Is this open to all customers?** | Kaseya plans to open the servers to all customers but is calling it early access until identity guardrails are built. We currently are planning to release this early access for all customers in Mid-November. |
+| Setup and connectivity | **Can I connect to the MCP servers using a different platform than CLaude (CoPilot, ChatGPT)?** | You are welcome to use what we are providing in this repo to connect our MCP servers to different AI Platforms. However, everything in this repo (including documentation) was creating to work with Claude. Kaseya cannot assist with any troubleshooting relating to connections with different AI tools, but we plan to offer a future session covering how other customers were able to do this. |
+| Setup and connectivity | **What do I need in place before I can connect?** | Claude Desktop installed, access to the GitHub repo, and your API credentials generated for each product. The repo README is the source of truth covering these steps - begin with #Getting-started covering the pre-reqs. |
+| Setup and connectivity | **Claude shows a red warning when I install the extension. Is this running anything on my computer?** | No. The Kaseya MCP server is remote. The extension only connects Claude to it and does not do anything on your desktop or file system. Anthropic shows this warning for every extension. |
+| Setup and connectivity | **I get an error dragging the .mcpb file into Claude.** | Re-download it; the file likely didn't download fully. |
+| Setup and connectivity | **Which Claude plan is enough for this? (Hit the free usage limit.)** | For now, we suggest trying the lowest paid tier. |
+| Setup and connectivity | **How do I know whether the connection worked? I saved my credentials and nothing happened.** | There is no success message. Toggle the extension from Disabled to Enabled: if it turns blue/Enabled it connected; if not, an error appears (post it in the chat, Teams or Discord). Open Configure to confirm: you should see the list of Autotask read and write tools. If you fix a setting (for example adding https:// to the URL), toggle it off and on again. Once enabled, open a chat and ask in natural language; Claude chooses the tools itself. |
+| Setup and connectivity - Autotask | **Which MCP endpoint do I use (e.g. mcp2 vs mcp3)? If my Autotask URL is ww14, should I use https://mcp14.autotask.net/mcp?**| It depends on your Autotask zone. Take your Autotask API host, replace "webservices" with "mcp" and add "/mcp" (e.g. webservices3 → https://mcp3.autotask.net/mcp). The zone lookup can be found [here](Generation-API-Keys.md). Correct format must include https:// at the front. |
+| Setup and connectivity - RMM |**Why is the MCP installed on Organization setting, not in a user level like Autotask MCP?** | For RMM, the client is a stdio bridge, so it runs locally on each user's machine. Each user's Claude Desktop runs its own copy, which means it can't be installed once at the organization level. An admin can still deploy the extension centrally to everyone through Claude |
 
 ## Legal documents
 
