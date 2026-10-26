@@ -249,7 +249,7 @@ Follow this approach as you explore tools and skills with MCP servers:
 | **delete-entity**   | Write     | Permanently delete one row. Only working rows and link rows accept a delete — business records never do.                            |
 | **add-ticket-note** | Write     | Add a note to an existing ticket. Return the note, read back and enriched.                                                          |
 
-See [Autotask Documentation](AUTOTASK/autotask-skills-documentation.md#entities) to see which entities are included in MCP servers.
+See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities) to see which entities are included in MCP servers.
 
 ### Datto RMM
 
