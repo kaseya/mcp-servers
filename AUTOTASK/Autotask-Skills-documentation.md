@@ -1,4 +1,43 @@
 # Autotask Skills
+
+## Entities
+
+When you connect Autotask, Claude can read all of the records below using the tools and skills provided by Kaseya through this repo. This table shows which records Claude can **create**, **update**, or **delete** for you. Every change is previewed and needs your confirmation before anything is saved (see [Autotask Guarded Changes](AUTOTASK/Autotask-Skills.md#autotask-guarded-changes)).
+
+| Record | What it holds | Create | Update | Delete |
+|---|---|:---:|:---:|:---:|
+| Companies | Customer and vendor accounts | ✅ | ✅ | ❌ |
+| Contacts | People at a company | ✅ | ✅ | ❌ |
+| Opportunities | Sales opportunities | ✅ | ✅ | ❌ |
+| ConfigurationItems | Devices and assets | ✅ | ✅ | ❌ |
+| Contracts | Service contracts | ✅ | ✅ | ❌ |
+| ContractServices | Services on a contract | ❌ | ❌ | ❌ |
+| ContractServiceUnits | Billed units for a contract service | ❌ | ❌ | ❌ |
+| ContractServiceBundles | Service bundles on a contract | ❌ | ❌ | ❌ |
+| ContractServiceBundleUnits | Billed units for a contract bundle | ❌ | ❌ | ❌ |
+| Services | Service catalog items | ❌ | ❌ | ❌ |
+| ServiceBundles | Service bundle catalog items | ❌ | ❌ | ❌ |
+| Resources | Technicians and staff | ❌ | ✅ | ❌ |
+| Departments | Organization departments | ❌ | ❌ | ❌ |
+| Projects | Projects | ✅ | ✅ | ❌ |
+| Tasks | Tasks inside a project | ✅ | ✅ | ❌ |
+| ServiceCalls | Scheduled service calls | ✅ | ✅ | ❌ |
+| TimeEntries | Logged time | ✅ | ✅ | ❌ |
+| Tickets | Service tickets | ✅ | ✅ | ❌ |
+| TicketNotes | Notes on a ticket | ✅ | ❌ | ❌ |
+| TicketHistory | Ticket change history | ❌ | ❌ | ❌ |
+| TicketChecklistItems | Checklist items on a ticket | ✅ | ✅ | ✅ |
+| TicketChecklistLibraries | Applies a checklist library to a ticket | ✅ | ❌ | ❌ |
+| ChecklistLibraries | Reusable checklist templates | ❌ | ❌ | ❌ |
+| TicketAdditionalContacts | Extra contacts linked to a ticket | ✅ | ❌ | ✅ |
+| TicketAdditionalConfigurationItems | Extra devices linked to a ticket | ✅ | ❌ | ✅ |
+| TicketCategories | Ticket category setup | ❌ | ❌ | ❌ |
+
+**Key:** ✅ Claude can do this  ·  ❌ Claude cannot do this
+
+> **Good to know:** Claude never deletes business records such as companies, contacts, contracts, or tickets. Deletes are limited to checklist items and the links between a ticket and its extra contacts or devices.
+
+---
 ### Autotask Briefing
 
 **Overview**
