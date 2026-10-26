@@ -112,7 +112,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
    | --------- | -------------------------------------- | ---------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                    |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                        |
-   | IT Glue   | itg-mcp.mcpb, itglue-plugin.zip, itglue-auth.ps1 | [IT Glue folder](ITGLUE)             |
+   | IT Glue   | itglue-mcp.mcpb, itglue-plugin.zip, itglue-auth.ps1 | [IT Glue folder](ITGLUE)          |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
@@ -182,15 +182,23 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
    `configure` does the following:
    - Prompts for the IT Glue API key. The key is hidden as you type, and `configure` rejects a value that does not start with `ITG.`.
    - Stores the key encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`.
-2. Add the base HTTP entry, replacing `<REGION>` with `na`, `eu`, or `au`:
+2. Choose the IT Glue MCP endpoint for your region. Use that URL in this step and in step 3, in place of `<mcp-url>`:
+
+   | Region | Endpoint                         |
+   | ------ | -------------------------------- |
+   | NA     | `https://mcp.itglue.com/mcp`     |
+   | EU     | `https://mcp.eu.itglue.com/mcp`  |
+   | AU     | `https://mcp.au.itglue.com/mcp`  |
+
+   Add the base HTTP entry:
    ```powershell
-   claude mcp add --transport http --scope user itglue https://mcp.<REGION>.itglue.com/mcp
+   claude mcp add --transport http --scope user itglue <mcp-url>
    ```
-3. Open `%USERPROFILE%\.claude.json`, find the `"itglue"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. The path in it is the absolute path to `itglue-auth.ps1` on this machine, with each backslash doubled for JSON. Use the same region in `-Region` as in the URL, in capitals. The entry has this shape:
+3. Open `%USERPROFILE%\.claude.json`, find the `"itglue"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. The path in it is the absolute path to `itglue-auth.ps1` on this machine, with each backslash doubled for JSON. Use the same region in `-Region` as in the URL: `NA`, `EU`, or `AU`. The entry has this shape:
    ```json
    "itglue": {
      "type": "http",
-     "url": "https://mcp.<REGION>.itglue.com/mcp",
+     "url": "<mcp-url>",
      "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\itglue-auth.ps1\" headers -Region NA"
    }
    ```
