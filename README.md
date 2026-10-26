@@ -50,7 +50,7 @@ This repo is for:
 1. [Getting Started](#getting-started)
 2. [Supported Clients](#supported-clients)
 3. [Supported Products and Tools](#supported-products-and-tools)
-4. [Example Tools & Skills](#example-tools--skills)
+4. [Kaseya Tools & Skills](#kaseya-tools--skills)
 5. [RMM Resources](RMM/)
 6. [Autotask Resources](AUTOTASK/)
 7. [IT Glue Resources](ITGLUE/)
@@ -215,7 +215,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 
 ---
 
-## Example tools & skills
+## Kaseya tools & skills
 
 Skills in the Kaseya community come in two levels of complexity, and they work together.
 
@@ -248,6 +248,8 @@ Follow this approach as you explore tools and skills with MCP servers:
 | **update-entity**   | Write     | Update one row by ID, read it back, and return it enriched.                                                                         |
 | **delete-entity**   | Write     | Permanently delete one row. Only working rows and link rows accept a delete — business records never do.                            |
 | **add-ticket-note** | Write     | Add a note to an existing ticket. Return the note, read back and enriched.                                                          |
+
+See [Autotask Documentation](AUTOTASK/autotask-skills-documentation.md#entities) to see which entities are included in MCP servers.
 
 ### Datto RMM
 
