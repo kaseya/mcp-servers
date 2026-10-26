@@ -37,11 +37,10 @@ This repo is for:
 
 ### Community channels & support
 
-| Channel         | Details                                                 |
-| --------------- | ------------------------------------------------------- |
-| Discord and Microsoft Teams   | You received a discord link and Teams invite a few days prior to kickoff. Reach out to sarah.tappan@kaseya.com with any issues. |
-| Office Hours    | Daily. See Discord for the schedule.                    |
-| Community Calls | Bi-weekly. See Discord for the schedule.                |
+| Channel | Details |
+| --- | --- |
+| Discord and Microsoft Teams | Invitations were sent before kickoff. For access issues, contact **[mcp-program@kaseya.com]**. |
+| Security issues | Report privately as described in [SECURITY.md](Governance/SECURITY.md). Never post security issues in Discord, Teams or GitHub issues. |
 
 ---
 
@@ -63,6 +62,9 @@ This repo is for:
 ---
 
 ## Getting Started
+
+> [!IMPORTANT]
+> **By installing or using a Kaseya MCP server, extension, skill or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
 
 To get started, complete the following steps:
 
@@ -90,15 +92,23 @@ Before connecting to MCP Servers, generate application programming interface (AP
 | **Autotask**  | Username, secret, Autotask MCP endpoint       | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
-> The [Kaseya API License](https://www.kaseya.com/legal/kaseya-api-license/) governs your use of any MCP server.
-> **Do not share keys, and use minimally scoped permissions for each use case and user. Be aware** that, once connected, the AI services can:
+> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md), together with your Kaseya Master Agreement and the Kaseya Data Processing Addendum. **By installing or using them, you agree to those terms.**
 >
-> 1. Read and access the Content in your Kaseya product platform.
-> 2. Create and update the Content in your Kaseya product platform.
+> **What a connected AI tool can do.** Depending on the product and the permissions of the credentials you use, your AI tool can:
 >
-> **AI services access Content exactly as the Kaseya product platform stores it. Content may include sensitive information such as usernames, passwords or other confidential data.**
+> 1. **Read** the Content in your Kaseya product, exactly as it is stored. This may include usernames, passwords, client details and other confidential data.
+> 2. **Create, change and permanently delete** records (Autotask).
+> 3. **Run automation components and scripts on your managed devices**, and resolve alerts (Datto RMM). These actions preview by default and require your confirmation.
 >
-> The [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) classifies AI services as Third Party Technology.
+> Any action your AI tool takes with your credentials is your action. Review each proposed change before you approve it.
+>
+> **Prompt injection.** Text inside your data, such as a ticket note, a document or a device name, can contain instructions that an AI tool may follow. Only approve actions you intended, and give each connection the narrowest access the product allows.
+>
+> **Credential scope.** Datto RMM API keys carry the same access regardless of which user generates them. An IT Glue API key can read all data in the account. Leave IT Glue **Password Access** off unless you specifically need it.
+>
+> **Your AI provider.** The AI tool you connect (for example, Claude) is third-party technology governed by your agreement with its provider. It is not a Kaseya subprocessor. If you are an MSP, make sure your agreements with your clients allow you to send their data to that AI tool, and do not send health, criminal-justice, export-controlled or payment-card data unless your AI provider's terms and the law permit it.
+>
+> **Not for government or certified environments.** Do not use these connectors for government customers, or where FedRAMP, StateRAMP, TX-RAMP or CMMC authorization is required, unless Kaseya has confirmed in writing that this use is supported.
 
 ---
 
@@ -108,19 +118,21 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
 
+*Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md).*
+
    | Product   | Files                                  | Link                                           |
    | --------- | -------------------------------------- | ---------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                    |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                        |
    | IT Glue   | itg-mcp.mcpb, itglue-plugin.zip        | [IT Glue folder](ITGLUE)                       |
 
-2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
+3. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
      If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
-3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
-4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
-5. Upload the skills ZIP file for each product you connected:
+4. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
+5. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
+6. Upload the skills ZIP file for each product you connected:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
@@ -327,10 +339,12 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 
 The Kaseya Insights Community operates under a set of governing documents. All Participants are expected to read and comply with the documents applicable to their activities.
 
-| Doc | Purpose |
-| --------- | ---------------------------------------------------------------------------------------- |
-|[License](LICENSE.md)|Apache License, Version 2.0. Governs all contributions to the community.|
-|[Code of Conduct](Governance/CODE_OF_CONDUCT.md)|Community standards and enforcement policy. Applies to all community spaces and Participants.|
-|[Governance Policy](Governance/GOVERNANCE.md)|Community structure and roles.|
-|[Security Policy](Governance/SECURITY.md)|How to report security vulnerabilities privately. Do not post vulnerability reports in public issues or forums.|
-|[Disclaimers](Governance/DISCLAIMERS.md)|Consolidated disclaimers and claim waivers applicable to all community activities and Participants.|
+
+| Document | Purpose |
+| --- | --- |
+| [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md) | Terms that govern your use of the Kaseya MCP servers, extensions, skills and scripts. |
+| [License](LICENSE.md) | License for the documentation and skills in this repository. Extension bundles and hosted services are proprietary; see the Pre-Release Terms. |
+| [Security Policy](Governance/SECURITY.md) | How to report security vulnerabilities privately. |
+| [Code of Conduct](Governance/CODE_OF_CONDUCT.md) | Standards for community channels. |
+| [Governance Policy](Governance/GOVERNANCE.md) | Community roles. |
+| [Disclaimers](Governance/DISCLAIMERS.md) | Disclaimers for community contributions and community channels. They do not apply to Kaseya MCP servers, which are covered by the Pre-Release Terms. |
