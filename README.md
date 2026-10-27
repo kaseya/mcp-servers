@@ -112,14 +112,20 @@ Before connecting to MCP Servers, generate application programming interface (AP
    | --------- | -------------------------------------- | ---------------------------------------------- |
    | Autotask  | autotask-mcp.mcpb, autotask-plugin.zip | [Autotask folder](AUTOTASK)                    |
    | Datto RMM | datto-rmm.mcpb, Datto-RMM-plugin.zip   | [Datto RMM folder](RMM)                        |
-   | IT Glue   | itg-mcp.mcpb, itglue-plugin.zip        | [IT Glue folder](ITGLUE)                       |
+   | IT Glue   | itglue-mcp.mcpb, itglue-plugin.zip, itglue-auth.ps1 | [IT Glue folder](ITGLUE)          |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
      If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
-4. Enable the extension. Repeat steps 2 through 4 for each product you want to connect.
+
+   **IT Glue** asks for the **Region** only (`NA`, `EU`, or `AU`; leave it empty for `NA`), and has no API key field. Claude Desktop shows an extension's settings in its developer window, so the IT Glue API key is kept out of them. Store it once for each region from PowerShell, in the folder that holds `itglue-auth.ps1` _(download it from the [IT Glue folder](ITGLUE))_:
+   ```powershell
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
+   ```
+   `configure` prompts for the IT Glue API key, which is hidden as you type, and checks that it starts with `ITG.`. It stores the key encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`. Use `-Region EU` or `-Region AU` for those regions. To check or remove a stored key, run the script with `status` or `clear` and the same `-Region`. On macOS, run `node "<extension folder>/dist/relay.cjs" --store-key --region NA` instead.
+4. Enable the extension, or turn it off and on if it was already on. After you store or change an IT Glue key, turn the extension off and on. Repeat steps 2 through 4 for each product you want to connect.
 5. Upload the skills ZIP file for each product you connected:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
@@ -167,32 +173,41 @@ _Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Chec
 
 **IT Glue**
 
-_Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from [Step 1](#step-1-generate-credentials). Check with `claude --version`.
+_Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from [Step 1](GENERATING-API-KEYS.md#it-glue). Check with `claude --version`.
 
-1. Choose the IT Glue MCP endpoint for your region by replacing `<REGION>` with `na`, `eu`, or `au`:
-   `https://mcp.<REGION>.itglue.com/mcp`
-2. Add the server to Claude Code (user scope), replacing `<REGION>` and `YOUR_API_KEY`:
-   ```bash
-   claude mcp add --transport http --scope user itglue https://mcp.<REGION>.itglue.com/mcp \
-     --header "x-api-key: YOUR_API_KEY" \
-     --header "MCP-Protocol-Version: 2026-07-28"
+1. Store your IT Glue API key _(generated in [Step 1](GENERATING-API-KEYS.md#it-glue))_ by running the `itglue-auth.ps1` script's `configure` verb from PowerShell. Replace `NA` with `EU` or `AU` for those regions:
+   ```powershell
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
    ```
-   Alternatively, add the entry manually to the top-level `"mcpServers"` object in `~/.claude.json` (`%USERPROFILE%\.claude.json` on Windows):
+   `configure` does the following:
+   - Prompts for the IT Glue API key. The key is hidden as you type, and `configure` rejects a value that does not start with `ITG.`.
+   - Stores the key encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`.
+2. Choose the IT Glue MCP endpoint for your region. Use that URL in this step and in step 3, in place of `<mcp-url>`:
+
+   | Region | Endpoint                         |
+   | ------ | -------------------------------- |
+   | NA     | `https://mcp.itglue.com/mcp`     |
+   | EU     | `https://mcp.eu.itglue.com/mcp`  |
+   | AU     | `https://mcp.au.itglue.com/mcp`  |
+
+   Add the base HTTP entry:
+   ```powershell
+   claude mcp add --transport http --scope user itglue <mcp-url>
+   ```
+3. Open `%USERPROFILE%\.claude.json`, find the `"itglue"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. The path in it is the absolute path to `itglue-auth.ps1` on this machine, with each backslash doubled for JSON. Use the same region in `-Region` as in the URL: `NA`, `EU`, or `AU`. The entry has this shape:
    ```json
    "itglue": {
      "type": "http",
-     "url": "https://mcp.<REGION>.itglue.com/mcp",
-     "headers": {
-       "x-api-key": "YOUR_API_KEY",
-       "MCP-Protocol-Version": "2026-07-28"
-     }
+     "url": "<mcp-url>",
+     "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\itglue-auth.ps1\" headers -Region NA"
    }
    ```
-3. Run `claude mcp get itglue`. The output shows the entry and its scope.
-4. Start `claude` and ask: `List my IT Glue organizations.`
+   The helper prints the `x-api-key` and `MCP-Protocol-Version` headers when Claude Code connects, so the entry holds no key.
+4. Run `claude mcp get itglue`. The output shows the entry and its scope.
+5. Start `claude` and ask: `List my IT Glue organizations.`
 
-> [!WARNING]
-> The API key is stored in plain text in `~/.claude.json`. Do not share or commit this file.
+> [!NOTE]
+> `itglue-auth.ps1` needs Windows PowerShell 5.1, which every supported Windows version includes. It does not work on macOS or Linux.
 
 ---
 
