@@ -100,6 +100,11 @@ Before connecting to MCP Servers, generate application programming interface (AP
 >
 > The [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) classifies AI services as Third Party Technology.
 
+To read more about **each product's API permissions**, see the following documentation
+- [Datto RRM API v2 documentation](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm).
+- [Autotask: How accessing Autotask data as the MCP API User currently work](https://ww15.autotask.net/help/DeveloperHelp/Content/APIs/General/Define_API_User.htm)
+- [Autotask: Tailoring the MCP API User's Security Level: Creating or editing a custom security level](https://ww15.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Security/Create_Edit_Custom_Security_Level.htm?cshid=1139)
+
 ---
 
 #### Step 2: Connect to MCP servers and install skills in Claude Desktop
@@ -120,18 +125,33 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 
-   **IT Glue** asks for the **Region** only (`NA`, `EU`, or `AU`; leave it empty for `NA`), and has no API key field. Claude Desktop shows an extension's settings in its developer window, so the IT Glue API key is kept out of them. Store it once for each region from PowerShell, in the folder that holds `itglue-auth.ps1` _(download it from the [IT Glue folder](ITGLUE))_:
-   ```powershell
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
-   ```
-   `configure` prompts for the IT Glue API key, which is hidden as you type, and checks that it starts with `ITG.`. It stores the key encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`. Use `-Region EU` or `-Region AU` for those regions. To check or remove a stored key, run the script with `status` or `clear` and the same `-Region`. On macOS, run `node "<extension folder>/dist/relay.cjs" --store-key --region NA` instead.
-4. Enable the extension, or turn it off and on if it was already on. After you store or change an IT Glue key, turn the extension off and on. Repeat steps 2 through 4 for each product you want to connect.
-5. Upload the skills ZIP file for each product you connected:
+  > **Note:** Claude Desktop shows extension settings and secrets values in its developer window once configured. To keep your IT Glue API key out of that window, you can store it separately using `itglue-auth.ps1`. See [Optional: Store the IT Glue API key](#optional-store-the-it-glue-api-key).
+
+4. Enable the extension, or turn it off and on if it was already on.
+5. Repeat steps 2 through 4 for each product you want to connect.
+6. Upload the skills ZIP file for each product you connected:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
    5. Repeat these steps for each product.
+  
+#### Optional: Store the IT Glue API key
+Run this once for each region, from PowerShell, in the folder that contains `itglue-auth.ps1`:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
+```
+Enter your API key when prompted. Use `-Region EU` or `-Region AU` for those regions.
+
+On macOS, run the following instead:
+
+```bash
+node "<extension folder>/dist/relay.cjs" --store-key --region NA
+```
+
+The key is encrypted for your Windows user only and stored in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`. To check or remove a stored key, run the script with `status` or `clear` and the same `-Region`. After you store or change a key, turn the extension off and on.
+
 
 **Option 2: MCPB Bundle in Claude Code (CLI)**
 
@@ -317,7 +337,7 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | Datto RMM | [drmm-device-timeline](RMM/DRMM-Skills-documentation.md#device-timeline)                 | Builds one timeline from the activity log (jobs, patches, remote sessions, changes) and alerts, marks what happened just before the problem, and states timing, never blame. Suggests which Windows event log entries you should check.         |
 | Datto RMM | [drmm-alert-noise-review](RMM/DRMM-Skills-documentation.md#alert-noise-review)           | Groups recent alerts by type and device, scores the noise (self-resolving, flapping, same time every day, tickets nobody needed, alerts on dead gear), and recommends a specific tuning step — while protecting alerts that are noisy but real. |
 | Datto RMM | [drmm-software-finder](RMM/DRMM-Skills-documentation.md#software-finder)                 | Groups devices by version and site, rates versions current, behind, or end of life against the vendor's latest release, and can look for shadow IT (remote-control tools, personal VPNs, P2P, other RMMs) or a whole category of software.      |
-| Datto RMM | [drmm-od-lifecycle](RMM/DRMM-Skills-documentation.md#od-lifecycle)                       | Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.                              |
+| Datto RMM | [drmm-os-lifecycle](RMM/DRMM-Skills-documentation.md#os-lifecycle)                       | Checks every device's OS and build against live end-of-life dates for Windows, Windows Server, macOS, common Linux distributions, and ESXi; marks paid extended updates where possible; prioritizes servers first.                              |
 | IT Glue | [itglue-organization-overview](ITGLUE/ITGlue-Skills-documentation.md#itglue-organization-overview)                | Builds a one-page site pack of network gear, internet details, printers, site documents, and ticket hints, with gaps flagged.      |
 | IT Glue |  [itglue-hygiene-check](ITGLUE/ITGlue-Skills-documentation.md#itglue-hygiene-check)                | Creates a scorecard of one client's documentation quality plus what to fix first.       |
 | IT Glue | [itglue-environment-review](ITGLUE/ITGlue-Skills-documentation.md#itglue-environment-review)                | Produces a Documentation and Asset Health Review report for one client. Contains the following: summary, environment at a glance, lifecycle, security documentation, document health, data quality, recommended actions, and  what is not covered.       |
@@ -344,7 +364,7 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 | Setup and connectivity - Autotask | **Why is my Autotask MCP server URL not accepted, or why does the connection fail?** | You must include `https://` at the front of the URL, and the URL must end with `/mcp`. For example, `https://mcp3.autotask.net/mcp`. |
 | Setup and connectivity - Datto RMM | **Why is the Datto RMM MCP server installed in the Organization settings, not at the user level like the Autotask MCP server?** | For Datto RMM, the client is a stdio bridge, which runs locally on each user's machine. Each user's Claude Desktop runs its own copy, so you cannot install it once at the organization level. An admin can still deploy the extension to everyone through Claude Desktop's managed extensions. Each user then enters their own API credentials. |
 | Setup and connectivity - Datto RMM | **Is the Datto RMM MCP server available in my region?** | Yes. All Datto RMM MCP servers are deployed, and all regions should be supported. |
-| Setup and connectivity - Datto RMM | **Datto RMM connects, but my queries fail with a 403 Forbidden error, for example when I ask how many sites I have. What do I do?** | A 403 error means Datto RMM accepted the key, but the API user does not have the right permissions. In Datto RMM, go to **Setup** > **Users**, find the user that owns the API key, and set its **Security Level** so that **Sites** is at least **View**, and give it access to all sites (not a limited site list). Also check whether the MCP server has its own access policy. After you change permissions, wait a few minutes. You may also need to regenerate the API key or turn the connection off and on. |
+| Setup and connectivity - Datto RMM | **Datto RMM connects, but my queries fail with a 403 Forbidden error, for example when I ask how many sites I have. What do I do?** | A 403 error means Datto RMM accepted your API key, but the API user doesn't have sufficient permissions for this request. To resolve this, go to Setup > Users, locate the user that owns the API key, and assign an API Security Level with the appropriate permissions. The Administrator level provides full access, so we recommend using it only when necessary. For more details on API permissions and setup, please see the Datto RMM API v2 documentation: (https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm).|
 | Setup and connectivity - IT Glue | **Is the IT Glue MCP server available in my region, and what do I enter for the region?** | Yes. The IT Glue MCP servers are available in all regions: Australia, Europe, and North America. The IT Glue configuration panel states at the top what to enter for each region. |
 | Setup and connectivity - IT Glue | **IT Glue shows the error "IT Glue rejected the credential, or MCP is not enabled for this account," even after I regenerate my API key. What do I do?** | During early access, the IT Glue product team turns on MCP for each account with a feature flag. If you see this error, your account most likely does not have MCP turned on yet, rather than having a bad key. If the error continues, post in Teams or Discord, or join an office hour, so the IT Glue team can check your account. |
 | Capabilities and limitations - Autotask | **Can the MCP do a global notes search?** | No. Global Notes Search, as it exists in the Autotask user interface (UI), is not an API endpoint, so it is not in the initial MCP. You can retrieve notes tied to a specific ticket, company, or device by using the autotask-briefing skill. Currently, you can query only `ticketNotes`. |
