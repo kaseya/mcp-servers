@@ -78,10 +78,18 @@ Before you begin, make sure you have:
 - Claude Desktop.
 
 ### Setup: Connecting to MCP servers and skills
-
-#### Step 1: Generate credentials
+---
+### Step 1: Generate credentials
 
 Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
+> [!CAUTION]
+> In the current version of the **IT Glue MCP server**, configuration grants the user access to **all the information available in the API.**
+>
+> To read more about **RMM and Autotask's API permissions**, see the following documentation:
+>
+> - [Datto RMM API v2 documentation](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm)
+> - [Autotask: How accessing Autotask data as the MCP API User currently works](https://ww15.autotask.net/help/DeveloperHelp/Content/APIs/General/Define_API_User.htm)
+> - [Autotask: Tailoring the MCP API User's Security Level: Creating or editing a custom security level](https://ww15.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Security/Create_Edit_Custom_Security_Level.htm?cshid=1139)
 
 | Product       | Values needed                                 | How to generate credentials                                                                            |
 | ------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -100,14 +108,9 @@ Before connecting to MCP Servers, generate application programming interface (AP
 >
 > The [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) classifies AI services as Third Party Technology.
 
-To read more about **each product's API permissions**, see the following documentation
-- [Datto RRM API v2 documentation](https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm).
-- [Autotask: How accessing Autotask data as the MCP API User currently work](https://ww15.autotask.net/help/DeveloperHelp/Content/APIs/General/Define_API_User.htm)
-- [Autotask: Tailoring the MCP API User's Security Level: Creating or editing a custom security level](https://ww15.autotask.net/help/Content/4_Admin/1CompanySettings_Users/ResourcesUsersHR/Security/Create_Edit_Custom_Security_Level.htm?cshid=1139)
-
 ---
 
-#### Step 2: Connect to MCP servers and install skills in Claude Desktop
+### Step 2: Connect to MCP servers and install skills in Claude Desktop
 
 **Option 1: MCPB Bundle in Claude Desktop**
 
