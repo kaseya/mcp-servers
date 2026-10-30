@@ -127,8 +127,8 @@ Before connecting to MCP Servers, generate application programming interface (AP
      If you can't drag the file, click **Advanced Settings**, click **Install Extension**, and then select the file in the window that opens.
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
-
-  > **Note:** Claude Desktop shows extension settings and secrets values in its developer window once configured. To keep your IT Glue API key out of that window, you can store it separately using `itglue-auth.ps1`. See [Optional: Store the IT Glue API key](#optional-store-the-it-glue-api-key).
+> [!NOTE]
+> Claude Desktop shows extension settings and secrets values in its developer window once configured. Details [here](https://github.com/modelcontextprotocol/mcpb/issues/244). 
 
 4. Enable the extension, or turn it off and on if it was already on.
 5. Repeat steps 2 through 4 for each product you want to connect.
@@ -139,23 +139,6 @@ Before connecting to MCP Servers, generate application programming interface (AP
    4. Click **Upload**.
    5. Repeat these steps for each product.
   
-#### Optional: Store the IT Glue API key
-Run this once for each region, from PowerShell, in the folder that contains `itglue-auth.ps1`:
-
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
-```
-Enter your API key when prompted. Use `-Region EU` or `-Region AU` for those regions.
-
-On macOS, run the following instead:
-
-```bash
-node "<extension folder>/dist/relay.cjs" --store-key --region NA
-```
-
-The key is encrypted for your Windows user only and stored in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`. To check or remove a stored key, run the script with `status` or `clear` and the same `-Region`. After you store or change a key, turn the extension off and on.
-
-
 **Option 2: MCPB Bundle in Claude Code (CLI)**
 
 **Datto RMM**
