@@ -3,13 +3,19 @@ $ErrorActionPreference = 'Stop'
 
 function Fail($msg) { Write-Host "`nERROR: $msg" -ForegroundColor Red; exit 1 }
 
-$mcpb = $null; $zip = $null
-foreach ($d in @($PSScriptRoot, (Get-Location).Path)) {
-  if (-not $mcpb -and (Test-Path (Join-Path $d 'datto-rmm.mcpb'))) { $mcpb = Join-Path $d 'datto-rmm.mcpb' }
-  if (-not $zip -and (Test-Path (Join-Path $d 'Datto-RMM-plugin.zip'))) { $zip = Join-Path $d 'Datto-RMM-plugin.zip' }
+# Accepts the versioned release name (datto-rmm-1.2.3.mcpb) or the plain one.
+# Several matches in one folder (e.g. an old and a new release) is an error, not a guess.
+function Find-Release($versioned, $plain) {
+  foreach ($d in @($PSScriptRoot, (Get-Location).Path)) {
+    $m = @(Get-ChildItem -Path (Join-Path $d $versioned), (Join-Path $d $plain) -ErrorAction SilentlyContinue)
+    if ($m.Count -gt 1) { Fail "Found more than one $versioned in $d. Keep only the release you want to install." }
+    if ($m.Count -eq 1) { return $m[0].FullName }
+  }
 }
-if (-not $mcpb) { Fail 'datto-rmm.mcpb not found. Put it in the same folder as this script.' }
-if (-not $zip) { Fail 'Datto-RMM-plugin.zip not found. Put it in the same folder as this script.' }
+$mcpb = Find-Release 'datto-rmm-[0-9]*.mcpb' 'datto-rmm.mcpb'
+$zip = Find-Release 'Datto-RMM-plugin-[0-9]*.zip' 'Datto-RMM-plugin.zip'
+if (-not $mcpb) { Fail 'datto-rmm-<version>.mcpb not found. Put it in the same folder as this script.' }
+if (-not $zip) { Fail 'Datto-RMM-plugin-<version>.zip not found. Put it in the same folder as this script.' }
 
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) { Fail 'Node.js is not installed. Install Node.js 22 or newer from https://nodejs.org, then run this again.' }
 if ([int](((node -v) -replace '^v', '').Split('.')[0]) -lt 22) { Fail "Node.js $(node -v) is too old. Install Node.js 22 or newer." }

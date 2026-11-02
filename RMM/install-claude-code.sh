@@ -5,9 +5,18 @@ set -e
 fail() { printf '\nERROR: %s\n' "$1" >&2; exit 1; }
 here=$(cd "$(dirname "$0")" && pwd)
 
-find_file() { for d in "$here" "$PWD"; do [ -f "$d/$1" ] && { echo "$d/$1"; return; }; done; }
-mcpb=$(find_file datto-rmm.mcpb); [ -n "$mcpb" ] || fail "datto-rmm.mcpb not found. Put it in the same folder as this script."
-zip=$(find_file Datto-RMM-plugin.zip); [ -n "$zip" ] || fail "Datto-RMM-plugin.zip not found. Put it in the same folder as this script."
+# Accepts the versioned release name (datto-rmm-1.2.3.mcpb) or the plain one.
+# Several matches in one folder (e.g. an old and a new release) is an error, not a guess.
+find_file() {
+  for d in "$here" "$PWD"; do
+    n=0
+    for f in "$d"/$1 "$d"/$2; do [ -f "$f" ] && { n=$((n + 1)); hit=$f; }; done
+    [ "$n" -le 1 ] || fail "Found more than one $1 in $d. Keep only the release you want to install."
+    [ "$n" -eq 1 ] && { echo "$hit"; return; }
+  done
+}
+mcpb=$(find_file 'datto-rmm-[0-9]*.mcpb' datto-rmm.mcpb); [ -n "$mcpb" ] || fail "datto-rmm.mcpb not found. Put it in the same folder as this script."
+zip=$(find_file 'Datto-RMM-plugin-[0-9]*.zip' Datto-RMM-plugin.zip); [ -n "$zip" ] || fail "Datto-RMM-plugin.zip not found. Put it in the same folder as this script."
 
 command -v node >/dev/null || fail "Node.js is not installed. Install Node.js 22 or newer from https://nodejs.org, then run this again."
 [ "$(node -p 'process.versions.node.split(".")[0]')" -ge 22 ] || fail "Node.js $(node -v) is too old. Install Node.js 22 or newer."
