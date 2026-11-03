@@ -1,3 +1,6 @@
+This license applies to the documentation and skills in this repository. Extension bundles (.mcpb), installation and authentication scripts, and the Kaseya-hosted MCP servers are proprietary to Kaseya and governed by the [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md), unless a file or folder states otherwise.
+
+---
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
