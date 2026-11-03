@@ -2,7 +2,7 @@
 
 ### 1. Purpose
 
-This document describes the governance structure of the Kaseya Insights Community
+This document describes the governance structure of the Kaseya Insights Community. The Kaseya Insights Community (the "**Community**") is Kaseya's community for practitioners using Kaseya's AI capabilities. It includes the kaseya/mcp-servers repository, its issues and discussions, and the related Discord and Teams channels. The Community is a forum. It is not a Kaseya product or service. Kaseya products and services, including Kaseya Insights and the Kaseya MCP servers, are governed by your Kaseya agreement and their own terms, not by the Community documents.
 
 ---
 
@@ -14,7 +14,7 @@ A Participant is anyone who interacts with the community in any manner.   Partic
 
 #### Contributors
 
-A Contributor is anyone who submits a pull request, files a bug report, improves documentation, or otherwise actively contributes to the community. When contributing, Contributors agree to follow and be bound by the process found in the Contributing Guide. 
+A Contributor is anyone who submits a pull request, files a bug report, improves documentation, or otherwise actively contributes to the community.
 
 #### Members
 
@@ -26,8 +26,10 @@ Kaseya is responsible for:
 - Setting the project roadmap and technical direction of the community; 
 - Admitting and removing Members; 
 - Managing project infrastructure and resources; 
-- Resolving disputes that cannot be resolved through normal community discussion; and 
-- Fielding and resolving Issues and claims under the Code of Conduct. 
+- Resolving disputes that cannot be resolved through normal community discussion;
+- Fielding and resolving Issues and claims under the Code of Conduct.
+
+Kaseya's role in the Community does not change the terms of any Kaseya product or service, which are governed by your Kaseya agreement and their own terms.
 
 ---
 
