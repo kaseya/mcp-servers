@@ -1,5 +1,8 @@
-# Installs the Datto RMM connector and skills for Claude Code. Run via install-claude-code.cmd.
+# Installs the Datto RMM connector and skills for Claude Code (Windows).
+# Run: powershell -ExecutionPolicy Bypass -File .\install-claude-code-<version>.ps1
 $ErrorActionPreference = 'Stop'
+$Version = '0.1.0'  # stamped with the release version by tools/build.mjs
+Write-Host "Datto RMM installer v$Version"
 
 function Fail($msg) { Write-Host "`nERROR: $msg" -ForegroundColor Red; exit 1 }
 
@@ -28,7 +31,7 @@ Copy-Item $mcpb $tmp -Force
 Expand-Archive $tmp $dir -Force
 Remove-Item $tmp
 $bundle = Join-Path $dir 'dist\bundle.cjs'
-if (-not (Test-Path $bundle)) { Fail "Connector files missing after extract ($bundle). Is datto-rmm.mcpb the right file?" }
+if (-not (Test-Path $bundle)) { Fail "Connector files missing after extract ($bundle). Is the .mcpb the right file?" }
 
 Write-Host '[2/3] Enter your Datto RMM platform number, API key and API secret when asked.'
 node $bundle setup
