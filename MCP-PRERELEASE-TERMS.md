@@ -1,6 +1,6 @@
 # Kaseya MCP Servers — Pre-Release Terms
 
-**Effective: [●] 2026**
+**Effective: November 3, 2026**
 
 These Pre-Release Terms ("**Pre-Release Terms**") govern your use of the Kaseya MCP servers and related materials. By installing, configuring or using any of them, or by clicking to accept these Pre-Release Terms, you agree to them on behalf of the organization you represent, and you confirm that you have authority to do so. If you do not agree, do not install or use them.
 
