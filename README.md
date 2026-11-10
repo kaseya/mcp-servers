@@ -227,7 +227,7 @@ Open `%USERPROFILE%\.claude.json`, find `<name>` under the top-level `mcpServers
 ```
 
 - `<path-to>` is the absolute path to the script on this machine, with every backslash doubled for JSON.
-- The `configure` command prints a ready-made entry, which you can copy instead.
+- For Autotask, `configure` prints a ready-made entry, which you can copy instead. For IT Glue, fill in the JSON template above.
 - The entry holds no secrets. The helper supplies the auth headers each time Claude Code connects.
 
 **4. Verify**
