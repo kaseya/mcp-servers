@@ -177,7 +177,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 1. Download the RMM folder. Keep `datto-rmm.mcpb`, `Datto-RMM-plugin.zip`, and `install-claude-code-0.1.0.ps1` together in the same folder.
 2. From PowerShell, in that folder, run:
    ```powershell
-   .\install-claude-code-0.1.0.ps1
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install-claude-code-0.1.0.ps1
    ```
 3. When prompted, choose your platform number (1-7) from the list in Step 1, then enter your API Key and API Secret.
 4. Start `claude` and ask: **List my Datto RMM sites.**
