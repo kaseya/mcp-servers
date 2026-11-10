@@ -163,81 +163,80 @@ Before connecting to MCP Servers, generate application programming interface (AP
    4. Click **Upload**.
    5. Repeat these steps for each product.
   
-**Option 2: MCPB Bundle in Claude Code (CLI)**
+## Option 2: MCPB Bundle in Claude Code (CLI)
 
-**Datto RMM**
+#### Before you start
 
-_Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Check with `node -v` and `claude --version`; only if either is missing or older, install [Node.js](https://nodejs.org) 22 or newer or Claude Code.
+- Windows with PowerShell 5.1 (included with every supported Windows version). The scripts below do not work on macOS or Linux.
+- Claude Code installed (`claude --version`)
+- Datto RMM only: Node.js 22 or newer (`node -v`)
+- The credentials you generated in Step 1
 
-1. Download the [RMM folder](RMM) and keep `datto-rmm.mcpb`, `Datto-RMM-plugin.zip` and the installer script together in the same folder.
-2. Run the installer for your system:
-   - **macOS / Linux:** `sh install-claude-code.sh`
-   - **Windows:** run `install-claude-code.cmd` (or `install-claude-code.ps1` from PowerShell)
-3. When prompted, choose your platform number (1-7) from the [platform list in Step 1](#step-1-api-credentials), then enter your Datto RMM API Key and API Secret.
-4. The installer connects the `datto-rmm` MCP server to Claude Code (user scope) and installs the Datto RMM skills to `~/.claude/skills/datto-rmm`.
-5. Start `claude` and ask: `List my Datto RMM sites.`
+#### Datto RMM
 
-**Autotask**
-
-1. Store your Autotask API credentials _(generated in [Step 1](GENERATING-API-KEYS.md#autotask))_, by running the `autotask-auth.ps1` script's `configure` verb from PowerShell:
+1. Download the RMM folder. Keep `datto-rmm.mcpb`, `Datto-RMM-plugin.zip`, and `install-claude-code-0.1.0.ps1` together in the same folder.
+2. From PowerShell, in that folder, run:
    ```powershell
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\autotask-auth.ps1 configure
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install-claude-code-0.1.0.ps1
    ```
-   `configure` does the following:
-   - Prompts for the Autotask MCP endpoint _(found in the [Generating-API-Keys document](GENERATING-API-KEYS.md#autotask))_, which is the server's full URL, for example `https://mcp3.autotask.net/mcp`. The URL must start with `https://` and end with `/mcp`, or `configure` rejects it. Use the same URL in steps 2 and 3, in place of `<mcp-host>`.
-   - Prompts for the Autotask API username, secret, and integration code. The secret and integration code are hidden as you type.
-   - Stores the credentials encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\AutotaskMcp`.
-2. Add the base HTTP entry:
-   ```powershell
-   claude mcp add --transport http --scope user autotask https://<mcp-host>/mcp
-   ```
-3. Open `%USERPROFILE%\.claude.json`, find the `"autotask"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. Copy the `headersHelper` value from the entry that `configure` printed in step 1. The path in it is the absolute path to `autotask-auth.ps1` on this machine, with each backslash doubled for JSON. The entry has this shape:
-   ```json
-   "autotask": {
-     "type": "http",
-     "url": "https://<mcp-host>/mcp",
-     "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\autotask-auth.ps1\" headers -Profile default"
-   }
-   ```
-4. Run `claude mcp get autotask`. The output shows the entry and its scope.
+3. When prompted, choose your platform number (1-7) from the list in Step 1, then enter your API Key and API Secret.
+4. Start `claude` and ask: **List my Datto RMM sites.**
 
-**IT Glue**
+The installer registers the `datto-rmm` MCP server (user scope) and installs the skills to `~/.claude/skills/datto-rmm`.
 
-_Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from [Step 1](GENERATING-API-KEYS.md#it-glue). Check with `claude --version`.
+#### Autotask and IT Glue
 
-1. Store your IT Glue API key _(generated in [Step 1](GENERATING-API-KEYS.md#it-glue))_ by running the `itglue-auth.ps1` script's `configure` verb from PowerShell. Replace `NA` with `EU` or `AU` for those regions:
-   ```powershell
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\itglue-auth.ps1 configure -Region NA
-   ```
-   `configure` does the following:
-   - Prompts for the IT Glue API key. The key is hidden as you type, and `configure` rejects a value that does not start with `ITG.`.
-   - Stores the key encrypted for your Windows user only (DPAPI), in `%LOCALAPPDATA%\Kaseya\ItGlueMcp`.
-2. Choose the IT Glue MCP endpoint for your region. Use that URL in this step and in step 3, in place of `<mcp-url>`:
+Both products use the same procedure. Use the values for your product from the table below wherever you see `<value>`.
 
-   | Region | Endpoint                         |
-   | ------ | -------------------------------- |
-   | NA     | `https://mcp.itglue.com/mcp`     |
-   | EU     | `https://mcp.eu.itglue.com/mcp`  |
-   | AU     | `https://mcp.au.itglue.com/mcp`  |
+| | Autotask | IT Glue |
+|---|---|---|
+| Server name (`<name>`) | `autotask` | `itglue` |
+| Helper script (`<script>`) | `autotask-auth-0.1.0.ps1` | `itglue-auth.ps1` |
+| Credentials requested | API username, secret, integration code | API key (must start with `ITG.`) |
+| MCP URL (`<mcp-url>`) | The endpoint from the *Generating-API-Keys* document (must start with `https://` and end with `/mcp`) | NA: `https://mcp.itglue.com/mcp`<br>EU: `https://mcp.eu.itglue.com/mcp`<br>AU: `https://mcp.au.itglue.com/mcp` |
+| `<configure-args>` | *(none)* | `-Region NA` (or `EU` / `AU`) |
+| `<headers-args>` | `-Profile default` | `-Region NA` (or `EU` / `AU`) |
+| Test prompt | *(add one)* | **List my IT Glue organizations.** |
 
-   Add the base HTTP entry:
-   ```powershell
-   claude mcp add --transport http --scope user itglue <mcp-url>
-   ```
-3. Open `%USERPROFILE%\.claude.json`, find the `"itglue"` entry in the top-level `"mcpServers"` object, and add `headersHelper`. The path in it is the absolute path to `itglue-auth.ps1` on this machine, with each backslash doubled for JSON. Use the same region in `-Region` as in the URL: `NA`, `EU`, or `AU`. The entry has this shape:
-   ```json
-   "itglue": {
-     "type": "http",
-     "url": "<mcp-url>",
-     "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\itglue-auth.ps1\" headers -Region NA"
-   }
-   ```
-   The helper prints the `x-api-key` and `MCP-Protocol-Version` headers when Claude Code connects, so the entry holds no key.
-4. Run `claude mcp get itglue`. The output shows the entry and its scope.
-5. Start `claude` and ask: `List my IT Glue organizations.`
+**1. Store your credentials**
 
-> [!NOTE]
-> `itglue-auth.ps1` needs Windows PowerShell 5.1, which every supported Windows version includes. It does not work on macOS or Linux.
+From PowerShell, in the folder containing the script:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\<script> configure <configure-args>
+```
+
+Secrets are hidden as you type and stored encrypted for your Windows user only (DPAPI) under `%LOCALAPPDATA%\Kaseya\`.
+
+**2. Add the MCP server**
+
+```
+claude mcp add --transport http --scope user <name> <mcp-url>
+```
+
+**3. Add the headers helper**
+
+Open `%USERPROFILE%\.claude.json`, find `<name>` under the top-level `mcpServers` object, and add `headersHelper`:
+
+```json
+"<name>": {
+  "type": "http",
+  "url": "<mcp-url>",
+  "headersHelper": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"<path-to>\\<script>\" headers <headers-args>"
+}
+```
+
+- `<path-to>` is the absolute path to the script on this machine, with every backslash doubled for JSON.
+- For Autotask, `configure` prints a ready-made entry, which you can copy instead. For IT Glue, fill in the JSON template above.
+- The entry holds no secrets. The helper supplies the auth headers each time Claude Code connects.
+
+**4. Verify**
+
+```
+claude mcp get <name>
+```
+
+The output should show the entry and its scope. Then start `claude` and ask the test prompt.
 
 ---
 
