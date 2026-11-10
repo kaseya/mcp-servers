@@ -175,7 +175,7 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
    | --------- | ------------------------------------------------ | --------------------------- |
    | Autotask  | autotask-0.4.1.mcpb, autotask-plugin-0.1.0.zip   | [Autotask folder](AUTOTASK) |
    | Datto RMM | datto-rmm-0.1.0.mcpb, Datto-RMM-plugin-0.1.0.zip | [Datto RMM folder](RMM)     |
-   | IT Glue   | itglue-0.1.0.mcpb, itglue-plugin-0.1.0.zip       | [IT Glue folder](ITGLUE)    |
+   | IT Glue   | itglue-0.1.0.mcpb, itglue-plugin-0.2.0.zip       | [IT Glue folder](ITGLUE)    |
 
 2. Open Claude settings and navigate to **Extensions** in the left sidebar. Drag the MCPB file into Claude Desktop.
 
