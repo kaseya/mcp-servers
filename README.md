@@ -39,7 +39,7 @@ This repo is for:
 
 | Channel                     | Details                                                                                                                                                                                  |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Discord and Microsoft Teams | For access, use the [Discord access form](DISCORD-ACCESS-FORM-LINK) or contact your Kaseya account manager. Do not post customer data, credentials or security issues in these channels. |
+| Discord and Microsoft Teams | For access, use the [Discord access form](https://forms.cloud.microsoft/r/gTPQAcDTeN) or contact your Kaseya account manager. Do not post customer data, credentials or security issues in these channels. |
 | Security issues             | Report privately as described in [SECURITY.md](Governance/SECURITY.md). Never post security issues in Discord, Teams or GitHub issues.                                                   |
 | Office Hours                | See Discord for the current office-hours schedule.                                                                                                                                       |
 | Community Calls             | Bi-weekly. See Discord for the schedule.                                                                                                                                                 |
