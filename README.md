@@ -138,7 +138,20 @@ Before connecting to MCP Servers, generate application programming interface (AP
 
 ### Step 2: Connect to MCP servers and install skills in Claude Desktop
 
-#### IT Glue: OAuth 2.1 sign in (preferred)
+**Claude Desktop**
+
+Choose where you use Claude, and then follow the matching option for each product you want to connect.
+
+| Product   | Claude Desktop                                      | Claude Code (CLI)                                   |
+| --------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| IT Glue   | **OAuth 2.1 sign in (preferred)**, or MCPB bundle with API key | **OAuth 2.1 sign in (preferred)**, or setup script with API key |
+| Autotask  | MCPB bundle                                                   | Setup script                                                  |
+| Datto RMM | MCPB bundle                                                   | Installer script                                              |
+
+> [!NOTE]
+> OAuth 2.1 sign in is available only for IT Glue. It is not available yet for Autotask or Datto RMM, which connect with API credentials. For IT Glue, choose one method: you do not need both.
+
+#### Option 1: OAuth 2.1 sign in (IT Glue only - preferred)
 
 This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 1 or Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
 
@@ -148,25 +161,19 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
 | EU     | `https://mcp.eu.itglue.com/mcp` |
 | AU     | `https://mcp.au.itglue.com/mcp` |
 
-**Claude Desktop**
-
 1. Open Claude settings and select **Connectors**.
 2. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
 3. Click **Connect**. Your browser opens the IT Glue sign in page.
 4. Sign in to IT Glue as you normally do, and then approve the connection.
-5. Upload the IT Glue skills ZIP file from the [IT Glue folder](ITGLUE), as in step 6 of Option 1 below. You do not need the IT Glue MCPB file.
+5. Upload the skills ZIP file for IT Glue:
+   1. In Claude, click **Plugins** in the left sidebar.
+   2. Click the **Plus** icon in the upper-right corner.
+   3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
+   4. Click **Upload**.
 
-**Claude Code (CLI)**
+_Continue on to Option 2 for Autotask and DRMM. This is only available for IT Glue._
 
-1. Add the IT Glue MCP server, replacing `<mcp-url>` with your region's endpoint:
-   ```
-   claude mcp add --transport http --scope user itglue <mcp-url>
-   ```
-2. Start `claude`, run `/mcp`, select **itglue**, and then select **Authenticate**. Your browser opens the IT Glue sign in page.
-3. Sign in to IT Glue, and then approve the connection.
-4. Ask: `List my IT Glue organizations.`
-
-**Option 1: MCPB Bundle in Claude Desktop**
+**Option 2: MCPB Bundle in Claude Desktop**
 
 1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
    Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
@@ -195,7 +202,7 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
    4. Click **Upload**.
    5. Repeat these steps for each product.
 
-**Option 2: MCPB Bundle in Claude Code (CLI)**
+**Claude Code (CLI)**
 
 **Datto RMM**
 
@@ -234,6 +241,18 @@ _Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Chec
 4. Run `claude mcp get autotask`. The output shows the entry and its scope.
 
 **IT Glue**
+
+**Using OAuth 2.1:**
+
+1. Add the IT Glue MCP server, replacing `<mcp-url>` with your region's endpoint:
+   ```
+   claude mcp add --transport http --scope user itglue <mcp-url>
+   ```
+2. Start `claude`, run `/mcp`, select **itglue**, and then select **Authenticate**. Your browser opens the IT Glue sign in page.
+3. Sign in to IT Glue, and then approve the connection.
+4. Ask: `List my IT Glue organizations.`
+
+**Using MCPB**
 
 _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from [Step 1](GENERATING-API-KEYS.md#it-glue). Check with `claude --version`.
 
