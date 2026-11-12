@@ -395,6 +395,9 @@ See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities)
 | **list_flexible_asset_fields**          | Read      | List the fields of a flexible asset type, in order.                                                                                             |
 | **get_flexible_asset_field**            | Read      | Retrieve a flexible asset field by ID.                                                                                                          |
 
+> [!IMPORTANT]
+> When MCP is connected or disconnected, or when documents are created or updated through MCP, these actions are not recorded in IT Glue's Activity Logs.
+
 ## Skills
 
 The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glue workflows, with no coding required. This guide walks through each skill and what to expect when you use it, so your team can start saving time immediately.
