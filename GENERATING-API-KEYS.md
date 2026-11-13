@@ -38,59 +38,65 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 8. Click **Save and Close**.
 
-In addition to your Autotask API credentials, you are prompted for your Autotask MCP endpoint value when you connect. Use the table below to identify the MCP hostname to enter for this field. 
-
-> [!NOTE]
+> [!IMPORTANT]
+> **Autotask MCP endpoint value**
+>
+> In addition to your Autotask API credentials, you are prompted for your **Autotask MCP endpoint value** when you connect. Enter it using the URL format below, replacing the `X` with the number for your Autotask instance. You can find this number by looking at the URL when you are logged into Autotask.
+>
+> **URL format:** `https://mcpX.autotask.net/mcp`
+>
+> **Example:** If the URL you see in Autotask is `https://ww2.autotask.net/...`, your endpoint is `https://mcp2.autotask.net/mcp`.
+>
 > To identify which Autotask API host you are using, see [Querying user zone information via the REST API](https://ww15.autotask.net/help/DeveloperHelp/Content/APIs/REST/API_Calls/REST_ZoneInformation.htm).
  
 ### Australia (`au` — Azure `australiaeast`)
 
-| Autotask API host | MCP hostname |
-|---|---|
-| `webservices29.autotask.net` | `mcp29.autotask.net` |
-| `webservices30.autotask.net` | `mcp30.autotask.net` |
-| `webservices31.autotask.net` | `mcp31.autotask.net` |
+| Autotask API host | MCP hostname | Value |
+|---|---|---|
+| `webservices29.autotask.net` | `mcp29.autotask.net` | 29 |
+| `webservices30.autotask.net` | `mcp30.autotask.net` | 30 |
+| `webservices31.autotask.net` | `mcp31.autotask.net` | 31 |
 
 ### Europe (`eu` — Azure `westeurope`)
 
-| Autotask API host | MCP hostname |
-|---|---|
-| `webservices18.autotask.net` | `mcp18.autotask.net` |
-| `webservices19.autotask.net` | `mcp19.autotask.net` |
-| `webservices20.autotask.net` | `mcp20.autotask.net` |
-| `prde.autotask.net` | `mcpprde.autotask.net` |
+| Autotask API host | MCP hostname | Value |
+|---|---|---|
+| `webservices18.autotask.net` | `mcp18.autotask.net` | 18 |
+| `webservices19.autotask.net` | `mcp19.autotask.net` | 19 |
+| `webservices20.autotask.net` | `mcp20.autotask.net` | 20 |
+| `prde.autotask.net` | `mcpprde.autotask.net` | prde |
 
 ### United Kingdom (`uk` — Azure `uksouth`)
 
-| Autotask API host | MCP hostname |
-|---|---|
-| `webservices4.autotask.net` | `mcp4.autotask.net` |
-| `webservices11.autotask.net` | `mcp11.autotask.net` |
-| `webservices16.autotask.net` | `mcp16.autotask.net` |
-| `webservices17.autotask.net` | `mcp17.autotask.net` |
-| `webservices28.autotask.net` | `mcp28.autotask.net` |
+| Autotask API host | MCP hostname | Value |
+|---|---|---|
+| `webservices4.autotask.net` | `mcp4.autotask.net` | 4 |
+| `webservices11.autotask.net` | `mcp11.autotask.net` | 11 |
+| `webservices16.autotask.net` | `mcp16.autotask.net` | 16 |
+| `webservices17.autotask.net` | `mcp17.autotask.net` | 17 |
+| `webservices28.autotask.net` | `mcp28.autotask.net` | 28 |
 
 ### United States (`us` — Azure `eastus2`)
 
-| Autotask API host | MCP hostname |
-|---|---|
-| `webservices1.autotask.net` | `mcp1.autotask.net` |
-| `webservices2.autotask.net` | `mcp2.autotask.net` |
-| `webservices3.autotask.net` | `mcp3.autotask.net` |
-| `webservices5.autotask.net` | `mcp5.autotask.net` |
-| `webservices6.autotask.net` | `mcp6.autotask.net` |
-| `webservices12.autotask.net` | `mcp12.autotask.net` |
-| `webservices13.autotask.net` | `mcp13.autotask.net` |
-| `webservices14.autotask.net` | `mcp14.autotask.net` |
-| `webservices15.autotask.net` | `mcp15.autotask.net` |
-| `webservices22.autotask.net` | `mcp22.autotask.net` |
-| `webservices23.autotask.net` | `mcp23.autotask.net` |
-| `webservices24.autotask.net` | `mcp24.autotask.net` |
-| `webservices25.autotask.net` | `mcp25.autotask.net` |
-| `webservices26.autotask.net` | `mcp26.autotask.net` |
-| `webservices27.autotask.net` | `mcp27.autotask.net` |
-| `pres.autotask.net` | `mcppres.autotask.net` |
-| `prca01.autotask.net` | `mcpprca01.autotask.net` |
+| Autotask API host | MCP hostname | Value |
+|---|---|---|
+| `webservices1.autotask.net` | `mcp1.autotask.net` | 1 |
+| `webservices2.autotask.net` | `mcp2.autotask.net` | 2 |
+| `webservices3.autotask.net` | `mcp3.autotask.net` | 3 |
+| `webservices5.autotask.net` | `mcp5.autotask.net` | 5 |
+| `webservices6.autotask.net` | `mcp6.autotask.net` | 6 |
+| `webservices12.autotask.net` | `mcp12.autotask.net` | 12 |
+| `webservices13.autotask.net` | `mcp13.autotask.net` | 13 |
+| `webservices14.autotask.net` | `mcp14.autotask.net` | 14 |
+| `webservices15.autotask.net` | `mcp15.autotask.net` | 15 |
+| `webservices22.autotask.net` | `mcp22.autotask.net` | 22 |
+| `webservices23.autotask.net` | `mcp23.autotask.net` | 23 |
+| `webservices24.autotask.net` | `mcp24.autotask.net` | 24 |
+| `webservices25.autotask.net` | `mcp25.autotask.net` | 25 |
+| `webservices26.autotask.net` | `mcp26.autotask.net` | 26 |
+| `webservices27.autotask.net` | `mcp27.autotask.net` | 27 |
+| `pres.autotask.net` | `mcppres.autotask.net` | pres |
+| `prca01.autotask.net` | `mcpprca01.autotask.net` | prca01 |
 
 After you save your Autotask key and secret, and your MCP hostname, continue to the next product below to generate its API credentials.
 
