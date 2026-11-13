@@ -39,7 +39,7 @@ This repo is for:
 
 | Channel                     | Details                                                                                                                                                                                  |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Discord and Microsoft Teams | For access, use the [Discord access form](DISCORD-ACCESS-FORM-LINK) or contact your Kaseya account manager. Do not post customer data, credentials or security issues in these channels. |
+| Discord and Microsoft Teams | For access, use the [Discord access form](https://forms.cloud.microsoft/r/gTPQAcDTeN) or contact your Kaseya account manager. Do not post customer data, credentials or security issues in these channels. |
 | Security issues             | Report privately as described in [SECURITY.md](Governance/SECURITY.md). Never post security issues in Discord, Teams or GitHub issues.                                                   |
 | Office Hours                | See Discord for the current office-hours schedule.                                                                                                                                       |
 | Community Calls             | Bi-weekly. See Discord for the schedule.                                                                                                                                                 |
@@ -394,6 +394,9 @@ See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities)
 | **get_flexible_asset_type**             | Read      | Retrieve a flexible asset type by ID, optionally with its fields.                                                                               |
 | **list_flexible_asset_fields**          | Read      | List the fields of a flexible asset type, in order.                                                                                             |
 | **get_flexible_asset_field**            | Read      | Retrieve a flexible asset field by ID.                                                                                                          |
+
+> [!IMPORTANT]
+> When MCP is connected or disconnected, or when documents are created or updated through MCP, these actions are not recorded in IT Glue's Activity Logs.
 
 ## Skills
 
