@@ -31,7 +31,7 @@ This repo is for:
 
 - MSP technicians, engineers, automation engineers, and technical leads
 - IT operations builders at internal IT departments
-- Tool vendors building integrations (see Section 6A of the [Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md); offering an integration to more than one customer requires a Kaseya integration partner agreement)
+- Tool vendors building integrations (see Section 6A of the [Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md); offering an integration to more than one customer requires a Kaseya integration partner agreement)
 
 ---
 
@@ -60,14 +60,14 @@ This repo is for:
 10. [Code of Conduct](GOVERNANCE/CODE_OF_CONDUCT.md)
 11. [Governance Policy](GOVERNANCE/GOVERNANCE.md)
 12. [Customer FAQs](#faqs)
-13. [Kaseya MCP Servers Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md)
+13. [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md)
 
 ---
 
 ## Getting Started
 
 > [!IMPORTANT]
-> **By installing or using a Kaseya MCP server, extension, skill or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
+> **By installing or using a Kaseya MCP server, extension, skill or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
 
 To get started, complete the following steps:
 
@@ -108,11 +108,11 @@ Before connecting to MCP Servers, generate application programming interface (AP
 | Product | Values needed | How to generate credentials |
 | --- | --- | --- |
 | **Datto RMM** | Platform name and number, API Key, API Secret | [Generate API Key, Secret, and determine your platform number](GENERATING-API-KEYS.md#datto-rmm) |
-| **IT Glue** | None. You sign in with your IT Glue account in Step 2. An API Key is still available but not preferred | [Sign in with your IT Glue account](#it-glue-oauth-21-sign-in-preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
+| **IT Glue** | None. You sign in with your IT Glue account in Step 2. An API Key is still available but not preferred | [Sign in with your IT Glue account](#option-1-oauth-21-sign-in-it-glue-only---preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, Autotask MCP endpoint | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
-> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your Kaseya Master Agreement and the Kaseya Data Processing Addendum. **By installing or using them, you agree to those terms.**
+> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your Kaseya Master Agreement and the Kaseya Data Processing Addendum. **By installing or using them, you agree to those terms.**
 >
 > **What a connected AI tool can do.** Depending on the product and the permissions of the credentials you use, your AI tool can:
 >
@@ -176,7 +176,7 @@ _Continue on to Option 2 for Autotask and DRMM. This is only available for IT Gl
 **Option 2: MCPB Bundle in Claude Desktop**
 
 1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
-   Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
+   Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
 
    | Product | Files | Link |
    | --- | --- | --- |
@@ -212,7 +212,7 @@ _Prerequisite:_ Node.js 22 or newer and Claude Code (the `claude` command). Chec
 2. Run the installer for your system:
    - **macOS / Linux:** `sh install-claude-code.sh`
    - **Windows:** run `install-claude-code.cmd` (or `install-claude-code.ps1` from PowerShell)
-3. When prompted, choose your platform number (1-7) from the [platform list in Step 1](#step-1-api-credentials), then enter your Datto RMM API Key and API Secret.
+3. When prompted, choose your platform number (1-7) from the [platform list in Step 1](#step-1-generate-credentials), then enter your Datto RMM API Key and API Secret.
 4. The installer connects the `datto-rmm` MCP server to Claude Code (user scope) and installs the Datto RMM skills to `~/.claude/skills/datto-rmm`.
 5. Start `claude` and ask: `List my Datto RMM sites.`
 
@@ -404,8 +404,8 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 
 | Product | Skill | What it automates |
 | --- | --- | --- |
-| Autotask | [autotask-briefing](AUTOTASK/Autotask-Skills.md#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
-| Autotask | [autotask-guarded-changes](AUTOTASK/Autotask-Skills.md#autotask-guarded-changes) | Controls every change to Autotask data. Reads the record first, proposes the change for you to confirm, then sends each write once, and reports what Autotask holds afterward. |
+| Autotask | [autotask-briefing](AUTOTASK/Autotask-Skills-documentation.md#autotask-briefing) | Assembles a complete briefing on one Autotask record and everything attached to it. Use this skill to understand, summarise, or get context on a ticket, company, contact, or device. |
+| Autotask | [autotask-guarded-changes](AUTOTASK/Autotask-Skills-documentation.md#autotask-guarded-changes) | Controls every change to Autotask data. Reads the record first, proposes the change for you to confirm, then sends each write once, and reports what Autotask holds afterward. |
 | Datto RMM | [drmm-morning-pulse](RMM/DRMM-Skills-documentation.md#morning-pulse) | Reads devices, open alerts, overnight resolved alerts, and the overnight activity log; separates new overnight drops from long-dead gear, spots servers about to fail, and gives you a plan ranked by customer impact. |
 | Datto RMM | [drmm-device-quick-look](RMM/DRMM-Skills-documentation.md#device-quick-look) | Finds the device by hostname, part of a name, MAC address or ID; reads its record, hardware, alerts, patches, software, and recent activity; trends disk space and groups repeating alerts. |
 | Datto RMM | [drmm-patch-posture](RMM/DRMM-Skills-documentation.md#patch-posture) | Reads patch status across servers and workstations, names failing and pending updates, and flags conditions that will break the next patch cycle (such as disk full or servicing errors). |
@@ -442,7 +442,7 @@ Roadmap statements below describe current plans. They are not commitments and ma
 | Setup and connectivity | **How do I know whether the connection worked? I saved my credentials and nothing happened.** | There is no success message. Toggle the extension from Disabled to Enabled: if it turns blue/Enabled it connected; if not, an error appears (post it in the chat, Teams or Discord). Open Configure to confirm: you should see the list of Autotask read and write tools. If you fix a setting (for example adding https:// to the URL), toggle it off and on again. Once enabled, open a chat and ask in natural language; Claude chooses the tools itself. |
 | Setup and connectivity | **Is there documentation for setting up skills? Which files do I download, and where do I upload them?** | Yes. Follow [Step 2](#step-2-connect-to-mcp-servers-and-install-skills-in-claude-desktop) in this README. For each product, download the MCPB file and the plugin ZIP file from the product folder. Add the MCPB file under **Extensions**, and then upload the plugin ZIP file under **Plugins**. The plugin ZIP file contains the skills for that product. Common mix-up: Claude has a **Skills** section, but you upload Kaseya skills as plugins. |
 | Setup and connectivity | **Where do I generate the API keys for each product?** | See [Generating API keys](GENERATING-API-KEYS.md), which includes detailed steps and screenshots for each product, and the Autotask zone and endpoint lookup. |
-| Setup and connectivity - Autotask | **Which MCP endpoint do I use (e.g. mcp2 vs mcp3)? If my Autotask URL is ww14, should I use https://mcp14.autotask.net/mcp?** | It depends on your Autotask zone. Take your Autotask API host, replace "webservices" with "mcp" and add "/mcp" (e.g. webservices3 → https://mcp3.autotask.net/mcp). The zone lookup can be found [here](Generation-API-Keys.md). Correct format must include https:// at the front. |
+| Setup and connectivity - Autotask | **Which MCP endpoint do I use (e.g. mcp2 vs mcp3)? If my Autotask URL is ww14, should I use https://mcp14.autotask.net/mcp?** | It depends on your Autotask zone. Take your Autotask API host, replace "webservices" with "mcp" and add "/mcp" (e.g. webservices3 → https://mcp3.autotask.net/mcp). The zone lookup can be found [here](GENERATING-API-KEYS.md#autotask). Correct format must include https:// at the front. |
 | Setup and connectivity - Autotask | **Why is my Autotask MCP server URL not accepted, or why does the connection fail?** | You must include `https://` at the front of the URL, and the URL must end with `/mcp`. For example, `https://mcp3.autotask.net/mcp`. |
 | Setup & Connectivity - Autotask | **Can I connect more than one instance of Autotask to the MCP servers in Claude?** | Yes, you can connect multiple instances of Autotask to MCP servers. Follow these steps:<br>1. Rename `autotask-#-##-##.mcpb` to `.zip`<br>2. Extract it.<br>3. Edit `manifest.json`.<br>4. Change `name` and `display_name` so they identify the tenant, for example `autotask-Company B` / `Autotask - Company B`.<br>5. Zip it again.<br>6. Rename `.zip` back to `.mcpb`.<br>7. Add the new MCPB to Claude as another extension.<br><br>**Note:** When prompting, explicitly identify the MCP/endpoint you want Claude to use. Otherwise Claude may choose the connector based on previous context. |
 | Setup and connectivity - Datto RMM | **Why is the Datto RMM MCP server installed in the Organization settings, not at the user level like the Autotask MCP server?** | For Datto RMM, the client is a stdio bridge, which runs locally on each user's machine. Each user's Claude Desktop runs its own copy, so you cannot install it once at the organization level. An admin can still deploy the extension to everyone through Claude Desktop's managed extensions. Each user then enters their own API credentials. |
@@ -478,7 +478,7 @@ This repository is part of the Kaseya Insights Community, a forum for practition
 
 | Document | Purpose |
 | --- | --- |
-| [Kaseya MCP Servers Pre-Release Terms](https://github.com/kaseya/mcp-servers/blob/main/GOVERNANCE/MCP-PRERELEASE-TERMS.md) | Terms that govern your use of the Kaseya MCP servers, extensions, skills and scripts. |
+| [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) | Terms that govern your use of the Kaseya MCP servers, extensions, skills and scripts. |
 | [License](LICENSE.md) | License for the documentation and skills in this repository. Extension bundles and hosted services are proprietary; see the Pre-Release Terms. |
 | [Security Policy](GOVERNANCE/SECURITY.md) | How to report security vulnerabilities privately. |
 | [Code of Conduct](GOVERNANCE/CODE_OF_CONDUCT.md) | Standards for Community channels. |
