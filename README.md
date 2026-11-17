@@ -395,8 +395,11 @@ See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities)
 | **list_flexible_asset_fields** | Read | List the fields of a flexible asset type, in order. |
 | **get_flexible_asset_field** | Read | Retrieve a flexible asset field by ID. |
 
+> [!NOTE]
+> Documents, locations, flexible assets, and flexible asset types can be searched by names only. To search documents by context, including document body content and related items, enable Kaseya Assist and AI Search in your IT Glue account. Navigate to **Admin > AI**, turn on **Enable Kaseya Assist**, and verify that **AI Search** is also enabled.
+
 > [!IMPORTANT]
-> When MCP is connected or disconnected, or when documents are created or updated through MCP, these actions are not recorded in IT Glue's Activity Logs.
+> At this time, connecting or disconnecting from the MCP server is not recorded in IT Glue's Activity Logs. However, documents created or updated through the MCP server are tracked in the Activity Logs.
 
 ## Skills
 
