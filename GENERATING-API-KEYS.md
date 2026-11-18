@@ -28,11 +28,11 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
-   <img width="543" height="455" alt="README Add api user in autotask top" src="https://github.com/user-attachments/assets/b1d5b755-46d8-4252-ab56-2174ae078b5d" />
+<img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
-   <img width="261" height="92" alt="README20" src="https://github.com/user-attachments/assets/2b617bbc-91af-4599-b0e2-eaefe7f0a0d0" />
+   <img width="621" height="228" alt="Screenshot 2026-11-18 at 2 38 35 PM" src="https://github.com/user-attachments/assets/7453ddc3-a42f-4aef-bb48-4949223032a1" />
 
 7. Unless your business strictly separates work by line of business, leave the **Line of Business** field blank. Assigning one here can restrict what the API user can view.
 
