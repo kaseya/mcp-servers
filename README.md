@@ -156,7 +156,7 @@ Choose where you use Claude, and then follow the matching option for each produc
 > [!NOTE]
 > IT Glue rollout status:
 > - [x] AU: complete
-> - [ ] EU: in progress, expected to complete Nov 18
+> - [x] EU: complete
 > - [ ] NA: upcoming, expected Nov 19-24
 
 This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 1 or Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
@@ -170,7 +170,7 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
 1. Open Claude settings and select **Connectors**.
 2. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
 3. Click **Connect**. Your browser opens the IT Glue sign in page.
-4. Sign in to IT Glue as you normally do, and then approve the connection.
+4. Sign in to IT Glue. You will need to select your location, then login with username, password, and MFA. You will then be prompted to authorize the connection.
 5. Upload the skills ZIP file for IT Glue:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
