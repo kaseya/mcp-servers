@@ -11,7 +11,7 @@ Kaseya MCPs serve as a connector between AI tools and Kaseya products, such as D
 This community proves patterns, builds guardrails, and makes collective expertise available to every member who needs it.
 
 > [!NOTE]
-> This release is in alpha. MCP server availability and skill scope may change as testing continues.
+> This is an early access release. MCP server availability and skill scope may change as testing continues.
 
 ---
 
