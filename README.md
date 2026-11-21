@@ -192,8 +192,8 @@ _Continue on to Option 2 for Autotask and DRMM. The procedure above is only avai
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 
-   > [!NOTE]
-   > Claude Desktop shows extension settings and secrets values in its developer window once configured. Details [here](https://github.com/modelcontextprotocol/mcpb/issues/244).
+  > [!NOTE]
+  > Claude Desktop shows extension settings and secrets values in its developer window once configured. Details [here](https://github.com/modelcontextprotocol/mcpb/issues/244).
 
 4. Enable the extension, or turn it off and on if it was already on.
 5. Repeat steps 2 through 4 for each product you want to connect.
