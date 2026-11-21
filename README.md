@@ -110,9 +110,9 @@ Before connecting to MCP servers, generate application programming interface (AP
 >
 > **What a connected AI tool can do.** Depending on the product and the permissions of the credentials you use, your AI tool can:
 >
-> 1. **Read** the Content in your Kaseya product, exactly as it is stored. This may include usernames, passwords, client details and other confidential data.
+> 1. **Read** the Content in your Kaseya product, exactly as it is stored. This may include usernames, passwords, client details, and other confidential data.
 > 2. **Create and change** records (Autotask and IT Glue documents) and **permanently delete** ticket checklist items and ticket links (Autotask).
-> 3. **Run automation components from your component library on your managed devices**, update device fields and resolve alerts (Datto RMM). These actions preview by default and need confirmation.
+> 3. **Run automation components from your component library on your managed devices**, update device fields, and resolve alerts (Datto RMM). These actions preview by default and need confirmation.
 >
 > **Approvals are set in your AI tool.** Kaseya MCP servers cannot tell whether a person approved an action. Keep write tools on "Needs approval" in your AI tool. If you allow automatic approval, changes run without your review.
 >
@@ -161,11 +161,20 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
 | EU | `https://mcp.eu.itglue.com/mcp` |
 | AU | `https://mcp.au.itglue.com/mcp` |
 
+1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
+   Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
+
+   | Product | Files | Link |
+   | --- | --- | --- |
+   | Autotask | autotask-0.4.1.mcpb, autotask-plugin-0.1.0.zip | [Autotask folder](AUTOTASK) |
+   | Datto RMM | datto-rmm-0.1.0.mcpb, Datto-RMM-plugin-0.1.0.zip | [Datto RMM folder](RMM) |
+   | IT Glue | itglue-0.1.0.mcpb, itglue-plugin-0.2.0.zip | [IT Glue folder](ITGLUE) |
+
 1. Open Claude settings and select **Connectors**.
-2. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
-3. Click **Connect**. Your browser opens the IT Glue sign in page.
-4. Sign in to IT Glue. You will need to select your location, then login with username, password, and MFA. You will then be prompted to authorize the connection.
-5. Upload the skills ZIP file for IT Glue:
+3. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
+4. Click **Connect**. Your browser opens the IT Glue sign in page.
+5. Sign in to IT Glue. You will need to select your location, then login with username, password, and MFA. You will then be prompted to authorize the connection.
+6. Upload the skills ZIP file for IT Glue:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
