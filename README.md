@@ -72,14 +72,8 @@ This repo is for:
 To get started, complete the following steps:
 
 1. Browse the repo for tools, skills, and MCP servers relevant to your stack.
-2. Try something - break it, learn from it, and share what you found.
-3. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
-
-To get started, complete the following steps:
-
-1. Browse the repo for tools, skills, and MCP servers relevant to your stack.
-2. Try something - break it, learn from it, and share what you found.
-3. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
+2. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
+3. Try something - break it, learn from it, and share what you found.
 
 ### Prerequisites
 
