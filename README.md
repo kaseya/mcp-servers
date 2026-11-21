@@ -67,7 +67,7 @@ This repo is for:
 ## Getting Started
 
 > [!IMPORTANT]
-> **By installing or using a Kaseya MCP server, extension, skill or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
+> **By installing or using a Kaseya MCP server, extension, skill, or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
 
 To get started, complete the following steps:
 
