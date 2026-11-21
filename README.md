@@ -124,15 +124,15 @@ Before connecting to MCP servers, generate application programming interface (AP
 >
 > Any action your AI tool takes with your credentials is your action. Review each proposed change before you approve it.
 >
-> **Prompt injection.** Text inside your data, such as a ticket note, a document or a device name, can contain instructions that an AI tool may follow. Only approve actions you intended, and give each connection the narrowest access the product allows.
+> **Prompt injection.** Text inside your data, such as a ticket note, a document, or a device name, can contain instructions that an AI tool may follow. Only approve actions you intended, and give each connection the narrowest access the product allows.
 >
 > **Credential scope.** What your AI tool can do is limited by the credentials you give it. Some products cannot limit API credentials to one person's permissions, and some API keys can read all data in an account. Check each product's API documentation, use the narrowest credentials available, and leave password access (for example, IT Glue **Password Access**) off unless you specifically need it. Do not share keys.
 >
 > **Who did what.** Changes are recorded under the API user or key whose credentials were used, not the person who asked the AI. If you need per-person records, give each technician their own API user or key.
 >
-> **Your AI provider.** The AI tool you connect (for example, Claude) is third-party technology governed by your agreement with its provider. It is not a Kaseya subprocessor. If you are an MSP, make sure your agreements with your clients allow you to send their data to that AI tool, and do not send health, criminal-justice, export-controlled or payment-card data unless your AI provider's terms and the law permit it.
+> **Your AI provider.** The AI tool you connect (for example, Claude) is third-party technology governed by your agreement with its provider. It is not a Kaseya subprocessor. If you are an MSP, make sure your agreements with your clients allow you to send their data to that AI tool, and do not send health, criminal-justice, export-controlled, or payment-card data unless your AI provider's terms and the law permit it.
 >
-> **Certified environments.** Do not use these connectors for a government customer or in a regulated environment if that use requires FedRAMP, StateRAMP, TX-RAMP, CMMC or another certification or authorization that Kaseya has not confirmed in writing.
+> **Certified environments.** Do not use these connectors for a government customer or in a regulated environment if that use requires FedRAMP, StateRAMP, TX-RAMP, CMMC, or another certification or authorization that Kaseya has not confirmed in writing.
 
 ---
 
