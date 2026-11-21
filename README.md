@@ -94,7 +94,7 @@ Before you begin, make sure you have:
 
 ### Step 1: Generate credentials
 
-Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
+Before connecting to MCP servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
 
 > [!CAUTION]
 > When you **sign in to the IT Glue MCP server with your IT Glue account**, Claude works as you and follows your role and organization restrictions in IT Glue. An IT Glue API key, which is still available but not preferred, grants access to **all the information available in the API.**
@@ -112,7 +112,7 @@ Before connecting to MCP Servers, generate application programming interface (AP
 | **Autotask** | Username, secret, Autotask MCP endpoint | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
-> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your Kaseya Master Agreement and the Kaseya Data Processing Addendum. **By installing or using them, you agree to those terms.**
+> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) and the [Kaseya Data Processing Addendum](https://www.kaseya.com/legal/kaseya-data-processing-addendum/). **By installing or using them, you agree to those terms.**
 >
 > **What a connected AI tool can do.** Depending on the product and the permissions of the credentials you use, your AI tool can:
 >
