@@ -159,7 +159,7 @@ Choose where you use Claude, and then follow the matching option for each produc
 > - [x] EU: complete
 > - [ ] NA: upcoming, expected Nov 19-24
 
-This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 1 or Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
+This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
 
 | Region | Endpoint |
 | --- | --- |
@@ -177,7 +177,7 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
 
-_Continue on to Option 2 for Autotask and DRMM. This is only available for IT Glue._
+_Continue on to Option 2 for Autotask and DRMM. The procedure above is only available for IT Glue._
 
 **Option 2: MCPB Bundle in Claude Desktop**
 
