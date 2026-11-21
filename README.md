@@ -161,15 +161,8 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
 | EU | `https://mcp.eu.itglue.com/mcp` |
 | AU | `https://mcp.au.itglue.com/mcp` |
 
-1. Download the MCPB Bundle (MCPB) file and skills ZIP file listed for each product you want to connect.
+1. Download the IT Glue skills ZIP file, called itglue-plugin-0.2.0.zip, from the [IT Glue folder](ITGLUE).
    Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
-
-   | Product | Files | Link |
-   | --- | --- | --- |
-   | Autotask | autotask-0.4.1.mcpb, autotask-plugin-0.1.0.zip | [Autotask folder](AUTOTASK) |
-   | Datto RMM | datto-rmm-0.1.0.mcpb, Datto-RMM-plugin-0.1.0.zip | [Datto RMM folder](RMM) |
-   | IT Glue | itglue-0.1.0.mcpb, itglue-plugin-0.2.0.zip | [IT Glue folder](ITGLUE) |
-
 1. Open Claude settings and select **Connectors**.
 3. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
 4. Click **Connect**. Your browser opens the IT Glue sign in page.
