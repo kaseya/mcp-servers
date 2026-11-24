@@ -20,6 +20,8 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 2. Under **Admin** in the left menu, click **Resources (Users)**.
 
+   <img width="225" height="348" alt="AT-api-key-2" src="https://github.com/user-attachments/assets/b25b5837-7381-4f0e-9219-92828fd61d06" />
+
 3. On the Resources page, select **New API User** from the **+ New** dropdown menu.
 
    <img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
