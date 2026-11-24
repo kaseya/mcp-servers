@@ -153,6 +153,9 @@ Choose where you use Claude, and then follow the matching option for each produc
 > [!NOTE]
 > OAuth 2.1 sign in is available only for IT Glue. It is not available yet for Autotask or Datto RMM, which connect with API credentials. For IT Glue, choose one method: you do not need both.
 
+> [!IMPORTANT]
+> The IT Glue MCP server, including OAuth 2.1 sign in, is available only to customers on an IT Glue Enterprise plan. IT Glue offers three plans (Basic, Premium, and Enterprise), and an Enterprise plan is required for both connection methods.
+
 #### Option 1: OAuth 2.1 sign in (IT Glue only - preferred)
 
 This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
