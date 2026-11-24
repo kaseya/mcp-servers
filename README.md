@@ -110,7 +110,7 @@ Before connecting to MCP servers, generate application programming interface (AP
 | Product | Values needed | How to generate credentials |
 | --- | --- | --- |
 | **Datto RMM** | Platform name and number, API Key, API Secret | [Generate API Key, Secret, and determine your platform number](GENERATING-API-KEYS.md#datto-rmm) |
-| **IT Glue** | None. You sign in with your IT Glue account in Step 2. An API Key is still available but not preferred | [Sign in with your IT Glue account](#option-1-oauth-21-sign-in-it-glue-only---preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
+| **IT Glue** | None. You sign in with your IT Glue account in Step 2 (Enterprise plan required). An API Key is still available but not preferred | [Sign in with your IT Glue account](#option-1-oauth-21-sign-in-it-glue-only---preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, Autotask MCP endpoint | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
