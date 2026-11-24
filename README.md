@@ -202,6 +202,8 @@ _Continue on to Option 2 for Autotask and DRMM. The procedure above is only avai
    4. Click **Upload**.
    5. Repeat these steps for each product.
 
+_Having trouble connecting? See the [General FAQs](FREQUENTLY-ASKED-QUESTIONS.md#general-faqs), [Autotask FAQs](FREQUENTLY-ASKED-QUESTIONS.md#autotask-faqs), [Datto RMM FAQs](FREQUENTLY-ASKED-QUESTIONS.md#datto-rmm-faqs), or [IT Glue FAQs](FREQUENTLY-ASKED-QUESTIONS.md#it-glue-faqs)._
+
 **Claude Code (CLI)**
 
 **Datto RMM**
