@@ -59,7 +59,7 @@ This repo is for:
 9. [Security](GOVERNANCE/SECURITY.md)
 10. [Code of Conduct](GOVERNANCE/CODE_OF_CONDUCT.md)
 11. [Governance Policy](GOVERNANCE/GOVERNANCE.md)
-12. [Customer FAQs](#faqs)
+12. [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS.md)
 13. [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md)
 
 ---
@@ -67,26 +67,28 @@ This repo is for:
 ## Getting Started
 
 > [!IMPORTANT]
-> **By installing or using a Kaseya MCP server, extension, skill or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
+> **By installing or using a Kaseya MCP server, extension, skill, or script from this repository, you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md) on behalf of your organization.** If you do not agree, do not install or use them.
 
 To get started, complete the following steps:
 
 1. Browse the repo for tools, skills, and MCP servers relevant to your stack.
-2. Try something - break it, learn from it, and share what you found.
-3. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
+2. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
+3. Try something - break it, learn from it, and share what you found.
 
-To get started, complete the following steps:
-
-1. Browse the repo for tools, skills, and MCP servers relevant to your stack.
-2. Try something - break it, learn from it, and share what you found.
-3. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
+Have a question? See the [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS.md).
 
 ### Prerequisites
 
 Before you begin, make sure you have:
 
-- An account with administrator access for each Kaseya product you want to connect: Datto RMM, Autotask, or IT Glue. For IT Glue, you can connect by signing in with your own IT Glue account; no API key or administrator access is needed.
+- An account with administrator access for each Kaseya product you want to connect: Datto RMM, Autotask, or IT Glue. For IT Glue, you can connect by signing in with your own IT Glue account; no API key or administrator access is needed. IT Glue also requires an Enterprise plan.
 - Claude Desktop.
+
+If you connect IT Glue, you also need:
+
+- An active IT Glue account on an Enterprise plan. The IT Glue MCP server and OAuth 2.1 sign in are not available on the Basic or Premium plans.
+- A supported AI tool: Claude Desktop or Claude Code (CLI).
+- Optional: The Autotask MCP server, to use ticket details in the IT Glue document skills.
 
 ### Setup: Connecting to MCP servers and skills
 
@@ -94,7 +96,7 @@ Before you begin, make sure you have:
 
 ### Step 1: Generate credentials
 
-Before connecting to MCP Servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
+Before connecting to MCP servers, generate application programming interface (API) credentials for each platform. **Have all values on hand before proceeding to Step 2.**
 
 > [!CAUTION]
 > When you **sign in to the IT Glue MCP server with your IT Glue account**, Claude works as you and follows your role and organization restrictions in IT Glue. An IT Glue API key, which is still available but not preferred, grants access to **all the information available in the API.**
@@ -108,31 +110,31 @@ Before connecting to MCP Servers, generate application programming interface (AP
 | Product | Values needed | How to generate credentials |
 | --- | --- | --- |
 | **Datto RMM** | Platform name and number, API Key, API Secret | [Generate API Key, Secret, and determine your platform number](GENERATING-API-KEYS.md#datto-rmm) |
-| **IT Glue** | None. You sign in with your IT Glue account in Step 2. An API Key is still available but not preferred | [Sign in with your IT Glue account](#option-1-oauth-21-sign-in-it-glue-only---preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
+| **IT Glue** | None. You sign in with your IT Glue account in Step 2 (Enterprise plan required). An API Key is still available but not preferred | [Sign in with your IT Glue account](#option-1-oauth-21-sign-in-it-glue-only---preferred), or [Generate API Key](GENERATING-API-KEYS.md#it-glue) |
 | **Autotask** | Username, secret, Autotask MCP endpoint | [Generate username, secret, and determine your Autotask MCP endpoint](GENERATING-API-KEYS.md#autotask) |
 
 > [!IMPORTANT]
-> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your Kaseya Master Agreement and the Kaseya Data Processing Addendum. **By installing or using them, you agree to those terms.**
+> **Pre-release.** Kaseya MCP servers are pre-release (alpha, beta or early access) software provided under the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md), together with your [Kaseya Master Agreement](https://www.kaseya.com/legal/kaseya-master-agreement/) and the [Kaseya Data Processing Addendum](https://www.kaseya.com/legal/kaseya-data-processing-addendum/). **By installing or using them, you agree to those terms.**
 >
 > **What a connected AI tool can do.** Depending on the product and the permissions of the credentials you use, your AI tool can:
 >
-> 1. **Read** the Content in your Kaseya product, exactly as it is stored. This may include usernames, passwords, client details and other confidential data.
+> 1. **Read** the Content in your Kaseya product, exactly as it is stored. This may include usernames, passwords, client details, and other confidential data.
 > 2. **Create and change** records (Autotask and IT Glue documents) and **permanently delete** ticket checklist items and ticket links (Autotask).
-> 3. **Run automation components from your component library on your managed devices**, update device fields and resolve alerts (Datto RMM). These actions preview by default and need confirmation.
+> 3. **Run automation components from your component library on your managed devices**, update device fields, and resolve alerts (Datto RMM). These actions preview by default and need confirmation.
 >
 > **Approvals are set in your AI tool.** Kaseya MCP servers cannot tell whether a person approved an action. Keep write tools on "Needs approval" in your AI tool. If you allow automatic approval, changes run without your review.
 >
 > Any action your AI tool takes with your credentials is your action. Review each proposed change before you approve it.
 >
-> **Prompt injection.** Text inside your data, such as a ticket note, a document or a device name, can contain instructions that an AI tool may follow. Only approve actions you intended, and give each connection the narrowest access the product allows.
+> **Prompt injection.** Text inside your data, such as a ticket note, a document, or a device name, can contain instructions that an AI tool may follow. Only approve actions you intended, and give each connection the narrowest access the product allows.
 >
 > **Credential scope.** What your AI tool can do is limited by the credentials you give it. Some products cannot limit API credentials to one person's permissions, and some API keys can read all data in an account. Check each product's API documentation, use the narrowest credentials available, and leave password access (for example, IT Glue **Password Access**) off unless you specifically need it. Do not share keys.
 >
 > **Who did what.** Changes are recorded under the API user or key whose credentials were used, not the person who asked the AI. If you need per-person records, give each technician their own API user or key.
 >
-> **Your AI provider.** The AI tool you connect (for example, Claude) is third-party technology governed by your agreement with its provider. It is not a Kaseya subprocessor. If you are an MSP, make sure your agreements with your clients allow you to send their data to that AI tool, and do not send health, criminal-justice, export-controlled or payment-card data unless your AI provider's terms and the law permit it.
+> **Your AI provider.** The AI tool you connect (for example, Claude) is third-party technology governed by your agreement with its provider. It is not a Kaseya subprocessor. If you are an MSP, make sure your agreements with your clients allow you to send their data to that AI tool, and do not send health, criminal-justice, export-controlled, or payment-card data unless your AI provider's terms and the law permit it.
 >
-> **Certified environments.** Do not use these connectors for a government customer or in a regulated environment if that use requires FedRAMP, StateRAMP, TX-RAMP, CMMC or another certification or authorization that Kaseya has not confirmed in writing.
+> **Certified environments.** Do not use these connectors for a government customer or in a regulated environment if that use requires FedRAMP, StateRAMP, TX-RAMP, CMMC, or another certification or authorization that Kaseya has not confirmed in writing.
 
 ---
 
@@ -151,15 +153,12 @@ Choose where you use Claude, and then follow the matching option for each produc
 > [!NOTE]
 > OAuth 2.1 sign in is available only for IT Glue. It is not available yet for Autotask or Datto RMM, which connect with API credentials. For IT Glue, choose one method: you do not need both.
 
+> [!IMPORTANT]
+> The IT Glue MCP server, including OAuth 2.1 sign in, is available only to customers on an IT Glue Enterprise plan. IT Glue offers three plans (Basic, Premium, and Enterprise), and an Enterprise plan is required for both connection methods.
+
 #### Option 1: OAuth 2.1 sign in (IT Glue only - preferred)
 
-> [!NOTE]
-> IT Glue rollout status:
-> - [x] AU: complete
-> - [x] EU: complete
-> - [ ] NA: in progress, expected to complete Nov 24
-
-This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 1 or Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
+This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
 
 | Region | Endpoint |
 | --- | --- |
@@ -167,17 +166,21 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
 | EU | `https://mcp.eu.itglue.com/mcp` |
 | AU | `https://mcp.au.itglue.com/mcp` |
 
+1. Download the IT Glue skills ZIP file, called itglue-plugin-0.2.0.zip, from the [IT Glue folder](ITGLUE).
+   Installing these files means you agree to the [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md). Check each download against the SHA256SUMS file in its folder.
 1. Open Claude settings and select **Connectors**.
-2. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
-3. Click **Connect**. Your browser opens the IT Glue sign in page.
-4. Sign in to IT Glue. You will need to select your location, then login with username, password, and MFA. If SSO is enabled for your IT Glue account, you will instead be redirected to your configured SSO provider (KaseyaOne or another identity provider). You will then be prompted to authorize the connection.
-5. Upload the skills ZIP file for IT Glue:
+3. Click **Add custom connector**, enter a name such as _IT Glue_ and your region's endpoint, and then click **Add**.
+4. Click **Connect**. Your browser opens the IT Glue sign in page.
+5. Sign in to IT Glue. You will need to select your location, then login with username, password, and MFA. You will then be prompted to authorize the connection.
+6. Upload the skills ZIP file for IT Glue:
    1. In Claude, click **Plugins** in the left sidebar.
    2. Click the **Plus** icon in the upper-right corner.
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
 
-_Continue on to Option 2 for Autotask and DRMM. This is only available for IT Glue._
+_Having trouble signing in? See the [IT Glue FAQs](FREQUENTLY-ASKED-QUESTIONS.md#it-glue-faqs)._
+
+_Continue on to Option 2 for Autotask and DRMM. The procedure above is only available for IT Glue._
 
 **Option 2: MCPB Bundle in Claude Desktop**
 
@@ -196,8 +199,8 @@ _Continue on to Option 2 for Autotask and DRMM. This is only available for IT Gl
 
 3. Enter the credentials you generated in [Step 1](#step-1-generate-credentials) when prompted, and then click **Save**.
 
-   > [!NOTE]
-   > Claude Desktop shows extension settings and secrets values in its developer window once configured. Details [here](https://github.com/modelcontextprotocol/mcpb/issues/244).
+  > [!NOTE]
+  > Claude Desktop shows extension settings and secrets values in its developer window once configured. Details [here](https://github.com/modelcontextprotocol/mcpb/issues/244).
 
 4. Enable the extension, or turn it off and on if it was already on.
 5. Repeat steps 2 through 4 for each product you want to connect.
@@ -207,6 +210,8 @@ _Continue on to Option 2 for Autotask and DRMM. This is only available for IT Gl
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
    5. Repeat these steps for each product.
+
+_Having trouble connecting? See the [General FAQs](FREQUENTLY-ASKED-QUESTIONS.md#general-faqs), [Autotask FAQs](FREQUENTLY-ASKED-QUESTIONS.md#autotask-faqs), [Datto RMM FAQs](FREQUENTLY-ASKED-QUESTIONS.md#datto-rmm-faqs), or [IT Glue FAQs](FREQUENTLY-ASKED-QUESTIONS.md#it-glue-faqs)._
 
 **Claude Code (CLI)**
 
@@ -314,7 +319,7 @@ _Prerequisite:_ Claude Code (the `claude` command) and the IT Glue API Key from 
 | Product | What skills can do |
 | --- | --- |
 | **Datto RMM** | Run components and scripts, triage alerts, check device health, and audit hardware |
-| **IT Glue** | Build site-visit packs, score a client’s documentation, review documentation and asset health, and find, update, and create documents from a ticket |
+| **IT Glue** (requires an Enterprise plan) | Build site-visit packs, score a client’s documentation, review documentation and asset health, and find, update, and create documents from a ticket |
 | **Autotask** | Read and update tickets, post notes, and provide ticket briefings |
 
 ---
@@ -378,6 +383,8 @@ See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities)
 
 ### IT Glue
 
+The IT Glue MCP server requires an IT Glue Enterprise plan.
+
 | Tool | Operation | Description |
 | --- | --- | --- |
 | **list_organizations** | Read | List organizations with optional filtering, exclusion, range filtering, sorting, and related-resource includes. |
@@ -433,57 +440,16 @@ The following skills for Claude Desktop automate Datto RMM, Autotask, and IT Glu
 
 ## FAQs
 
-Roadmap statements below describe current plans. They are not commitments and may change.
+Find answers to common questions in the [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS.md) page, or go straight to the FAQs you need:
 
-| Category | Question | Answer |
-| --- | --- | --- |
-| Roadmap, identity, and security | **Will this expand to a unified data layer rather than individual platform connectors? Is there a timeline for a single Kaseya MCP so we don't repeat the setup for every product?** | Unified APIs are planned for FY27. Unified Kaseya Claude connector is also in the roadmap. |
-| Roadmap, identity, and security | **Which Kaseya products have MCP servers, and will others (MDR, EDR, RapidFire Tools, Inky, Kaseya SIEM, Smart Insights, etc.) be added?** | Early Access covers Autotask, Datto RMM and IT Glue MCP servers. We do not have a timeline for other products at this time. |
-| Roadmap, identity, and security | **When will the MCP servers be generally available? Is this open to all customers?** | Kaseya plans to open the servers to all customers but is calling it early access until we have OAuth 2.1 support. IT Glue supports OAuth 2.1 now, so you can sign in with your IT Glue account. We currently are planning to release this early access to all customers. |
-| Roadmap, identity, and security | **Is an MCP gateway planned so I do not have to give every technician an API key or share one key across my team? How will this scale beyond a single administrator?** | Yes, this work is in progress. Kaseya is unifying user identity with API identity and putting all APIs behind OAuth 2.1, and then will release MCP connectors that do not require you to use API keys. The target is FY27. IT Glue supports OAuth 2.1 now: each technician signs in with their own IT Glue account, so no API key is needed. For the other products, until then, please generate a separate API key for each person or role. For example, create one read-only API user for technicians and one read/write API user for power users. |
-| Roadmap, identity, and security | **Can I limit what each individual user can do through the MCP, instead of everything the API user can do?** | The MCP server access is tied to the API key. For IT Glue, when you sign in with your IT Glue account, Claude follows that user's role and organization restrictions instead. |
-| Roadmap, identity, and security | **What is the limit for calls through the MCP servers?** | The limit is the same as your account's API throttling limit. |
-| Setup and connectivity | **Can I connect to the MCP servers using a different platform than Claude (CoPilot, ChatGPT)?** | You are welcome to use any AI tool to connect to our MCP servers, but we are certifying it for Claude Desktop and Claude Code. Kaseya cannot assist with any troubleshooting relating to connections with different AI tools. |
-| Setup and connectivity | **What do I need in place before I can connect?** | Claude Desktop installed, access to the GitHub repo, and your API credentials generated for each product. The repo README is the source of truth covering these steps - begin with #Getting-started covering the pre-reqs. |
-| Setup and connectivity | **Claude shows a red warning when I install the extension. Is this running anything on my computer?** | No. The Kaseya MCP server is remote. The extension only connects Claude to it and does not do anything on your desktop or file system. Anthropic shows this warning for every extension. |
-| Setup and connectivity | **I get an error dragging the .mcpb file into Claude.** | Re-download it; the file likely didn't download fully. |
-| Setup and connectivity | **Which Claude plan is enough for this? (Hit the free usage limit.)** | It depends on your usage and Anthropic agreement. |
-| Setup and connectivity | **How do I know whether the connection worked? I saved my credentials and nothing happened.** | There is no success message. Toggle the extension from Disabled to Enabled: if it turns blue/Enabled it connected; if not, an error appears (post it in the chat, Teams or Discord). Open Configure to confirm: you should see the list of Autotask read and write tools. If you fix a setting (for example adding https:// to the URL), toggle it off and on again. Once enabled, open a chat and ask in natural language; Claude chooses the tools itself. |
-| Setup and connectivity | **Is there documentation for setting up skills? Which files do I download, and where do I upload them?** | Yes. Follow [Step 2](#step-2-connect-to-mcp-servers-and-install-skills-in-claude-desktop) in this README. For each product, download the MCPB file and the plugin ZIP file from the product folder. Add the MCPB file under **Extensions**, and then upload the plugin ZIP file under **Plugins**. The plugin ZIP file contains the skills for that product. Common mix-up: Claude has a **Skills** section, but you upload Kaseya skills as plugins. |
-| Setup and connectivity | **Where do I generate the API keys for each product?** | See [Generating API keys](GENERATING-API-KEYS.md), which includes detailed steps and screenshots for each product, and the Autotask zone and endpoint lookup. |
-| Setup and connectivity - Autotask | **Which MCP endpoint do I use (e.g. mcp2 vs mcp3)? If my Autotask URL is ww14, should I use https://mcp14.autotask.net/mcp?** | It depends on your Autotask zone. Take your Autotask API host, replace "webservices" with "mcp" and add "/mcp" (e.g. webservices3 → https://mcp3.autotask.net/mcp). The zone lookup can be found [here](GENERATING-API-KEYS.md#autotask). Correct format must include https:// at the front. |
-| Setup and connectivity - Autotask | **Why is my Autotask MCP server URL not accepted, or why does the connection fail?** | You must include `https://` at the front of the URL, and the URL must end with `/mcp`. For example, `https://mcp3.autotask.net/mcp`. |
-| Setup & Connectivity - Autotask | **Can I connect more than one instance of Autotask to the MCP servers in Claude?** | Yes, you can connect multiple instances of Autotask to MCP servers. Follow these steps:<br>1. Rename `autotask-#-##-##.mcpb` to `.zip`<br>2. Extract it.<br>3. Edit `manifest.json`.<br>4. Change `name` and `display_name` so they identify the tenant, for example `autotask-Company B` / `Autotask - Company B`.<br>5. Zip it again.<br>6. Rename `.zip` back to `.mcpb`.<br>7. Add the new MCPB to Claude as another extension.<br><br>**Note:** When prompting, explicitly identify the MCP/endpoint you want Claude to use. Otherwise Claude may choose the connector based on previous context. |
-| Setup and connectivity - Datto RMM | **Why is the Datto RMM MCP server installed in the Organization settings, not at the user level like the Autotask MCP server?** | For Datto RMM, the client is a stdio bridge, which runs locally on each user's machine. Each user's Claude Desktop runs its own copy, so you cannot install it once at the organization level. An admin can still deploy the extension to everyone through Claude Desktop's managed extensions. Each user then enters their own API credentials. |
-| Setup and connectivity - Datto RMM | **Is the Datto RMM MCP server available in my region?** | Yes. All Datto RMM MCP servers are deployed, and all regions should be supported. |
-| Setup and connectivity - Datto RMM | **Datto RMM connects, but my queries fail with a 403 Forbidden error, for example when I ask how many sites I have. What do I do?** | A 403 error means Datto RMM accepted your API key, but the API user doesn't have sufficient permissions for this request. To resolve this, go to Setup > Users, locate the user that owns the API key, and assign an API Security Level with the appropriate permissions. The Administrator level provides full access, so we recommend using it only when necessary. For more details on API permissions and setup, please see the Datto RMM API v2 documentation: (https://rmm.datto.com/help/en/Content/2SETUP/APIv2.htm). |
-| Setup and connectivity - IT Glue | **Is the IT Glue MCP server available in my region, and what do I enter for the region?** | Yes. The IT Glue MCP servers are available in all regions: Australia, Europe, and North America. The IT Glue configuration panel states at the top what to enter for each region. |
-| Setup and connectivity - IT Glue | **IT Glue shows the error "IT Glue rejected the credential, or MCP is not enabled for this account," even after I regenerate my API key. What do I do?** | During early access, the IT Glue product team turns on MCP for each account with a feature flag. If you see this error, your account most likely does not have MCP turned on yet, rather than having a bad key. If the error continues, post in Teams or Discord, or join an office hour, so the IT Glue team can check your account. |
-| Setup and connectivity - IT Glue | **I signed in to IT Glue, but Claude shows an "access denied" error. What do I do?** | MCP sign in needs to be turned on for your IT Glue account. If you see this error after signing in, your account most likely does not have it turned on yet. The same error appears if you sign in from outside your account's IP allowlist. Contact IT Glue support so they can check your account. |
-| Capabilities and limitations - Autotask | **Can the MCP do a global notes search?** | No. Global Notes Search, as it exists in the Autotask user interface (UI), is not an API endpoint, so it is not in the initial MCP. You can retrieve notes tied to a specific ticket, company, or device by using the autotask-briefing skill. Currently, you can query only `ticketNotes`. |
-| Capabilities and limitations - Autotask | **Can the MCP audit my workflow rules?** | No. Workflow rules are not an entity in the API, so the MCP cannot audit them. Autotask has a built-in workflow audit function in the UI, on the workflow page, that finds redundant and unused workflows. |
-| Capabilities and limitations - Autotask | **Can a workflow change the company on a ticket?** | No. Workflow rules cannot change the company on a ticket, by design. You can change the company ID through the API, and so through the MCP, as long as the ticket has no billing dependencies, such as time entries, expenses, or ticket charges (especially posted ones). The UI has the same restriction. For email processing, put `//` followed by the exact company name in the ticket body so that Autotask matches the account. |
-| Capabilities and limitations - Autotask | **Can I create a dashboard to share with a client?** | A dashboard is a Claude artifact, so you can share the output, such as a PDF download or HTML. |
-| Capabilities and limitations - Autotask | **Can the MCP export data, such as issues and sub-issues, to Excel?** | Yes. Prompt Claude to create the insights you want in an Excel file, and then download it. For example, Claude can create a summary of issues and sub-issues. |
-| Capabilities and limitations | **Can the MCP update IT Glue documentation from ticket information once the products are linked?** | Yes. With the Autotask and IT Glue MCP servers connected, `itglue-update-docs-from-ticket` reads a ticket and proposes edits to existing documents, and `itglue-create-docs-from-ticket` creates a new document from it. Both wait for your approval before writing. Other cross-product workflows are the long-term goal. |
-| Capabilities and limitations | **What skills does Kaseya provide, and how do they work?** | See the [Skills](#skills) section of this README for the full list, and [Kaseya tools and skills](#kaseya-tools--skills) to learn how skills work. For details about each skill, see the skills documentation in each product folder: [Autotask](AUTOTASK/), [Datto RMM](RMM/), and [IT Glue](ITGLUE/). |
-| Capabilities and limitations | **Can I control which actions Claude can take, such as read versus write or delete?** | Yes. After you install the extension, open **Configure**. Separate dropdowns control read tools and write/delete tools. While you test, select **Needs Approval** for both. Once you trust the read tools, select **Always Allow** for read tools, and keep write/delete tools on **Needs Approval**. The same settings apply to Kaseya skills, so a skill that writes still asks for permission first. Try read queries before you write to production. |
-| Capabilities and limitations | **Are there example prompts to get started?** | Yes. See the skills documentation in each product folder for example prompts that invoke each skill: [Autotask](AUTOTASK/), [Datto RMM](RMM/), and [IT Glue](ITGLUE/). |
-| Capabilities and limitations | **Can I build my own skills or routines on top of the MCP tools?** | Yes. You are welcome to build your own skills from the tools. Tip: add your existing knowledge base (KB) articles to Claude and ask it to create a skill from them. Some customers plan to schedule routines (for example, in Claude Cowork) once write access is turned on. We would love to have you share your skills in Discord. Community show-and-tell sessions are planned; see Discord for the schedule. |
-| Capabilities and limitations | **Why does my output, such as a dashboard or table, look different from what others show?** | In Claude, your account instructions, as well as your past usage history, leads to the same prompt on the same data showing different output. |
-| Other AI platforms, strategy, and community | **Can I use the MCP servers with Copilot Studio, ChatGPT, or my own custom agent? Can I load the `.mcpb` files as-is?** | Kaseya supports Claude Desktop and Claude Code. Copilot Studio can connect to the MCP servers, and Kaseya plans official support in FY27. Until then, Kaseya cannot provide troubleshooting or instructions for other AI tools because the materials are written for Claude, but you are welcome to try the repo and share your results with the community on Discord. The `.mcpb` files work only with Claude. For Copilot Studio, follow Microsoft's documentation to add the endpoint. For a custom agent, write code that calls the endpoint with your credentials. Kaseya has no guidance for ChatGPT at this time. |
-| Other AI platforms, strategy, and community | **Why does Kaseya offer an MCP instead of in-app native tools, API-only access, or letting customers build their own?** | Customers already make billions of API calls each month, and many asked for official MCP servers to use with their agents and Claude. |
-| Other AI platforms, strategy, and community | **What is the roadmap beyond the early access, and will Kaseya share it?** | Yes, Kaseya will share the roadmap. Focus areas include OAuth 2.1 support for APIs (IT Glue supports it now), with Anthropic connectors to follow, and Kaseya Insights and actions inside the product. |
-| Other AI platforms, strategy, and community | **Do MCP calls count against my hourly API call limit, and is there a charge?** | The MCP servers are free, and calls through them are subject to your account's API throttling limit. In the future, Kaseya may begin charging for API calls above a certain high threshold. |
-| Other AI platforms, strategy, and community | **How should I share skills and prompts with the group?** | Share in the MCP servers channel in Discord! Kaseya will host show-and-tell community sessions; see Discord for the schedule. |
-| Program, support, and feedback | **When are office hours, and what are they for?** | Office hours Mondays and Wednesdays from 11:00 AM to 12:00 PM Eastern for the duration of the alpha. Drop in and out any time for live demos, troubleshooting, access to product managers to discuss use cases, and time with other customers. Special sessions focus on sharing skills and prompts and on customers trying tools other than Claude. If office hours are not on your calendar, email sarah.tappan@kaseya.com. |
-| Program, support, and feedback | **How do I contact the team, give feedback, or request features?** | Use the Teams channel **MCP Servers pre-alpha - General** or Discord. Discord will be the main community after the program. You can also [book a 1:1 feedback session](https://calendly.com/billing-kaseya-one/mcp-server-pre-alpha-program-feedback-session). Expect a weekly survey and a post-kickoff survey. Feature requests are welcome in any of these channels. |
-| Program, support, and feedback | **Will I get a recording of the kickoff session? I missed some of the install steps.** | Yes, Kaseya will share recordings with the group. You can also follow the steps in [Getting Started](#getting-started) and drop into office hours for help. |
-| Kaseya Insights | **What is Kaseya Insights, and can I join?** | Kaseya Insights is a new platform capability with its own alpha program, built for MSP owners and administrators. It answers business and operational questions through a conversational interface inside KaseyaOne. It currently answers 100 to 200+ questions across Autotask and Datto RMM, with more products coming. The Insights alpha starts in mid-November. Everyone in North America can join. |
+- [General FAQs](FREQUENTLY-ASKED-QUESTIONS.md#general-faqs)
+- [Autotask FAQs](FREQUENTLY-ASKED-QUESTIONS.md#autotask-faqs)
+- [Datto RMM FAQs](FREQUENTLY-ASKED-QUESTIONS.md#datto-rmm-faqs)
+- [IT Glue FAQs](FREQUENTLY-ASKED-QUESTIONS.md#it-glue-faqs)
 
 ## Legal documents
 
-This repository is part of the Kaseya Insights Community, a forum for practitioners using Kaseya's AI capabilities. The Community is not a Kaseya product. The Community documents below govern participation in the Community. Your use of the Kaseya MCP servers is governed by the Kaseya MCP Servers Pre-Release Terms and your Kaseya agreement. Tool vendors and integration developers working with Kaseya customers are covered by Section 6A of the Pre-Release Terms; to offer an integration to more than one customer, you also need a Kaseya integration partner agreement (Kaseya TAP or the Autotask Integration Hub).
+This repository is part of the Kaseya Insights Community, a forum for practitioners using Kaseya's AI capabilities. The Community is not a Kaseya product. The Community documents below govern participation in the Community. Your use of the Kaseya MCP servers is governed by the Kaseya MCP Servers Pre-Release Terms and your Kaseya agreement. Tool vendors and integration developers working with Kaseya customers are covered by Section 6A of the [Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md); to offer an integration to more than one customer, you also need a Kaseya integration partner agreement (Kaseya TAP or the Autotask Integration Hub).
 
 | Document | Purpose |
 | --- | --- |
