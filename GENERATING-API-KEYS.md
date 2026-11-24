@@ -31,7 +31,7 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
-<img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
+   <img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
