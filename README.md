@@ -149,12 +149,6 @@ Choose where you use Claude, and then follow the matching option for each produc
 
 #### Option 1: OAuth 2.1 sign in (IT Glue only - preferred)
 
-> [!NOTE]
-> IT Glue rollout status:
-> - [x] AU: complete
-> - [x] EU: complete
-> - [ ] NA: upcoming, expected Nov 19-24
-
 This is the preferred way to connect IT Glue. Use it instead of the IT Glue setup in Option 2 below, which uses an API key and is still available; you do not need both. Use the IT Glue MCP endpoint for your region:
 
 | Region | Endpoint |
