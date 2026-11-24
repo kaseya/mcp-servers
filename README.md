@@ -383,6 +383,8 @@ See [Autotask Documentation](AUTOTASK/Autotask-Skills-documentation.md#entities)
 
 ### IT Glue
 
+The IT Glue MCP server requires an IT Glue Enterprise plan.
+
 | Tool | Operation | Description |
 | --- | --- | --- |
 | **list_organizations** | Read | List organizations with optional filtering, exclusion, range filtering, sorting, and related-resource includes. |
