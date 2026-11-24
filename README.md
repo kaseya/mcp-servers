@@ -438,7 +438,7 @@ Find answers to common questions in the [Frequently asked questions](FREQUENTLY-
 
 ## Legal documents
 
-This repository is part of the Kaseya Insights Community, a forum for practitioners using Kaseya's AI capabilities. The Community is not a Kaseya product. The Community documents below govern participation in the Community. Your use of the Kaseya MCP servers is governed by the Kaseya MCP Servers Pre-Release Terms and your Kaseya agreement. Tool vendors and integration developers working with Kaseya customers are covered by Section 6A of the Pre-Release Terms; to offer an integration to more than one customer, you also need a Kaseya integration partner agreement (Kaseya TAP or the Autotask Integration Hub).
+This repository is part of the Kaseya Insights Community, a forum for practitioners using Kaseya's AI capabilities. The Community is not a Kaseya product. The Community documents below govern participation in the Community. Your use of the Kaseya MCP servers is governed by the Kaseya MCP Servers Pre-Release Terms and your Kaseya agreement. Tool vendors and integration developers working with Kaseya customers are covered by Section 6A of the [Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md); to offer an integration to more than one customer, you also need a Kaseya integration partner agreement (Kaseya TAP or the Autotask Integration Hub).
 
 | Document | Purpose |
 | --- | --- |
