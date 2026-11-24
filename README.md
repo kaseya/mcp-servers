@@ -75,6 +75,8 @@ To get started, complete the following steps:
 2. Review the prerequisites, and then follow the setup steps to connect your MCP servers and install skills in Claude.
 3. Try something - break it, learn from it, and share what you found.
 
+Have a question? See the [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS.md).
+
 ### Prerequisites
 
 Before you begin, make sure you have:
