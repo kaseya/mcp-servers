@@ -59,7 +59,7 @@ This repo is for:
 9. [Security](GOVERNANCE/SECURITY.md)
 10. [Code of Conduct](GOVERNANCE/CODE_OF_CONDUCT.md)
 11. [Governance Policy](GOVERNANCE/GOVERNANCE.md)
-12. [Customer FAQs](#faqs)
+12. [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS.md)
 13. [Kaseya MCP Servers Pre-Release Terms](GOVERNANCE/MCP-PRERELEASE-TERMS.md)
 
 ---
