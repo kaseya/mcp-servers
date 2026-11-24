@@ -20,15 +20,18 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 2. Under **Admin** in the left menu, click **Resources (Users)**.
 
+   <img width="225" height="348" alt="AT-api-key-2" src="https://github.com/user-attachments/assets/b25b5837-7381-4f0e-9219-92828fd61d06" />
+
 3. On the Resources page, select **New API User** from the **+ New** dropdown menu.
 
-   <img width="600" height="255" alt="README Autotask2" src="https://github.com/user-attachments/assets/c22248c4-df5f-4088-ba77-c26b6f5c50a7" />
+   <img width="500" height="224" alt="AT-api-key-3" src="https://github.com/user-attachments/assets/551c13c4-a2db-4706-905d-1f65262608e1" />
+
 
 4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User (system)**.
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
-<img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
+   <img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
