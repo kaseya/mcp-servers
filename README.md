@@ -169,6 +169,8 @@ This is the preferred way to connect IT Glue. Use it instead of the IT Glue setu
    3. Click **Upload File**, and then select the ZIP file you downloaded earlier.
    4. Click **Upload**.
 
+_Having trouble signing in? See the [IT Glue FAQs](FREQUENTLY-ASKED-QUESTIONS.md#it-glue-faqs)._
+
 _Continue on to Option 2 for Autotask and DRMM. The procedure above is only available for IT Glue._
 
 **Option 2: MCPB Bundle in Claude Desktop**
