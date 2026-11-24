@@ -81,8 +81,14 @@ Have a question? See the [Frequently asked questions](FREQUENTLY-ASKED-QUESTIONS
 
 Before you begin, make sure you have:
 
-- An account with administrator access for each Kaseya product you want to connect: Datto RMM, Autotask, or IT Glue. For IT Glue, you can connect by signing in with your own IT Glue account; no API key or administrator access is needed.
+- An account with administrator access for each Kaseya product you want to connect: Datto RMM, Autotask, or IT Glue. For IT Glue, you can connect by signing in with your own IT Glue account; no API key or administrator access is needed. IT Glue also requires an Enterprise plan.
 - Claude Desktop.
+
+If you connect IT Glue, you also need:
+
+- An active IT Glue account on an Enterprise plan. The IT Glue MCP server and OAuth 2.1 sign in are not available on the Basic or Premium plans.
+- A supported AI tool: Claude Desktop or Claude Code (CLI).
+- Optional: The Autotask MCP server, to use ticket details in the IT Glue document skills.
 
 ### Setup: Connecting to MCP servers and skills
 
