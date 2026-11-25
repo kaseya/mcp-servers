@@ -16,7 +16,7 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 1. In Autotask, select **Admin** in the left menu.
 
-   <img width="119" height="224" alt="AT-api-key-1" src="https://github.com/user-attachments/assets/41239ef6-a703-40cc-9fdb-47118bb0eb9d" />
+   <img width="189" height="359" alt="AT-api-key-1-2" src="https://github.com/user-attachments/assets/212b3c4c-82c3-4bb6-a17d-aa90d8418608" />
 
 2. Under **Admin** in the left menu, click **Resources (Users)**.
 
