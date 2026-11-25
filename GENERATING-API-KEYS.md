@@ -161,7 +161,7 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 2. On the Settings page, select the **API Keys** tab.
 
-   <img width="376" height="84" alt="ITG-api-key-1" src="https://github.com/user-attachments/assets/0a44f691-453d-4907-bb5e-66afca89d03e" />
+   <img width="501" height="111" alt="ITG-api-key-1" src="https://github.com/user-attachments/assets/ab73e6c7-bd35-4658-8cb8-fe2410795943" />
 
 3. In the **Custom API Keys** section, click **+ Create API Key**.
 
