@@ -128,7 +128,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 3. On the username page that displays, scroll down to the **API** section, then click **Generate API Keys**.
 
-   <img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
+   <img width="501" height="111" alt="ITG-api-key-1" src="https://github.com/user-attachments/assets/cc2d9968-f604-4233-adce-ad6239cfa148" />
 
 4. The **API Key** and **API Secret Key** display. Copy both values immediately and store them securely.
 
