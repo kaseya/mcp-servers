@@ -132,6 +132,8 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 4. The **API Key** and **API Secret Key** display. Copy both values immediately and store them securely.
 
+    <img width="464" height="305" alt="DRMM-api-4" src="https://github.com/user-attachments/assets/751e74f5-1ce4-463e-a5c6-267e3b0a86e5" />
+
 ### Step 3: Identify the platform number
 
 You are prompted to choose the platform for your Datto RMM account by number. Use the key below to determine which number to enter.
