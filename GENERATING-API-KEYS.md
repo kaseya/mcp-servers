@@ -124,9 +124,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 2. On the Users page, select the username for which you want to generate keys.
 
-   <img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
    <img width="376" height="332" alt="DRMM-api-2" src="https://github.com/user-attachments/assets/1a9db1f8-61b5-4c41-82c8-16baee7be183" />
-
 
 3. On the username page that displays, scroll down to the **API** section, then click **Generate API Keys**.
 
