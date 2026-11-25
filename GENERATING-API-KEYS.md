@@ -16,26 +16,25 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 1. In Autotask, select **Admin** in the left menu.
 
-   <img width="328" height="356" alt="README Autotask1" src="https://github.com/user-attachments/assets/d27f57f1-550c-4b40-b268-8ec27e8d5f1e" />
+   <img width="189" height="359" alt="AT-api-key-1-2" src="https://github.com/user-attachments/assets/212b3c4c-82c3-4bb6-a17d-aa90d8418608" />
 
 2. Under **Admin** in the left menu, click **Resources (Users)**.
 
-   <img width="225" height="348" alt="AT-api-key-2" src="https://github.com/user-attachments/assets/b25b5837-7381-4f0e-9219-92828fd61d06" />
+   <img width="214" height="320" alt="AT-api-key-2-2" src="https://github.com/user-attachments/assets/4cb0ecf5-575b-4472-b3f2-3656bdb98648" />
 
 3. On the Resources page, select **New API User** from the **+ New** dropdown menu.
 
    <img width="500" height="224" alt="AT-api-key-3" src="https://github.com/user-attachments/assets/551c13c4-a2db-4706-905d-1f65262608e1" />
 
-
 4. On the Add API User page, complete the required information for the new API user. Make sure the **Security Level** field is set to **API User (system)**.
 
 5. Click **Generate Key** and **Generate Secret**. Copy both values immediately and store them securely.
 
-   <img width="774" height="669" alt="Screenshot 2026-11-18 at 2 40 00 PM" src="https://github.com/user-attachments/assets/9d05b00f-da9f-4865-9506-065fd2dbd189" />
+   <img width="545" height="433" alt="AT-api-3-st" src="https://github.com/user-attachments/assets/525d37db-0b62-4880-b3ab-b9afaa158685" />
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
-   <img width="621" height="228" alt="Screenshot 2026-11-18 at 2 38 35 PM" src="https://github.com/user-attachments/assets/7453ddc3-a42f-4aef-bb48-4949223032a1" />
+   <img width="426" height="145" alt="AT-api-4-st" src="https://github.com/user-attachments/assets/9aafc7a3-5f32-4247-92b7-6d272009d9ac" />
 
 7. Unless your business strictly separates work by line of business, leave the **Line of Business** field blank. Assigning one here can restrict what the API user can view.
 
@@ -117,7 +116,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 2. On the Global Settings page, turn on the **Enable API Access** toggle in the **Access Control** section.
 
-   <img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
+   <img width="387" height="285" alt="DRMM-api-1" src="https://github.com/user-attachments/assets/97f284a5-68d9-4dcc-b1e9-a603a79a925e" />
 
 ### Step 2: Generate keys for a user
 
@@ -125,13 +124,15 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 2. On the Users page, select the username for which you want to generate keys.
 
-   <img width="353" height="344" alt="README RMM2" src="https://github.com/user-attachments/assets/3ada7607-cdbd-4449-a999-f8a04418b6d3" />
+   <img width="397" height="286" alt="DRMM-api-2" src="https://github.com/user-attachments/assets/98a9c6e2-9251-475b-9032-8143134c6238" />
 
 3. On the username page that displays, scroll down to the **API** section, then click **Generate API Keys**.
 
-   <img width="600" height="393" alt="README RMM3" src="https://github.com/user-attachments/assets/fc200e7e-887c-43f4-861d-0f4ef6b68037" />
+   <img width="473" height="306" alt="DRMM-api-3" src="https://github.com/user-attachments/assets/88bfe84a-b92a-4c8f-9914-864fc661a19a" />
 
 4. The **API Key** and **API Secret Key** display. Copy both values immediately and store them securely.
+
+    <img width="464" height="305" alt="DRMM-api-4" src="https://github.com/user-attachments/assets/751e74f5-1ce4-463e-a5c6-267e3b0a86e5" />
 
 ### Step 3: Identify the platform number
 
@@ -160,15 +161,15 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 1. In IT Glue, select **Admin** in the top menu, then **Settings** in the left menu.
 
-   <img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
-
 2. On the Settings page, select the **API Keys** tab.
+
+   <img width="501" height="111" alt="ITG-api-key-1" src="https://github.com/user-attachments/assets/ab73e6c7-bd35-4658-8cb8-fe2410795943" />
 
 3. In the **Custom API Keys** section, click **+ Create API Key**.
 
 4. In the **Enter Name** field below, enter a name for the key, such as *Claude MCP*, then click **Generate Secret Key**. Copy the key value immediately and store it securely.
 
-   <img width="600" height="42" alt="README ITG1" src="https://github.com/user-attachments/assets/f573d1ef-3d5c-44e4-b9dd-2ec74e8db3ea" />
+   <img width="476" height="160" alt="ITG-api-key-2" src="https://github.com/user-attachments/assets/ed45e094-f83a-466a-88a3-ad7679b89c12" />
 
 5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it unselected if you do not need it.
 
