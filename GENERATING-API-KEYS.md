@@ -116,11 +116,7 @@ For additional information about creating API users in Autotask, see [Adding or 
 
 2. On the Global Settings page, turn on the **Enable API Access** toggle in the **Access Control** section.
 
-   <img width="600" height="252" alt="README RMM" src="https://github.com/user-attachments/assets/2cd84176-836a-4858-9523-c64d36108176" />
    <img width="387" height="285" alt="DRMM-api-1" src="https://github.com/user-attachments/assets/97f284a5-68d9-4dcc-b1e9-a603a79a925e" />
-
-
-
 
 ### Step 2: Generate keys for a user
 
