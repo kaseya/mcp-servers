@@ -34,7 +34,7 @@ Before Claude can connect to your Kaseya product, give it permission to do so. E
 
 6. In the **API Tracking Identifier** section, keep **Integration Vendor** selected, then search for and select **Autotask - MCP**.
 
-   <img width="226" height="79" alt="AT-api-4-st" src="https://github.com/user-attachments/assets/78b470d4-012f-490b-bf05-e5c7c2a13235" />
+   <img width="258" height="88" alt="AT-api-4-st" src="https://github.com/user-attachments/assets/f533cc9a-49c6-4600-9d51-2fff6813f745" />
 
 7. Unless your business strictly separates work by line of business, leave the **Line of Business** field blank. Assigning one here can restrict what the API user can view.
 
