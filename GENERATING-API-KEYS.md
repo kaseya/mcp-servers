@@ -167,7 +167,7 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 4. In the **Enter Name** field below, enter a name for the key, such as *Claude MCP*, then click **Generate Secret Key**. Copy the key value immediately and store it securely.
 
-   <img width="376" height="126" alt="ITG-api-key-2" src="https://github.com/user-attachments/assets/4f1280bd-0239-4adc-9417-9fff7087aac9" />
+   <img width="476" height="160" alt="ITG-api-key-2" src="https://github.com/user-attachments/assets/ed45e094-f83a-466a-88a3-ad7679b89c12" />
 
 5. Optionally, select the **Password Access** checkbox if you want the API key to retrieve password records from IT Glue. Leave it unselected if you do not need it.
 
