@@ -159,9 +159,9 @@ For additional information about creating API keys in Datto RMM, see [Datto RMM 
 
 1. In IT Glue, select **Admin** in the top menu, then **Settings** in the left menu.
 
-   <img width="600" height="297" alt="README ITG" src="https://github.com/user-attachments/assets/34767e67-c6af-404a-a8c9-36a0a1c4986d" />
-
 2. On the Settings page, select the **API Keys** tab.
+
+   <img width="376" height="84" alt="ITG-api-key-1" src="https://github.com/user-attachments/assets/0a44f691-453d-4907-bb5e-66afca89d03e" />
 
 3. In the **Custom API Keys** section, click **+ Create API Key**.
 
